@@ -42,7 +42,13 @@ public extension TWToken {
     /// Wraps this token in a `Dark` variant.
     var dark: Dark<Self> { Dark(base: self) }
     /// Wraps this token in a `Print` variant.
-    var print: Print<Self> { Print(base: self) }
+    var `print`: Print<Self> { Print(base: self) }
+    /// Wraps this token in a `ContainerQuery` variant.
+    var containerQuery: ContainerQuery<Self> { ContainerQuery(base: self) }
+    /// Wraps this token in a named `ContainerQuery` variant.
+    func containerQuery(named name: String) -> NamedContainerQuery<Self> {
+        NamedContainerQuery(name: name, base: self)
+    }
     /// Wraps this token in a `GroupHover` variant.
     var groupHover: GroupHover<Self> { GroupHover(base: self) }
     /// Wraps this token in a `GroupFocus` variant.
