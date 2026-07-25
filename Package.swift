@@ -39,6 +39,7 @@ let package = Package(
                 "Background/SnapshotFixtures",
                 "Borders/SnapshotFixtures",
                 "Effects/SnapshotFixtures",
+                "Filters/SnapshotFixtures",
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
