@@ -26,21 +26,27 @@ struct TransformsTests {
     }
 
     @Test func testTransformOrigin() throws {
-        try HTMLAssertEqual(div(.transformOrigin(.center)) {}, try String(contentsOf: fixtureURL("transformOrigin.center.html"), encoding: .utf8))
-        try HTMLAssertEqual(div(.transformOrigin(.topRight)) {}, try String(contentsOf: fixtureURL("transformOrigin.topRight.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.transformOrigin(.center)) {}, try String(contentsOf: fixtureURL("transformOrigin.center.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.transformOrigin(.topRight)) {}, try String(contentsOf: fixtureURL("transformOrigin.topRight.html"), encoding: .utf8))
     }
 
     @Test func testPerspective() throws {
-        try HTMLAssertEqual(div(.perspective(.value(256))) {}, try String(contentsOf: fixtureURL("perspective.value-256.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.perspective(.value(256))) {}, try String(contentsOf: fixtureURL("perspective.value-256.html"), encoding: .utf8))
     }
 
     @Test func testBackfaceVisibility() throws {
-        try HTMLAssertEqual(div(.backfaceVisibility(.hidden)) {}, try String(contentsOf: fixtureURL("backfaceVisibility.hidden.html"), encoding: .utf8))
-        try HTMLAssertEqual(div(.backfaceVisibility(.visible)) {}, try String(contentsOf: fixtureURL("backfaceVisibility.visible.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.backfaceVisibility(.hidden)) {}, try String(contentsOf: fixtureURL("backfaceVisibility.hidden.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.backfaceVisibility(.visible)) {}, try String(contentsOf: fixtureURL("backfaceVisibility.visible.html"), encoding: .utf8))
     }
 
     @Test func testTransformStyle() throws {
-        try HTMLAssertEqual(div(.transformStyle(.preserve3d)) {}, try String(contentsOf: fixtureURL("transformStyle.preserve3d.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.transformStyle(.preserve3d)) {}, try String(contentsOf: fixtureURL("transformStyle.preserve3d.html"), encoding: .utf8))
         try HTMLAssertEqual(div(.transformStyle(.flat)) {}, try String(contentsOf: fixtureURL("transformStyle.flat.html"), encoding: .utf8))
     }
 

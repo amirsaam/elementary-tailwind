@@ -11,13 +11,16 @@ struct FiltersTests {
     }
 
     @Test func testBrightness() throws {
-        try HTMLAssertEqual(div(.brightness(.value(50))) {}, try String(contentsOf: fixtureURL("brightness.value-50.html"), encoding: .utf8))
-        try HTMLAssertEqual(div(.brightness(.percent(150))) {}, try String(contentsOf: fixtureURL("brightness.percent-150.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.brightness(.value(50))) {}, try String(contentsOf: fixtureURL("brightness.value-50.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.brightness(.percent(150))) {}, try String(contentsOf: fixtureURL("brightness.percent-150.html"), encoding: .utf8))
     }
 
     @Test func testContrast() throws {
         try HTMLAssertEqual(div(.contrast(.value(50))) {}, try String(contentsOf: fixtureURL("contrast.value-50.html"), encoding: .utf8))
-        try HTMLAssertEqual(div(.contrast(.percent(200))) {}, try String(contentsOf: fixtureURL("contrast.percent-200.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.contrast(.percent(200))) {}, try String(contentsOf: fixtureURL("contrast.percent-200.html"), encoding: .utf8))
     }
 
     @Test func testDropShadow() throws {
@@ -27,11 +30,13 @@ struct FiltersTests {
 
     @Test func testGrayscale() throws {
         try HTMLAssertEqual(div(.grayscale(.value(1))) {}, try String(contentsOf: fixtureURL("grayscale.value-1.html"), encoding: .utf8))
-        try HTMLAssertEqual(div(.grayscale(.percent(50))) {}, try String(contentsOf: fixtureURL("grayscale.percent-50.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.grayscale(.percent(50))) {}, try String(contentsOf: fixtureURL("grayscale.percent-50.html"), encoding: .utf8))
     }
 
     @Test func testHueRotate() throws {
-        try HTMLAssertEqual(div(.hueRotate(.degrees(90))) {}, try String(contentsOf: fixtureURL("hueRotate.degrees-90.html"), encoding: .utf8))
+        try HTMLAssertEqual(
+            div(.hueRotate(.degrees(90))) {}, try String(contentsOf: fixtureURL("hueRotate.degrees-90.html"), encoding: .utf8))
     }
 
     @Test func testInvert() throws {
