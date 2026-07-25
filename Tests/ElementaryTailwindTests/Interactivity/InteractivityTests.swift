@@ -161,14 +161,140 @@ struct InteractivityTests {
     @Test func testScrollMargin() throws {
         try HTMLAssertEqual(
             div(.scrollMargin(.value(4))) {},
-            try String(contentsOf: fixtureURL("scrollMargin.value-4.html"), encoding: .utf8)
+            try String(
+                contentsOf: fixtureURL("scrollMargin.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginX() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginX(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginX.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginY() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginY(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginY.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginTop() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginTop(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginTop.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginRight() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginRight(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginRight.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginBottom() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginBottom(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginBottom.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollMarginLeft() throws {
+        try HTMLAssertEqual(
+            div(.scrollMarginLeft(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollMarginLeft.value-4.html"),
+                encoding: .utf8
+            )
         )
     }
 
     @Test func testScrollPadding() throws {
         try HTMLAssertEqual(
             div(.scrollPadding(.value(4))) {},
-            try String(contentsOf: fixtureURL("scrollPadding.value-4.html"), encoding: .utf8)
+            try String(
+                contentsOf: fixtureURL("scrollPadding.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingX() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingX(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingX.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingY() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingY(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingY.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingTop() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingTop(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingTop.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingRight() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingRight(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingRight.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingBottom() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingBottom(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingBottom.value-4.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testScrollPaddingLeft() throws {
+        try HTMLAssertEqual(
+            div(.scrollPaddingLeft(.value(4))) {},
+            try String(
+                contentsOf: fixtureURL("scrollPaddingLeft.value-4.html"),
+                encoding: .utf8
+            )
         )
     }
 }
