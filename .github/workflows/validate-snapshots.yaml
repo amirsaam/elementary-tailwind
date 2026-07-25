@@ -1,0 +1,91 @@
+name: Validate Snapshots
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "Tests/ElementaryTailwindTests/**/*.html"
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  validate:
+    name: Validate HTML Fixtures
+    runs-on: macos-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate fixture HTML structure
+        run: |
+          node -e '
+          const fs = require("fs");
+          const path = require("path");
+          const cwd = process.cwd();
+
+          function walk(dir) {
+            const entries = fs.readdirSync(dir, { withFileTypes: true });
+            const files = [];
+            for (const e of entries) {
+              const p = path.join(dir, e.name);
+              if (e.isDirectory()) files.push(...walk(p));
+              else if (e.isFile() && e.name.endsWith(".html")) files.push(p);
+            }
+            return files;
+          }
+
+          const fixtures = walk(path.join(cwd, "Tests/ElementaryTailwindTests"));
+          let errors = 0;
+
+          for (const f of fixtures) {
+            const html = fs.readFileSync(f, "utf8").trim();
+            if (!html) {
+              const rel = path.relative(cwd, f);
+              console.error("ERROR: " + rel + " is empty");
+              errors++;
+              continue;
+            }
+
+            const tags = [...html.matchAll(/<\/?([a-zA-Z][a-zA-Z0-9]*)\b/g)];
+            const stack = [];
+            let ok = true;
+
+            for (const m of tags) {
+              const full = m[0];
+              const name = m[1].toLowerCase();
+              if (full.startsWith("</")) {
+                if (stack.length === 0 || stack[stack.length - 1] !== name) {
+                  const rel = path.relative(cwd, f);
+                  console.error("ERROR: " + rel + " — closing </" + name + "> without matching open tag (stack: [" + stack.join(", ") + "])");
+                  errors++;
+                  ok = false;
+                  break;
+                }
+                stack.pop();
+              } else if (!full.endsWith("/>")) {
+                if (!["br", "hr", "input", "img", "meta", "link", "area", "base", "col", "embed", "source", "track", "wbr", "path", "circle", "rect", "ellipse", "line", "polyline", "polygon", "stop", "use", "animate", "animatetransform", "set", "animateMotion", "mpath"].includes(name)) {
+                  stack.push(name);
+                }
+              }
+            }
+
+            if (ok && stack.length > 0) {
+              const rel = path.relative(cwd, f);
+              console.error("ERROR: " + rel + " — unclosed tags: " + stack.join(", "));
+              errors++;
+              ok = false;
+            }
+
+            if (ok) {
+              const rel = path.relative(cwd, f);
+              console.log("  OK: " + rel);
+            }
+          }
+
+          if (errors) {
+            console.error("\n" + errors + " fixture(s) with structural errors");
+            process.exit(1);
+          }
+          console.log("\nAll fixtures valid.");
+          '
