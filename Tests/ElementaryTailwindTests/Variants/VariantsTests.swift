@@ -88,4 +88,24 @@ struct VariantsTests {
             try String(contentsOf: fixtureURL("display.flex.hover.md.html"), encoding: .utf8)
         )
     }
+
+    @Test func testContainerQuery() throws {
+        try HTMLAssertEqual(
+            div(.class(TWTDisplay.flex.containerQuery)) {},
+            try String(
+                contentsOf: fixtureURL("display.flex.containerQuery.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testNamedContainerQuery() throws {
+        try HTMLAssertEqual(
+            div(.class(TWTDisplay.flex.containerQuery(named: "sidebar"))) {},
+            try String(
+                contentsOf: fixtureURL("display.flex.namedContainerQuery.sidebar.html"),
+                encoding: .utf8
+            )
+        )
+    }
 }
