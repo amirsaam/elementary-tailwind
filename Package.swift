@@ -35,7 +35,11 @@ let package = Package(
                 "TestUtilities",
                 .product(name: "Elementary", package: "elementary"),
             ],
-            exclude: ["SnapshotFixtures"],
+            exclude: [
+                "Layout/SnapshotFixtures",
+                "TWToken/SnapshotFixtures",
+                "Typography/SnapshotFixtures",
+            ],
             swiftSettings: featureFlags
         ),
         .testTarget(
