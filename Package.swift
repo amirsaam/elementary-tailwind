@@ -1,6 +1,11 @@
 // swift-tools-version: 6.1
 import PackageDescription
 
+let featureFlags: [SwiftSetting] = [
+    .enableExperimentalFeature("StrictConcurrency=complete"),
+    .enableUpcomingFeature("ExistentialAny"),
+]
+
 let package = Package(
     name: "elementary-tailwind",
     platforms: [
@@ -21,10 +26,7 @@ let package = Package(
             dependencies: [
                 .product(name: "Elementary", package: "elementary")
             ],
-            swiftSettings: [
-                .enableUpcomingFeature("StrictConcurrency"),
-                .enableUpcomingFeature("ExistentialAny"),
-            ]
+            swiftSettings: featureFlags
         ),
         .testTarget(
             name: "ElementaryTailwindTests",
@@ -32,12 +34,17 @@ let package = Package(
                 "ElementaryTailwind",
                 "TestUtilities",
                 .product(name: "Elementary", package: "elementary"),
-            ]
+            ],
+            exclude: ["SnapshotFixtures"],
+            swiftSettings: featureFlags
         ),
         .testTarget(
             name: "TestUtilities",
-            dependencies: [],
-            path: "Tests/TestUtilities"
+            dependencies: [
+                .product(name: "Elementary", package: "elementary")
+            ],
+            path: "Tests/TestUtilities",
+            swiftSettings: featureFlags
         ),
     ]
 )
