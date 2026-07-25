@@ -6,46 +6,46 @@ import Testing
 struct VariantsTests {
     @Test func testHover() throws {
         try HTMLAssertEqual(
-            div(.class(TWTBackgroundColor(.blue).hover)) {},
+            div(.backgroundColor(.blue, variants: [.hover])) {},
             try String(contentsOf: fixtureURL("backgroundColor.blue.hover.html"), encoding: .utf8)
         )
     }
 
     @Test func testFocus() throws {
         try HTMLAssertEqual(
-            div(.class(TWRingWidth.size(2).focus)) {},
+            div(.ringWidth(.size(2), variants: [.focus])) {},
             try String(contentsOf: fixtureURL("ringWidth.size-2.focus.html"), encoding: .utf8)
         )
     }
 
     @Test func testActive() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.active)) {},
+            div(.display(.flex, variants: [.active])) {},
             try String(contentsOf: fixtureURL("display.flex.active.html"), encoding: .utf8)
         )
     }
 
     @Test func testDisabled() throws {
         try HTMLAssertEqual(
-            div(.class(TWTOpacity.value(50).disabled)) {},
+            div(.opacity(.value(50), variants: [.disabled])) {},
             try String(contentsOf: fixtureURL("opacity.value-50.disabled.html"), encoding: .utf8)
         )
     }
 
     @Test func testResponsive() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.md)) {},
+            div(.display(.flex, variants: [.md])) {},
             try String(contentsOf: fixtureURL("display.flex.md.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.grid.lg)) {},
+            div(.display(.grid, variants: [.lg])) {},
             try String(contentsOf: fixtureURL("display.grid.lg.html"), encoding: .utf8)
         )
     }
 
     @Test func testDarkMode() throws {
         try HTMLAssertEqual(
-            div(.class(TWTBackgroundColor(.gray.shade(900)).dark)) {},
+            div(.backgroundColor(.gray.shade(900), variants: [.dark])) {},
             try String(
                 contentsOf: fixtureURL("backgroundColor.gray-shade-900.dark.html"),
                 encoding: .utf8
@@ -55,43 +55,43 @@ struct VariantsTests {
 
     @Test func testFirstLast() throws {
         try HTMLAssertEqual(
-            li(.class(TWTBorderRadius.md.first)) {},
+            li(.borderRadius(.md, variants: [.first])) {},
             try String(contentsOf: fixtureURL("borderRadius.md.first.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            li(.class(TWTBorderRadius.lg.last)) {},
+            li(.borderRadius(.lg, variants: [.last])) {},
             try String(contentsOf: fixtureURL("borderRadius.lg.last.html"), encoding: .utf8)
         )
     }
 
     @Test func testGroupHover() throws {
         try HTMLAssertEqual(
-            span(.class(TWTOpacity.value(100).groupHover)) {},
+            span(.opacity(.value(100), variants: [.groupHover])) {},
             try String(contentsOf: fixtureURL("opacity.value-100.groupHover.html"), encoding: .utf8)
         )
     }
 
     @Test func testConvenienceExtensions() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.hover)) {},
+            div(.display(.flex, variants: [.hover])) {},
             try String(contentsOf: fixtureURL("display.flex.hover.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.grid.focus)) {},
+            div(.display(.grid, variants: [.focus])) {},
             try String(contentsOf: fixtureURL("display.grid.focus.html"), encoding: .utf8)
         )
     }
 
     @Test func testNestedVariants() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.hover.md)) {},
+            div(.display(.flex, variants: [.hover, .md])) {},
             try String(contentsOf: fixtureURL("display.flex.hover.md.html"), encoding: .utf8)
         )
     }
 
     @Test func testContainerQuery() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.containerQuery)) {},
+            div(.display(.flex, variants: [.containerQuery])) {},
             try String(
                 contentsOf: fixtureURL("display.flex.containerQuery.html"),
                 encoding: .utf8
@@ -101,7 +101,7 @@ struct VariantsTests {
 
     @Test func testNamedContainerQuery() throws {
         try HTMLAssertEqual(
-            div(.class(TWTDisplay.flex.containerQuery(named: "sidebar"))) {},
+            div(.display(.flex, variants: [.namedContainerQuery("sidebar")])) {},
             try String(
                 contentsOf: fixtureURL("display.flex.namedContainerQuery.sidebar.html"),
                 encoding: .utf8

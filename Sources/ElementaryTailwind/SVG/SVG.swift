@@ -2,39 +2,47 @@ import Elementary
 
 extension MarkupAttribute {
     /// Sets the CSS `fill` property for SVG elements.
-    public static func fill(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTFill(color).rawValue, mergedBy: .appending(separatedBy: " "))
+    public static func fill(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: TWTFill(color).rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `fill: none` for SVG elements.
-    public static func fillNone() -> Self {
+    public static func fillNone(variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWTFillNone.none.rawValue,
+            value: TWVariant.apply(variants, to: TWTFillNone.none.rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the CSS `stroke` property for SVG elements.
-    public static func stroke(_ color: TWColor) -> Self {
+    public static func stroke(_ color: TWColor, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWTStroke(color).rawValue,
+            value: TWVariant.apply(variants, to: TWTStroke(color).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the CSS `stroke: none` for SVG elements.
-    public static func strokeNone() -> Self {
+    public static func strokeNone(variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWTStrokeNone.none.rawValue,
+            value: TWVariant.apply(variants, to: TWTStrokeNone.none.rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the CSS `stroke-width` property for SVG elements.
-    public static func strokeWidth(_ value: TWTStrokeWidth) -> Self {
-        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    public static func strokeWidth(_ value: TWTStrokeWidth, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 }
