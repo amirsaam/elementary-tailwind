@@ -37,6 +37,7 @@ let package = Package(
             ],
             exclude: [
                 "Background/SnapshotFixtures",
+                "Borders/SnapshotFixtures",
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
