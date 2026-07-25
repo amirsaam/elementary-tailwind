@@ -1,0 +1,43 @@
+// swift-tools-version: 6.1
+import PackageDescription
+
+let package = Package(
+    name: "elementary-tailwind",
+    platforms: [
+        .macOS(.v14),
+        .iOS(.v15),
+        .tvOS(.v17),
+        .watchOS(.v10),
+    ],
+    products: [
+        .library(name: "ElementaryTailwind", targets: ["ElementaryTailwind"]),
+    ],
+    dependencies: [
+        .package(url: "https://github.com/elementary-swift/elementary.git", from: "0.8.0"),
+    ],
+    targets: [
+        .target(
+            name: "ElementaryTailwind",
+            dependencies: [
+                .product(name: "Elementary", package: "elementary")
+            ],
+            swiftSettings: [
+                .enableUpcomingFeature("StrictConcurrency"),
+                .enableUpcomingFeature("ExistentialAny"),
+            ]
+        ),
+        .testTarget(
+            name: "ElementaryTailwindTests",
+            dependencies: [
+                "ElementaryTailwind",
+                "TestUtilities",
+                .product(name: "Elementary", package: "elementary"),
+            ]
+        ),
+        .testTarget(
+            name: "TestUtilities",
+            dependencies: [],
+            path: "Tests/TestUtilities"
+        ),
+    ]
+)
