@@ -15,10 +15,10 @@ let package = Package(
         .watchOS(.v10),
     ],
     products: [
-        .library(name: "ElementaryTailwind", targets: ["ElementaryTailwind"]),
+        .library(name: "ElementaryTailwind", targets: ["ElementaryTailwind"])
     ],
     dependencies: [
-        .package(url: "https://github.com/elementary-swift/elementary.git", from: "0.8.0"),
+        .package(url: "https://github.com/elementary-swift/elementary.git", from: "0.8.0")
     ],
     targets: [
         .target(
