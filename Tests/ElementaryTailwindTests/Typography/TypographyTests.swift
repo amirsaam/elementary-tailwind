@@ -17,6 +17,18 @@ struct TypographyTests {
             p(.fontSize(.base)) {},
             try String(contentsOf: fixtureURL("fontSize.base.html"), encoding: .utf8)
         )
+        try HTMLAssertEqual(
+            p(.fontSize(.fourxl)) {},
+            try String(contentsOf: fixtureURL("fontSize.4xl.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.fontSize(.sixxl)) {},
+            try String(contentsOf: fixtureURL("fontSize.6xl.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.fontSize(.ninexl)) {},
+            try String(contentsOf: fixtureURL("fontSize.9xl.html"), encoding: .utf8)
+        )
     }
 
     @Test func testFontWeight() throws {
