@@ -36,6 +36,7 @@ let package = Package(
                 .product(name: "Elementary", package: "elementary"),
             ],
             exclude: [
+                "Animation/SnapshotFixtures",
                 "Background/SnapshotFixtures",
                 "Borders/SnapshotFixtures",
                 "Effects/SnapshotFixtures",
@@ -43,6 +44,7 @@ let package = Package(
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
+                "Transitions/SnapshotFixtures",
                 "Transforms/SnapshotFixtures",
                 "TWToken/SnapshotFixtures",
                 "Typography/SnapshotFixtures",
