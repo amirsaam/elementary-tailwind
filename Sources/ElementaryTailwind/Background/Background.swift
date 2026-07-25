@@ -41,33 +41,42 @@ extension MarkupAttribute {
     }
 
     /// Sets the gradient direction.
-    public static func gradientTo(_ value: TWTGradientTo) -> Self {
+    public static func gradientToDirection(_ value: TWTGradientToDirection) -> Self {
         .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
     }
 
     /// Sets the `from-*` gradient stop color.
-    public static func gradientFrom(_ color: TWColor) -> Self {
+    public static func gradientFromColor(
+        _ color: TWColor,
+        opacity: Int? = nil
+    ) -> Self {
         .init(
             name: "class",
-            value: TWTGradientFrom(color).rawValue,
+            value: TWTGradientFromColor(color, opacity: opacity).rawValue,
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the `via-*` gradient stop color.
-    public static func gradientVia(_ color: TWColor) -> Self {
+    public static func gradientViaColor(
+        _ color: TWColor,
+        opacity: Int? = nil
+    ) -> Self {
         .init(
             name: "class",
-            value: TWTGradientVia(color).rawValue,
+            value: TWTGradientViaColor(color, opacity: opacity).rawValue,
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the `to-*` gradient stop color.
-    public static func gradientToColor(_ color: TWColor) -> Self {
+    public static func gradientToColor(
+        _ color: TWColor,
+        opacity: Int? = nil
+    ) -> Self {
         .init(
             name: "class",
-            value: TWTGradientToColor(color).rawValue,
+            value: TWTGradientToColor(color, opacity: opacity).rawValue,
             mergedBy: .appending(separatedBy: " ")
         )
     }
