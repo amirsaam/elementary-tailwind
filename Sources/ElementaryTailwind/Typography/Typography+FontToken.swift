@@ -16,6 +16,12 @@ public enum TWTFontSize: String, TWToken, Sendable, Equatable, CaseIterable {
     case xl = "text-xl"
     case xxl = "text-2xl"
     case xxxl = "text-3xl"
+    case fourxl = "text-4xl"
+    case fivexl = "text-5xl"
+    case sixxl = "text-6xl"
+    case sevenxl = "text-7xl"
+    case eightxl = "text-8xl"
+    case ninexl = "text-9xl"
 }
 
 /// Controls the CSS `font-weight` property.
