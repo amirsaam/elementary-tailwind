@@ -64,6 +64,37 @@ struct BorderTests {
         )
     }
 
+    @Test func testBorderRadiusDirectional() throws {
+        try HTMLAssertEqual(
+            div(.borderRadius(.top(.lg))) {},
+            try String(
+                contentsOf: fixtureURL("borderRadius.top-lg.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.borderRadius(.bottomRight(.sm))) {},
+            try String(
+                contentsOf: fixtureURL("borderRadius.bottomRight-sm.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.borderRadius(.top(.md))) {},
+            try String(
+                contentsOf: fixtureURL("borderRadius.top-md.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.borderRadius(.left(.full))) {},
+            try String(
+                contentsOf: fixtureURL("borderRadius.left-full.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
     @Test func testRingWidth() throws {
         try HTMLAssertEqual(
             div(.ringWidth(.size(1))) {},
