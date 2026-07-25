@@ -105,4 +105,117 @@ struct FiltersTests {
             try String(contentsOf: fixtureURL("backdropBlur.none.html"), encoding: .utf8)
         )
     }
+
+    @Test func testBackdropBrightness() throws {
+        try HTMLAssertEqual(
+            div(.backdropBrightness(.value(50))) {},
+            try String(
+                contentsOf: fixtureURL("backdropBrightness.value-50.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.backdropBrightness(.percent(150))) {},
+            try String(
+                contentsOf: fixtureURL("backdropBrightness.percent-150.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropContrast() throws {
+        try HTMLAssertEqual(
+            div(.backdropContrast(.value(50))) {},
+            try String(
+                contentsOf: fixtureURL("backdropContrast.value-50.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.backdropContrast(.percent(200))) {},
+            try String(
+                contentsOf: fixtureURL("backdropContrast.percent-200.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropGrayscale() throws {
+        try HTMLAssertEqual(
+            div(.backdropGrayscale(.value(1))) {},
+            try String(
+                contentsOf: fixtureURL("backdropGrayscale.value-1.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.backdropGrayscale(.percent(50))) {},
+            try String(
+                contentsOf: fixtureURL("backdropGrayscale.percent-50.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropHueRotate() throws {
+        try HTMLAssertEqual(
+            div(.backdropHueRotate(.degrees(90))) {},
+            try String(
+                contentsOf: fixtureURL("backdropHueRotate.degrees-90.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropInvert() throws {
+        try HTMLAssertEqual(
+            div(.backdropInvert(.value(1))) {},
+            try String(
+                contentsOf: fixtureURL("backdropInvert.value-1.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.backdropInvert(.percent(75))) {},
+            try String(
+                contentsOf: fixtureURL("backdropInvert.percent-75.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropOpacity() throws {
+        try HTMLAssertEqual(
+            div(.backdropOpacity(.value(50))) {},
+            try String(
+                contentsOf: fixtureURL("backdropOpacity.value-50.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.backdropOpacity(.percent(75))) {},
+            try String(
+                contentsOf: fixtureURL("backdropOpacity.percent-75.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackdropSaturate() throws {
+        try HTMLAssertEqual(
+            div(.backdropSaturate(.value(50))) {},
+            try String(contentsOf: fixtureURL("backdropSaturate.value-50.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testBackdropSepia() throws {
+        try HTMLAssertEqual(
+            div(.backdropSepia(.value(1))) {},
+            try String(contentsOf: fixtureURL("backdropSepia.value-1.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.backdropSepia(.percent(50))) {},
+            try String(contentsOf: fixtureURL("backdropSepia.percent-50.html"), encoding: .utf8)
+        )
+    }
 }
