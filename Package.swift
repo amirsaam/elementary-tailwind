@@ -43,6 +43,7 @@ let package = Package(
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
+                "Transforms/SnapshotFixtures",
                 "TWToken/SnapshotFixtures",
                 "Typography/SnapshotFixtures",
             ],
