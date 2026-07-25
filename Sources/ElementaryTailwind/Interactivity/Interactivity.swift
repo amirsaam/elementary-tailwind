@@ -112,4 +112,64 @@ extension MarkupAttribute {
     public static func scrollPadding(_ value: TWTScrollPadding) -> Self {
         .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
     }
+
+    /// Sets the CSS `scroll-margin-inline` property (left + right).
+    public static func scrollMarginX(_ value: TWTScrollMarginX) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-margin-block` property (top + bottom).
+    public static func scrollMarginY(_ value: TWTScrollMarginY) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-margin-top` property.
+    public static func scrollMarginTop(_ value: TWTScrollMarginTop) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-margin-right` property.
+    public static func scrollMarginRight(_ value: TWTScrollMarginRight) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-margin-bottom` property.
+    public static func scrollMarginBottom(_ value: TWTScrollMarginBottom) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-margin-left` property.
+    public static func scrollMarginLeft(_ value: TWTScrollMarginLeft) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-inline` property (left + right).
+    public static func scrollPaddingX(_ value: TWTScrollPaddingX) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-block` property (top + bottom).
+    public static func scrollPaddingY(_ value: TWTScrollPaddingY) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-top` property.
+    public static func scrollPaddingTop(_ value: TWTScrollPaddingTop) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-right` property.
+    public static func scrollPaddingRight(_ value: TWTScrollPaddingRight) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-bottom` property.
+    public static func scrollPaddingBottom(_ value: TWTScrollPaddingBottom) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
+    /// Sets the CSS `scroll-padding-left` property.
+    public static func scrollPaddingLeft(_ value: TWTScrollPaddingLeft) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
 }
