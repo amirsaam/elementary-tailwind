@@ -8,7 +8,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `border-color` property.
     public static func borderColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTBorderColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTBorderColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `border-style` property.
@@ -28,7 +32,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `ring-color` property.
     public static func ringColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWRingColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWRingColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `ring-offset-width` property.
@@ -38,7 +46,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `ring-offset-color` property.
     public static func ringOffsetColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWRingOffsetColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWRingOffsetColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `outline-width` property.
@@ -53,7 +65,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `outline-color` property.
     public static func outlineColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTOutlineColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTOutlineColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `outline-offset` property.

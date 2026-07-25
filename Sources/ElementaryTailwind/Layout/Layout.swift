@@ -53,17 +53,29 @@ extension MarkupAttribute {
 
     /// Sets the CSS `gap` property.
     public static func gap(_ size: Int) -> Self {
-        .init(name: "class", value: TWTGap.size(size).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGap.size(size).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `column-gap` property.
     public static func gapX(_ size: Int) -> Self {
-        .init(name: "class", value: TWTGapX.size(size).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGapX.size(size).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `row-gap` property.
     public static func gapY(_ size: Int) -> Self {
-        .init(name: "class", value: TWTGapY.size(size).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGapY.size(size).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `position` property.
@@ -188,17 +200,29 @@ extension MarkupAttribute {
 
     /// Sets the CSS `right` property.
     public static func right(_ value: TWTInset) -> Self {
-        .init(name: "class", value: "right-\(value.rawValue)", mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: "right-\(value.rawValue)",
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `bottom` property.
     public static func bottom(_ value: TWTInset) -> Self {
-        .init(name: "class", value: "bottom-\(value.rawValue)", mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: "bottom-\(value.rawValue)",
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `left` property.
     public static func left(_ value: TWTInset) -> Self {
-        .init(name: "class", value: "left-\(value.rawValue)", mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: "left-\(value.rawValue)",
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     // MARK: - Grid

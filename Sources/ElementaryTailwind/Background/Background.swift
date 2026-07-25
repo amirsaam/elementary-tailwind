@@ -3,7 +3,11 @@ import Elementary
 extension MarkupAttribute {
     /// Sets the CSS `background-color` property.
     public static func backgroundColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTBackgroundColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTBackgroundColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `background-attachment` property.
@@ -43,16 +47,28 @@ extension MarkupAttribute {
 
     /// Sets the `from-*` gradient stop color.
     public static func gradientFrom(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTGradientFrom(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGradientFrom(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the `via-*` gradient stop color.
     public static func gradientVia(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTGradientVia(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGradientVia(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the `to-*` gradient stop color.
     public static func gradientToColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTGradientToColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTGradientToColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 }

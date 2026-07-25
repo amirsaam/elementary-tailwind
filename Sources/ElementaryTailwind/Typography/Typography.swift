@@ -23,7 +23,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `color` property.
     public static func textColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTTextColor(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTTextColor(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `text-decoration` property.
@@ -118,7 +122,11 @@ extension MarkupAttribute {
 
     /// Sets the CSS `text-decoration-color` property.
     public static func textDecorationColor(_ color: TWColor) -> Self {
-        .init(name: "class", value: TWTTextColorDecoration(color).rawValue, mergedBy: .appending(separatedBy: " "))
+        .init(
+            name: "class",
+            value: TWTTextColorDecoration(color).rawValue,
+            mergedBy: .appending(separatedBy: " ")
+        )
     }
 
     /// Sets the CSS `text-decoration-style` property.
