@@ -45,6 +45,7 @@ let package = Package(
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
+                "SVG/SnapshotFixtures",
                 "Tables/SnapshotFixtures",
                 "Transitions/SnapshotFixtures",
                 "Transforms/SnapshotFixtures",
