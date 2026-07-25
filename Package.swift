@@ -36,6 +36,7 @@ let package = Package(
                 .product(name: "Elementary", package: "elementary"),
             ],
             exclude: [
+                "Background/SnapshotFixtures",
                 "Layout/SnapshotFixtures",
                 "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
