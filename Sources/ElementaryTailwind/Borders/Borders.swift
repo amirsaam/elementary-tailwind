@@ -25,6 +25,13 @@ extension MarkupAttribute {
         .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
     }
 
+    /// Sets the CSS `border-radius` property on a specific corner or side.
+    public static func borderRadius(
+        _ value: TWTBorderRadiusDirectional
+    ) -> Self {
+        .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))
+    }
+
     /// Sets the CSS `ring-width` property.
     public static func ringWidth(_ value: TWRingWidth) -> Self {
         .init(name: "class", value: value.rawValue, mergedBy: .appending(separatedBy: " "))

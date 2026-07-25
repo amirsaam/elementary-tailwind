@@ -54,3 +54,42 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
         }
     }
 }
+
+/// Controls the CSS `border-radius` property on specific corners or sides.
+public enum TWTBorderRadiusDirectional: TWToken, Sendable, Equatable {
+    case top(TWTBorderRadius)
+    case right(TWTBorderRadius)
+    case bottom(TWTBorderRadius)
+    case left(TWTBorderRadius)
+    case topLeft(TWTBorderRadius)
+    case topRight(TWTBorderRadius)
+    case bottomLeft(TWTBorderRadius)
+    case bottomRight(TWTBorderRadius)
+    case startStart(TWTBorderRadius)
+    case startEnd(TWTBorderRadius)
+    case endStart(TWTBorderRadius)
+    case endEnd(TWTBorderRadius)
+
+    public var rawValue: String {
+        switch self {
+        case .top(let r): "rounded-t\(Self.suffix(r))"
+        case .right(let r): "rounded-r\(Self.suffix(r))"
+        case .bottom(let r): "rounded-b\(Self.suffix(r))"
+        case .left(let r): "rounded-l\(Self.suffix(r))"
+        case .topLeft(let r): "rounded-tl\(Self.suffix(r))"
+        case .topRight(let r): "rounded-tr\(Self.suffix(r))"
+        case .bottomLeft(let r): "rounded-bl\(Self.suffix(r))"
+        case .bottomRight(let r): "rounded-br\(Self.suffix(r))"
+        case .startStart(let r): "rounded-ss\(Self.suffix(r))"
+        case .startEnd(let r): "rounded-se\(Self.suffix(r))"
+        case .endStart(let r): "rounded-es\(Self.suffix(r))"
+        case .endEnd(let r): "rounded-ee\(Self.suffix(r))"
+        }
+    }
+
+    private static func suffix(_ radius: TWTBorderRadius) -> String {
+        let raw = radius.rawValue
+        guard raw.hasPrefix("rounded") else { return "" }
+        return String(raw.dropFirst("rounded".count))
+    }
+}
