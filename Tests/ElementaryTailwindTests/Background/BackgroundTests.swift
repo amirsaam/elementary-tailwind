@@ -62,14 +62,51 @@ struct BackgroundTests {
         )
     }
 
-    @Test func testGradientTo() throws {
+    @Test func testGradientToDirection() throws {
         try HTMLAssertEqual(
-            div(.class(TWTGradientTo.r)) {},
+            div(.gradientToDirection(.r)) {},
             try String(contentsOf: fixtureURL("gradientTo.r.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.class(TWTGradientTo.b)) {},
+            div(.gradientToDirection(.b)) {},
             try String(contentsOf: fixtureURL("gradientTo.b.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testGradientFromColor() throws {
+        try HTMLAssertEqual(
+            div(.gradientFromColor(.red.shade(500))) {},
+            try String(
+                contentsOf: fixtureURL("gradientFrom.red-shade-500.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.gradientFromColor(.blue, opacity: 50)) {},
+            try String(
+                contentsOf: fixtureURL("gradientFrom.blue.opacity-50.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testGradientViaColor() throws {
+        try HTMLAssertEqual(
+            div(.gradientViaColor(.green, opacity: 75)) {},
+            try String(
+                contentsOf: fixtureURL("gradientVia.green.opacity-75.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testGradientToColor() throws {
+        try HTMLAssertEqual(
+            div(.gradientToColor(.purple, opacity: 25)) {},
+            try String(
+                contentsOf: fixtureURL("gradientToColor.purple.opacity-25.html"),
+                encoding: .utf8
+            )
         )
     }
 }
