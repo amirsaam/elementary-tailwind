@@ -1,0 +1,70 @@
+import Elementary
+
+/// Controls the CSS `height` property.
+public enum TWTHeight: TWToken, Sendable, Equatable {
+    case size(Int)
+    case fraction(String)
+    case auto
+    case full
+    case screen
+    case min
+    case max
+    case fit
+
+    public var rawValue: String {
+        switch self {
+        case .size(let n): "h-\(n)"
+        case .fraction(let f): "h-\(f)"
+        case .auto: "h-auto"
+        case .full: "h-full"
+        case .screen: "h-screen"
+        case .min: "h-min"
+        case .max: "h-max"
+        case .fit: "h-fit"
+        }
+    }
+}
+
+/// Controls the CSS `min-height` property.
+public enum TWTMinHeight: TWToken, Sendable, Equatable {
+    case size(Int)
+    case zero
+    case full
+    case min
+    case max
+    case fit
+
+    public var rawValue: String {
+        switch self {
+        case .size(let n): "min-h-\(n)"
+        case .zero: "min-h-0"
+        case .full: "min-h-full"
+        case .min: "min-h-min"
+        case .max: "min-h-max"
+        case .fit: "min-h-fit"
+        }
+    }
+}
+
+/// Controls the CSS `max-height` property.
+public enum TWTMaxHeight: TWToken, Sendable, Equatable {
+    case size(Int)
+    case none
+    case full
+    case screen
+    case min
+    case max
+    case fit
+
+    public var rawValue: String {
+        switch self {
+        case .size(let n): "max-h-\(n)"
+        case .none: "max-h-none"
+        case .full: "max-h-full"
+        case .screen: "max-h-screen"
+        case .min: "max-h-min"
+        case .max: "max-h-max"
+        case .fit: "max-h-fit"
+        }
+    }
+}
