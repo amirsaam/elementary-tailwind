@@ -37,6 +37,7 @@ let package = Package(
             ],
             exclude: [
                 "Layout/SnapshotFixtures",
+                "Sizing/SnapshotFixtures",
                 "Spacing/SnapshotFixtures",
                 "TWToken/SnapshotFixtures",
                 "Typography/SnapshotFixtures",
