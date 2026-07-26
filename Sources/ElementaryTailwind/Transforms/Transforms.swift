@@ -37,6 +37,15 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the CSS `transform` property.
+    public static func transform(_ value: TWTTransform, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the CSS `transform-origin` property.
     public static func transformOrigin(
         _ value: TWTTransformOrigin,

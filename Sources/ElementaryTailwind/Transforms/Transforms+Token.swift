@@ -78,6 +78,13 @@ public enum TWTSkew: TWToken, Sendable, Equatable {
     }
 }
 
+/// Controls the CSS `transform` property.
+public enum TWTTransform: String, TWToken, Sendable, Equatable, CaseIterable {
+    case none = "transform-none"
+    case gpu = "transform-gpu"
+    case cpu = "transform-cpu"
+}
+
 /// Controls the CSS `transform-origin` property.
 public enum TWTTransformOrigin: String, TWToken, Sendable, Equatable, CaseIterable {
     case center = "origin-center"
