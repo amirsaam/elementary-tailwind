@@ -29,3 +29,15 @@ public enum TWTWillChange: String, TWToken, Sendable, Equatable, CaseIterable {
     case contents = "will-change-contents"
     case transform = "will-change-transform"
 }
+
+/// Controls the CSS `appearance` property.
+public enum TWTAppearance: String, TWToken, Sendable, Equatable, CaseIterable {
+    case none = "appearance-none"
+    case auto = "appearance-auto"
+}
+
+/// Controls the CSS `field-sizing` property.
+public enum TWTFieldSizing: String, TWToken, Sendable, Equatable, CaseIterable {
+    case fixed = "field-sizing-fixed"
+    case content = "field-sizing-content"
+}
