@@ -55,7 +55,7 @@ let package = Package(
             ],
             swiftSettings: featureFlags
         ),
-        .testTarget(
+        .target(
             name: "TestUtilities",
             dependencies: [
                 .product(name: "Elementary", package: "elementary")
