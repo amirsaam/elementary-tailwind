@@ -403,6 +403,18 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the CSS `grid-template-areas` property.
+    public static func gridTemplateAreas(
+        _ value: TWTGridTemplateAreas,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the CSS `grid-column` property.
     public static func gridColumn(_ value: TWTGridColumn, variants: [TWVariant] = []) -> Self {
         .init(

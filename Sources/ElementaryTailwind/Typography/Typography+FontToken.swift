@@ -36,3 +36,16 @@ public enum TWTFontWeight: String, TWToken, Sendable, Equatable, CaseIterable {
     case extrabold = "font-extrabold"
     case black = "font-black"
 }
+
+/// Controls the CSS `font-feature-settings` property.
+public enum TWTFontFeatureSettings: TWToken, Sendable, Equatable {
+    case normal
+    case feature(String)
+
+    public var rawValue: String {
+        switch self {
+        case .normal: "font-feature-normal"
+        case .feature(let value): "font-feature-\(value)"
+        }
+    }
+}

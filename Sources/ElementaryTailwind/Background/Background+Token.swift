@@ -57,6 +57,13 @@ public enum TWTBackgroundSize: String, TWToken, Sendable, Equatable, CaseIterabl
     case contain = "bg-contain"
 }
 
+// MARK: - Image
+
+/// Controls the CSS `background-image` property.
+public enum TWTBackgroundImage: String, TWToken, Sendable, Equatable, CaseIterable {
+    case none = "bg-none"
+}
+
 // MARK: - Position
 
 /// Controls the CSS `background-position` property.

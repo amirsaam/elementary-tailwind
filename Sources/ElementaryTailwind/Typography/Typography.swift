@@ -28,6 +28,18 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the CSS `font-feature-settings` property.
+    public static func fontFeatureSettings(
+        _ value: TWTFontFeatureSettings,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the CSS `text-align` property.
     public static func textAlign(_ value: TWTTextAlign, variants: [TWVariant] = []) -> Self {
         .init(

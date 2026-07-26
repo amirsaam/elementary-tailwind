@@ -61,6 +61,18 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the CSS `background-image` property.
+    public static func backgroundImage(
+        _ value: TWTBackgroundImage,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the CSS `background-size` property.
     public static func backgroundSize(
         _ value: TWTBackgroundSize,
