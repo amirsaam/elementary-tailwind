@@ -52,6 +52,21 @@ struct TransformsTests {
         )
     }
 
+    @Test func testTransform() throws {
+        try HTMLAssertEqual(
+            div(.transform(.none)) {},
+            try String(contentsOf: fixtureURL("transform.none.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.transform(.gpu)) {},
+            try String(contentsOf: fixtureURL("transform.gpu.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.transform(.cpu)) {},
+            try String(contentsOf: fixtureURL("transform.cpu.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testTransformOrigin() throws {
         try HTMLAssertEqual(
             div(.transformOrigin(.center)) {},
