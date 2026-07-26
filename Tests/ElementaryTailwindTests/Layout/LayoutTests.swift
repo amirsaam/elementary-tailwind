@@ -110,4 +110,11 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("z-auto.html"), encoding: .utf8)
         )
     }
+
+    @Test func testGridTemplateAreas() throws {
+        try HTMLAssertEqual(
+            div(.gridTemplateAreas(.none)) {},
+            try String(contentsOf: fixtureURL("grid-areas-none.html"), encoding: .utf8)
+        )
+    }
 }

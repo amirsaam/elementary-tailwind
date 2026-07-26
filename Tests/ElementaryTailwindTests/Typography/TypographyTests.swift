@@ -114,4 +114,21 @@ struct TypographyTests {
             try String(contentsOf: fixtureURL("textOverflow.truncate.html"), encoding: .utf8)
         )
     }
+
+    @Test func testFontFeatureSettings() throws {
+        try HTMLAssertEqual(
+            p(.fontFeatureSettings(.normal)) {},
+            try String(
+                contentsOf: fixtureURL("fontFeatureSettings.normal.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            p(.fontFeatureSettings(.feature("liga"))) {},
+            try String(
+                contentsOf: fixtureURL("fontFeatureSettings.liga.html"),
+                encoding: .utf8
+            )
+        )
+    }
 }

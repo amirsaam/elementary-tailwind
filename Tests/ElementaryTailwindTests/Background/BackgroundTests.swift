@@ -62,6 +62,16 @@ struct BackgroundTests {
         )
     }
 
+    @Test func testBackgroundImage() throws {
+        try HTMLAssertEqual(
+            div(.backgroundImage(.none)) {},
+            try String(
+                contentsOf: fixtureURL("backgroundImage.none.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
     @Test func testGradientToDirection() throws {
         try HTMLAssertEqual(
             div(.gradientToDirection(.r)) {},
