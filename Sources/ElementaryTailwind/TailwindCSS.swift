@@ -6,7 +6,7 @@ import Elementary
 ///
 /// **Generated HTML:**
 /// ```html
-/// <script src="https://cdn.tailwindcss.com/4.3.3"></script>
+/// <script src="https://cdn.tailwindcss.com/4.3.3" defer></script>
 /// ```
 ///
 /// **Example:**
@@ -19,5 +19,5 @@ import Elementary
 public func setupTailwind(
     version: String = "4.3.3"
 ) -> some HTML {
-    script(.src("https://cdn.tailwindcss.com/\(version)")) {}
+    script(.src("https://cdn.tailwindcss.com/\(version)"), .defer) {}
 }

@@ -89,7 +89,7 @@ import ElementaryTailwind
 
 var head: some HTML {
     meta(.charset(.utf8))
-    setupTailwind()  // emits <script src="https://cdn.tailwindcss.com/4.3.3">
+    setupTailwind()  // emits <script src="https://cdn.tailwindcss.com/4.3.3" defer>
 }
 ```
 
@@ -226,7 +226,7 @@ var head: some HTML {
 **Generated HTML:**
 
 ```html
-<script src="https://cdn.tailwindcss.com/4.3.3"></script>
+<script src="https://cdn.tailwindcss.com/4.3.3" defer></script>
 ```
 
 If you need to host Tailwind CSS yourself or use a different CDN, write the `<script>` tag directly:
@@ -234,7 +234,7 @@ If you need to host Tailwind CSS yourself or use a different CDN, write the `<sc
 ```swift
 var head: some HTML {
     meta(.charset(.utf8))
-    script(.src("/tailwind.min.js")) {}
+    script(.src("/tailwind.min.js"), .defer) {}
 }
 ```
 
@@ -263,8 +263,6 @@ The full test suite (144 snapshot tests across 17 suites) lives in [`Tests/Eleme
 
 - All Tailwind CSS v4 utility categories are implemented (190+ token types, 100% docs coverage).
 - Arbitrary value syntax (`[<value>]`) and CSS variable syntax (`(<property>)`) are available via raw `.class()` — type-safe wrappers possible for common patterns.
-- Integration with [ElementaryAlpine](https://github.com/amirsaam/elementary-alpine) for Alpine.js + Tailwind workflows.
-- Integration with [ElementaryPines](https://github.com/amirsaam/elementary-pines) for Pines UI components styled with typed Tailwind tokens.
 
 PRs welcome.
 
