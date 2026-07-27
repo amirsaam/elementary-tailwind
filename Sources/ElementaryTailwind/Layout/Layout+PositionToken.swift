@@ -18,6 +18,7 @@ public enum TWTInset: TWToken, Sendable, Equatable {
     case zero
     case auto
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -25,6 +26,7 @@ public enum TWTInset: TWToken, Sendable, Equatable {
         case .zero: "0"
         case .auto: "auto"
         case .full: "full"
+        case .arbitrary(let v): "[\(v)]"
         }
     }
 }
