@@ -342,7 +342,7 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `top` property.
-    public static func top(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    public static func insetTop(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: "top-\(value.rawValue)"),
@@ -351,7 +351,7 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `right` property.
-    public static func right(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    public static func insetRight(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: "right-\(value.rawValue)"),
@@ -360,7 +360,7 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `bottom` property.
-    public static func bottom(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    public static func insetBottom(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: "bottom-\(value.rawValue)"),
@@ -369,7 +369,7 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `left` property.
-    public static func left(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    public static func insetLeft(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: "left-\(value.rawValue)"),
