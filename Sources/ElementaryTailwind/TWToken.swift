@@ -17,12 +17,14 @@ public protocol TWToken: Sendable {
     var rawValue: String { get }
 }
 
-/// Formats a numeric value for Tailwind CSS class strings.
+// MARK: - Formatting
+
+/// Formats a numeric value for Tailwind CSS class output.
 ///
-/// Whole numbers are emitted without a decimal point (`4.0` → `"4"`).
-/// Fractions are kept as-is (`1.5` → `"1.5"`).
+/// Whole numbers are rendered without a decimal point (`4.0` → `"4"`).
+/// Fractional values are rendered as-is (`4.5` → `"4.5"`).
 func twFormat(_ n: Double) -> String {
-    n.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(n)) : String(n)
+    n.truncatingRemainder(dividingBy: 1) == 0 ? "\(Int(n))" : "\(n)"
 }
 
 // MARK: - Class Overload
@@ -42,13 +44,14 @@ extension MarkupAttribute {
         return .init(name: "class", value: value, mergedBy: .appending(separatedBy: " "))
     }
 
-    /// Creates a class attribute from a raw string with optional typed variants.
+    /// Creates a class attribute from a raw CSS class string with variants.
     ///
-    /// Useful for combining raw Tailwind classes with variant modifiers.
+    /// Useful for applying Tailwind variants to arbitrary or project-specific classes.
     ///
     /// **Example:**
     /// ```swift
-    /// div(.class("custom-class", variants: [.hover, .dark])) { ... }
+    /// div(.class("shadow-outline", variants: [.focus])) { ... }
+    /// // → <div class="focus:shadow-outline">
     /// ```
     public static func `class`(_ rawValue: String, variants: [TWVariant] = []) -> Self {
         .init(

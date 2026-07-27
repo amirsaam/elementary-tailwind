@@ -145,9 +145,9 @@ public enum TWVariant: Sendable {
     /// The `peer-target:` variant.
     case peerTarget
 
-    // MARK: - Custom Selector
+    // MARK: - Arbitrary
 
-    /// An arbitrary CSS selector variant (e.g. `[data-active]:`, `.dark &:`).
+    /// An arbitrary CSS selector variant (e.g. `[&>svg]`, `[data-active]`).
     case arbitrary(String)
 
     // MARK: - Internal
@@ -155,7 +155,6 @@ public enum TWVariant: Sendable {
     /// Applies this variant to a raw CSS class string.
     func apply(to rawValue: String) -> String {
         switch self {
-        // Pseudo-Classes
         case .hover: return "hover:\(rawValue)"
         case .focus: return "focus:\(rawValue)"
         case .focusWithin: return "focus-within:\(rawValue)"
@@ -171,7 +170,6 @@ public enum TWVariant: Sendable {
         case .required: return "required:\(rawValue)"
         case .empty: return "empty:\(rawValue)"
 
-        // Pseudo-Elements
         case .first: return "first:\(rawValue)"
         case .last: return "last:\(rawValue)"
         case .odd: return "odd:\(rawValue)"
@@ -183,27 +181,23 @@ public enum TWVariant: Sendable {
         case .marker: return "marker:\(rawValue)"
         case .selection: return "selection:\(rawValue)"
 
-        // Responsive
         case .sm: return "sm:\(rawValue)"
         case .md: return "md:\(rawValue)"
         case .lg: return "lg:\(rawValue)"
         case .xl: return "xl:\(rawValue)"
         case .xxl: return "2xl:\(rawValue)"
 
-        // Max-Width Responsive
         case .maxSm: return "max-sm:\(rawValue)"
         case .maxMd: return "max-md:\(rawValue)"
         case .maxLg: return "max-lg:\(rawValue)"
         case .maxXl: return "max-xl:\(rawValue)"
         case .maxXxl: return "max-2xl:\(rawValue)"
 
-        // Media
         case .dark: return "dark:\(rawValue)"
         case .print: return "print:\(rawValue)"
         case .containerQuery: return "@container:\(rawValue)"
         case .namedContainerQuery(let name): return "@container/\(name):\(rawValue)"
 
-        // Group
         case .groupHover: return "group-hover:\(rawValue)"
         case .groupFocus: return "group-focus:\(rawValue)"
         case .groupChecked: return "group-checked:\(rawValue)"
@@ -217,7 +211,6 @@ public enum TWVariant: Sendable {
         case .groupPlaceholder: return "group-placeholder:\(rawValue)"
         case .groupTarget: return "group-target:\(rawValue)"
 
-        // Peer
         case .peerHover: return "peer-hover:\(rawValue)"
         case .peerFocus: return "peer-focus:\(rawValue)"
         case .peerChecked: return "peer-checked:\(rawValue)"
@@ -230,7 +223,6 @@ public enum TWVariant: Sendable {
         case .peerPlaceholder: return "peer-placeholder:\(rawValue)"
         case .peerTarget: return "peer-target:\(rawValue)"
 
-        // Custom Selector
         case .arbitrary(let selector): return "\(selector):\(rawValue)"
         }
     }

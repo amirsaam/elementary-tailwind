@@ -4,8 +4,11 @@ import Elementary
 public struct TWTBorderColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "border-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "border-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "border-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "border-\(color.rawValue)"
+        }
     }
 }
 
