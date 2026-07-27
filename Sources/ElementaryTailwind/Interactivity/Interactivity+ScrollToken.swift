@@ -185,7 +185,10 @@ public enum TWTScrollPaddingLeft: TWToken, Sendable, Equatable {
 /// Controls the CSS `scrollbar-color` property.
 public struct TWTScrollbarColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "scrollbar-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "scrollbar-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "scrollbar-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `scrollbar-width` property.

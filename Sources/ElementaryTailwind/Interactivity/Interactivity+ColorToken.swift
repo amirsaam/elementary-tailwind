@@ -3,13 +3,19 @@ import Elementary
 /// Controls the CSS `accent-color` property.
 public struct TWTAccentColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "accent-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "accent-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "accent-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `caret-color` property.
 public struct TWTCaretColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "caret-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "caret-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "caret-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `color-scheme` property.

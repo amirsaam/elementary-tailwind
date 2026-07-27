@@ -13,7 +13,10 @@ public enum TWTTextAlign: String, TWToken, Sendable, Equatable, CaseIterable {
 /// Controls the CSS `color` property.
 public struct TWTTextColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "text-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "text-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "text-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `text-decoration` property.

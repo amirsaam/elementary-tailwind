@@ -1,11 +1,12 @@
 import Elementary
 
-// MARK: - Color
-
 /// Controls the CSS `background-color` property.
 public struct TWTBackgroundColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "bg-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "bg-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "bg-\(color.rawValue)" }
+    }
 }
 
 // MARK: - Attachment

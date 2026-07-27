@@ -3,13 +3,19 @@ import Elementary
 /// Controls the CSS `--tw-ring-color` property.
 public struct TWRingColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "ring-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "ring-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "ring-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `--tw-ring-offset-color` property.
 public struct TWRingOffsetColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "ring-offset-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "ring-offset-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "ring-offset-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `--tw-ring-offset-width` property.

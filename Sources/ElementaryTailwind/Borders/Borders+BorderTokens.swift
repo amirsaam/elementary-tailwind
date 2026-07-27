@@ -3,7 +3,10 @@ import Elementary
 /// Controls the CSS `border-color` property.
 public struct TWTBorderColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "border-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "border-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "border-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `border-radius` property.

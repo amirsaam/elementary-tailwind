@@ -3,7 +3,10 @@ import Elementary
 /// Controls the CSS `outline-color` property.
 public struct TWTOutlineColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "outline-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "outline-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "outline-\(color.rawValue)" }
+    }
 }
 
 /// Controls the CSS `outline-offset` property.

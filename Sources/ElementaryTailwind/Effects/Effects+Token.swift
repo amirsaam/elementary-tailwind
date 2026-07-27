@@ -18,7 +18,10 @@ public enum TWTBoxShadow: String, TWToken, Sendable, Equatable, CaseIterable {
 /// Controls the CSS box shadow color.
 public struct TWTBoxShadowColor: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "shadow-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity { rawValue = "shadow-\(color.rawValue)/\(opacity)" }
+        else { rawValue = "shadow-\(color.rawValue)" }
+    }
 }
 
 // MARK: - Opacity
