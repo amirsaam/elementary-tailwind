@@ -41,4 +41,20 @@ extension MarkupAttribute {
         let value = tokens.map(\.rawValue).joined(separator: " ")
         return .init(name: "class", value: value, mergedBy: .appending(separatedBy: " "))
     }
+
+    /// Creates a class attribute from a raw string with optional typed variants.
+    ///
+    /// Useful for combining raw Tailwind classes with variant modifiers.
+    ///
+    /// **Example:**
+    /// ```swift
+    /// div(.class("custom-class", variants: [.hover, .dark])) { ... }
+    /// ```
+    public static func `class`(_ rawValue: String, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
 }
