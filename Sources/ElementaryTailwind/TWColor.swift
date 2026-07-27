@@ -26,6 +26,9 @@ public struct TWColor: Sendable, Equatable, Hashable {
 
     // MARK: - Standard Palettes
 
+    public static let white = TWColor("white")
+    public static let black = TWColor("black")
+    public static let transparent = TWColor("transparent")
     public static let slate = TWColor("slate")
     public static let gray = TWColor("gray")
     public static let zinc = TWColor("zinc")
