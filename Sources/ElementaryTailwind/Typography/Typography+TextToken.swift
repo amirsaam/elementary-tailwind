@@ -47,7 +47,7 @@ public enum TWTTextTransform: String, TWToken, Sendable, Equatable, CaseIterable
 
 /// Controls the CSS `text-wrap` property.
 public enum TWTTextWrap: String, TWToken, Sendable, Equatable, CaseIterable {
-    case wrap = "wrap"
+    case wrap = "text-wrap"
     case nowrap = "text-nowrap"
     case balance = "text-balance"
     case pretty = "text-pretty"
