@@ -4,8 +4,11 @@ import Elementary
 public struct TWRingColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "ring-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "ring-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "ring-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "ring-\(color.rawValue)"
+        }
     }
 }
 
@@ -13,8 +16,11 @@ public struct TWRingColor: TWToken, Sendable, Equatable {
 public struct TWRingOffsetColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "ring-offset-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "ring-offset-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "ring-offset-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "ring-offset-\(color.rawValue)"
+        }
     }
 }
 

@@ -4,8 +4,11 @@ import Elementary
 public struct TWTOutlineColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "outline-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "outline-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "outline-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "outline-\(color.rawValue)"
+        }
     }
 }
 
