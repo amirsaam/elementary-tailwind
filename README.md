@@ -6,7 +6,7 @@ Type-safe [Tailwind CSS](https://tailwindcss.com/) utilities for [Elementary](ht
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
-| 0.1.0              | 0.8.0      | 4.3.3       |
+| 0.1.100            | 0.8.0      | 4.3.3       |
 
 ```swift
 import Elementary
@@ -64,7 +64,7 @@ import PackageDescription
 let package = Package(
     name: "MyApp",
     dependencies: [
-        .package(url: "https://github.com/amirsaam/elementary-tailwind.git", from: "0.1.0"),
+        .package(url: "https://github.com/amirsaam/elementary-tailwind.git", from: "0.1.100"),
     ],
     targets: [
         .target(
@@ -109,10 +109,17 @@ div(.display(.flex, variants: [.namedContainerQuery("sidebar")])) { ... }
 ```
 
 ```swift
-// colors — full Tailwind color palette with shade support
+// colors — full Tailwind color palette with shade and opacity support
 p(.textColor(.red)) { "Red" }
 p(.textColor(.red.shade(500))) { "Red 500" }
-div(.backgroundColor(.gray.shade(100), variants: [.dark])) { ... }
+p(.textColor(.blue, opacity: 70)) { "Blue 70%" }
+div(.backgroundColor(.gray.shade(900), variants: [.dark])) { ... }
+```
+
+```swift
+// spacing — fractional values, directional, arbitrary
+div(.margin(.top(4)), .padding(.x(1.5))) { ... }
+div(.margin(.left(.arbitrary("20px")))) { ... }
 ```
 
 ```swift
@@ -140,14 +147,16 @@ div(.borderRadius(.topLeft(.lg), .topRight(.lg))) { ... }
 ```
 
 ```swift
-// arbitrary values — fall back to raw .class() when you need them
+// arbitrary values — typed tokens or raw .class()
+div(.margin(.left(.arbitrary("20px")))) { ... }
 div(.class("grid-cols-[1fr_2fr_1fr]")) { ... }
 div(.class("bg-(--my-color)")) { ... }
 ```
 
 ```swift
-// mix typed and raw
+// mix typed and raw — .class() with variant support
 div(.display(.flex), .class("custom-class")) { ... }
+div(.class("shadow-outline", variants: [.focus])) { ... }
 ```
 
 ## Utilities
@@ -158,7 +167,7 @@ All 190+ token types across 16 Tailwind CSS categories:
 |---|---|---|
 | **Layout** | `.display`, `.position`, `.inset`, `.zIndex`, `.overflow`, `.visibility`, `.float`, `.clear`, `.isolation`, `.columns`, `.break*`, `.boxSizing`, `.objectFit`, `.objectPosition`, `.aspect` | `.display(.flex)`, `.position(.absolute)`, `.zIndex(.number(10))` |
 | **Flexbox & Grid** | `.flexDirection`, `.flexWrap`, `.flex`, `.flexGrow`, `.flexShrink`, `.items`, `.justify`, `.placeContent`, `.placeItems`, `.placeSelf`, `.alignContent`, `.alignSelf`, `.justifyItems`, `.justifySelf`, `.order`, `.gap`, `.gridTemplate*`, `.gridColumn`, `.gridRow`, `.gridAuto*` | `.flexDirection(.column)`, `.items(.center)`, `.gap(4)` |
-| **Spacing** | `.padding`, `.margin`, `.gap`, `.spaceX`, `.spaceY` | `.p(8)`, `.padding(.x(4), .y(2))`, `.mx(.auto)` |
+| **Spacing** | `.padding`, `.paddingX`, `.paddingY`, `.paddingTop`, `.paddingRight`, `.paddingBottom`, `.paddingLeft`, `.margin`, `.marginX`, `.marginY`, `.marginTop`, `.marginRight`, `.marginBottom`, `.marginLeft`, `.gap`, `.spaceX`, `.spaceY` | `.p(8)`, `.padding(.x(4), .y(2))`, `.mt(4)`, `.mx(.auto)` |
 | **Sizing** | `.width`, `.minWidth`, `.maxWidth`, `.height`, `.minHeight`, `.maxHeight`, `.aspect` | `.width(.full)`, `.height(.screen)`, `.maxWidth(.xl)` |
 | **Typography** | `.fontFamily`, `.fontSize`, `.fontWeight`, `.fontStyle`, `.fontSmoothing`, `.fontStretch`, `.fontVariantNumeric`, `.fontFeatureSettings`, `.letterSpacing`, `.lineClamp`, `.lineHeight`, `.textAlign`, `.textColor`, `.textDecoration`, `.textDecorationColor`, `.textDecorationStyle`, `.textDecorationThickness`, `.underlineOffset`, `.textTransform`, `.textOverflow`, `.textWrap`, `.textIndent`, `.verticalAlign`, `.whitespace`, `.wordBreak`, `.hyphens`, `.tabSize`, `.listStyle`, `.listStylePosition`, `.listStyleImage`, `.content` | `.fontSize(.lg)`, `.textColor(.blue)`, `.fontWeight(.bold)` |
 | **Backgrounds** | `.backgroundColor`, `.backgroundAttachment`, `.backgroundClip`, `.backgroundImage`, `.backgroundOrigin`, `.backgroundPosition`, `.backgroundRepeat`, `.backgroundSize`, `.backgroundBlendMode` | `.backgroundColor(.blue)`, `.backgroundSize(.cover)` |
@@ -210,6 +219,7 @@ div(.display(.flex, variants: [.hover, .md])) { ... }
 | Media | `.dark`, `.print`, `.containerQuery`, `.namedContainerQuery(String)` |
 | Group | `.groupHover`, `.groupFocus`, `.groupChecked`, `.groupDisabled`, `.groupInvalid`, `.groupValid`, `.groupOpen`, `.groupAutofill`, `.groupRequired`, `.groupVisited`, `.groupPlaceholder`, `.groupTarget` |
 | Peer | `.peerHover`, `.peerFocus`, `.peerChecked`, `.peerInvalid`, `.peerValid`, `.peerOpen`, `.peerAutofill`, `.peerRequired`, `.peerVisited`, `.peerPlaceholder`, `.peerTarget` |
+| Custom | `.arbitrary(String)` |
 
 ## Setup
 

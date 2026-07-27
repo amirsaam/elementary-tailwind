@@ -13,7 +13,7 @@ Single product:
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
-| 0.1.0              | 0.8.0      | 4.3.3       |
+| 0.1.100            | 0.8.0      | 4.3.3       |
 
 ## Dependency chain
 
@@ -53,9 +53,9 @@ Lint must pass before committing.
 - `<Category>+Token.swift` — token enums/structs (`TWToken` conforming, `Sendable`, `Equatable`)
 
 Core files at root:
-- `TWToken.swift` — `TWToken` protocol + `.class()` overload accepting tokens
-- `TWVariant.swift` — `TWVariant` enum (pseudo-classes, responsive, dark, container queries, group/peer)
-- `TWColor.swift` — shared color type (`TWColor` struct with `.red`, `.blue`, `.gray.shade(500)` pattern)
+- `TWToken.swift` — `TWToken` protocol + `.class()` overload accepting tokens + `twFormat()` for numeric formatting
+- `TWVariant.swift` — `TWVariant` enum (pseudo-classes, responsive, dark, container queries, group/peer, arbitrary selector)
+- `TWColor.swift` — shared color type (`TWColor` struct with `.red`, `.blue`, `.white`, `.black`, `.transparent`, `.gray.shade(500)` pattern)
 - `TailwindCSS.swift` — `setupTailwind()` CDN helper
 
 ### Tests (`Tests/`)
@@ -113,7 +113,11 @@ extension MarkupAttribute {
 }
 ```
 
-Color-based methods accept `TWColor` and wrap it in a `TWT*Color` struct internally.
+Color-based methods accept `TWColor` and optional `opacity: Int?` param, wrapping in a `TWT*Color` struct internally.
+
+Numeric spacing/sizing tokens use `Double` with `twFormat()` — whole numbers emit without decimal (`4.0` → `"4"`), fractions emit as-is (`1.5` → `"1.5"`).
+
+Spacing and sizing tokens support `.arbitrary(String)` for bracket syntax (e.g. `m-[20px]`).
 
 ## Conventions
 
@@ -121,6 +125,7 @@ Color-based methods accept `TWColor` and wrap it in a `TWT*Color` struct interna
 - `///` doc comments required on all public API (one-line summary + description).
 - **No inline comments** unless documenting non-obvious behavior.
 - Use typed enums for variant values — do not hardcode raw strings.
+- `if let` blocks must be multi-line (formatter enforces this).
 - Follow latest APIs from elementary — check upstream docs before implementing
 - Use `@ContentBuilder` (not deprecated `@HTMLBuilder`)
 - Use `HTMLAttribute<Tag>` (not the old unparameterized `HTMLAttribute`)
