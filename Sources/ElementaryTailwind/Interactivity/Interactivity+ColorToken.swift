@@ -4,8 +4,11 @@ import Elementary
 public struct TWTAccentColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "accent-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "accent-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "accent-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "accent-\(color.rawValue)"
+        }
     }
 }
 
@@ -13,8 +16,11 @@ public struct TWTAccentColor: TWToken, Sendable, Equatable {
 public struct TWTCaretColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "caret-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "caret-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "caret-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "caret-\(color.rawValue)"
+        }
     }
 }
 

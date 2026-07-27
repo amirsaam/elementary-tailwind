@@ -14,8 +14,11 @@ public enum TWTTextAlign: String, TWToken, Sendable, Equatable, CaseIterable {
 public struct TWTTextColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "text-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "text-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "text-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "text-\(color.rawValue)"
+        }
     }
 }
 

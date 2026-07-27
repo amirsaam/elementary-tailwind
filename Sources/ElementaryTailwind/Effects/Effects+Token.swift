@@ -19,8 +19,11 @@ public enum TWTBoxShadow: String, TWToken, Sendable, Equatable, CaseIterable {
 public struct TWTBoxShadowColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "shadow-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "shadow-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "shadow-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "shadow-\(color.rawValue)"
+        }
     }
 }
 

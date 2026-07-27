@@ -186,8 +186,11 @@ public enum TWTScrollPaddingLeft: TWToken, Sendable, Equatable {
 public struct TWTScrollbarColor: TWToken, Sendable, Equatable {
     public let rawValue: String
     public init(_ color: TWColor, opacity: Int? = nil) {
-        if let opacity { rawValue = "scrollbar-\(color.rawValue)/\(opacity)" }
-        else { rawValue = "scrollbar-\(color.rawValue)" }
+        if let opacity {
+            rawValue = "scrollbar-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "scrollbar-\(color.rawValue)"
+        }
     }
 }
 
