@@ -145,6 +145,11 @@ public enum TWVariant: Sendable {
     /// The `peer-target:` variant.
     case peerTarget
 
+    // MARK: - Custom Selector
+
+    /// An arbitrary CSS selector variant (e.g. `[data-active]:`, `.dark &:`).
+    case arbitrary(String)
+
     // MARK: - Internal
 
     /// Applies this variant to a raw CSS class string.
@@ -224,6 +229,9 @@ public enum TWVariant: Sendable {
         case .peerVisited: return "peer-visited:\(rawValue)"
         case .peerPlaceholder: return "peer-placeholder:\(rawValue)"
         case .peerTarget: return "peer-target:\(rawValue)"
+
+        // Custom Selector
+        case .arbitrary(let selector): return "\(selector):\(rawValue)"
         }
     }
 
