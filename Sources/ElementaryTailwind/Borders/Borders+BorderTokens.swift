@@ -33,6 +33,7 @@ public enum TWTBorderStyle: String, TWToken, Sendable, Equatable, CaseIterable {
 
 /// Controls the CSS `border-width` property.
 public enum TWTBorderWidth: TWToken, Sendable, Equatable {
+    case bare
     case size(Int)
     case x(Int)
     case y(Int)
@@ -45,6 +46,7 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
+        case .bare: "border"
         case .size(let n): "border-\(n)"
         case .x(let n): "border-x-\(n)"
         case .y(let n): "border-y-\(n)"
