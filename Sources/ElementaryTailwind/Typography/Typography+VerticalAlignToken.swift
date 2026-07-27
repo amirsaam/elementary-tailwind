@@ -2,7 +2,7 @@ import Elementary
 
 /// Controls the CSS `vertical-align` property.
 public enum TWTVerticalAlign: String, TWToken, Sendable, Equatable, CaseIterable {
-    case baseline
+    case baseline = "align-baseline"
     case sub = "align-sub"
     case `super` = "align-super"
     case top = "align-top"
