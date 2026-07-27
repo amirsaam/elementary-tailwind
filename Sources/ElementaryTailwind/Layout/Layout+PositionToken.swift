@@ -9,7 +9,10 @@ public enum TWTPosition: String, TWToken, Sendable, Equatable, CaseIterable {
     case sticky = "sticky"
 }
 
-/// Controls the CSS `inset` property.
+/// A value-only token for inset properties (`inset`, `top`, `right`, `bottom`, `left`, `inset-x`, `inset-y`).
+///
+/// Produces just the value suffix (e.g. `"4"`, `"0"`, `"auto"`, `"full"`) without a property prefix.
+/// Modifier functions prepend the appropriate prefix (e.g. `inset-`, `top-`, `inset-x-`).
 public enum TWTInset: TWToken, Sendable, Equatable {
     case size(Int)
     case zero
@@ -18,10 +21,10 @@ public enum TWTInset: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "inset-\(n)"
-        case .zero: "inset-0"
-        case .auto: "inset-auto"
-        case .full: "inset-full"
+        case .size(let n): "\(n)"
+        case .zero: "0"
+        case .auto: "auto"
+        case .full: "full"
         }
     }
 }

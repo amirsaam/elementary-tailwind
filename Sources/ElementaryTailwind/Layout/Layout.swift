@@ -132,7 +132,7 @@ extension MarkupAttribute {
     public static func inset(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(variants, to: "inset-\(value.rawValue)"),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -373,6 +373,24 @@ extension MarkupAttribute {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: "left-\(value.rawValue)"),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `inset-inline` property (left + right).
+    public static func insetX(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: "inset-x-\(value.rawValue)"),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `inset-block` property (top + bottom).
+    public static func insetY(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: "inset-y-\(value.rawValue)"),
             mergedBy: .appending(separatedBy: " ")
         )
     }
