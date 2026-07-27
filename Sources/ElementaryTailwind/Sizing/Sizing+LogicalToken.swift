@@ -8,6 +8,7 @@ public enum TWTInlineSize: TWToken, Sendable, Equatable {
     case third
     case quarter
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -17,6 +18,7 @@ public enum TWTInlineSize: TWToken, Sendable, Equatable {
         case .third: "w-1/3"
         case .quarter: "w-1/4"
         case .full: "w-full"
+        case .arbitrary(let v): "w-[\(v)]"
         }
     }
 }
@@ -25,11 +27,13 @@ public enum TWTInlineSize: TWToken, Sendable, Equatable {
 public enum TWTMinInlineSize: TWToken, Sendable, Equatable {
     case value(Double)
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "min-w-\(twFormat(n))"
         case .full: "min-w-full"
+        case .arbitrary(let v): "min-w-[\(v)]"
         }
     }
 }
@@ -41,6 +45,7 @@ public enum TWTMaxInlineSize: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -49,6 +54,7 @@ public enum TWTMaxInlineSize: TWToken, Sendable, Equatable {
         case .min: "max-w-min"
         case .max: "max-w-max"
         case .fit: "max-w-fit"
+        case .arbitrary(let v): "max-w-[\(v)]"
         }
     }
 }
@@ -61,6 +67,7 @@ public enum TWTBlockSize: TWToken, Sendable, Equatable {
     case third
     case quarter
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -70,6 +77,7 @@ public enum TWTBlockSize: TWToken, Sendable, Equatable {
         case .third: "h-1/3"
         case .quarter: "h-1/4"
         case .full: "h-full"
+        case .arbitrary(let v): "h-[\(v)]"
         }
     }
 }
@@ -78,11 +86,13 @@ public enum TWTBlockSize: TWToken, Sendable, Equatable {
 public enum TWTMinBlockSize: TWToken, Sendable, Equatable {
     case value(Double)
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "min-h-\(twFormat(n))"
         case .full: "min-h-full"
+        case .arbitrary(let v): "min-h-[\(v)]"
         }
     }
 }
@@ -95,6 +105,7 @@ public enum TWTMaxBlockSize: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -104,6 +115,7 @@ public enum TWTMaxBlockSize: TWToken, Sendable, Equatable {
         case .min: "max-h-min"
         case .max: "max-h-max"
         case .fit: "max-h-fit"
+        case .arbitrary(let v): "max-h-[\(v)]"
         }
     }
 }

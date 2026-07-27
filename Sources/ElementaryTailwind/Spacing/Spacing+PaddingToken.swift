@@ -4,11 +4,13 @@ import Elementary
 public enum TWTPadding: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "p-\(twFormat(n))"
         case .zero: "p-0"
+        case .arbitrary(let v): "p-[\(v)]"
         }
     }
 }
@@ -17,11 +19,13 @@ public enum TWTPadding: TWToken, Sendable, Equatable {
 public enum TWTPaddingX: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "px-\(twFormat(n))"
         case .zero: "px-0"
+        case .arbitrary(let v): "px-[\(v)]"
         }
     }
 }
@@ -30,11 +34,13 @@ public enum TWTPaddingX: TWToken, Sendable, Equatable {
 public enum TWTPaddingY: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "py-\(twFormat(n))"
         case .zero: "py-0"
+        case .arbitrary(let v): "py-[\(v)]"
         }
     }
 }
@@ -43,11 +49,13 @@ public enum TWTPaddingY: TWToken, Sendable, Equatable {
 public enum TWTPaddingTop: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "pt-\(twFormat(n))"
         case .zero: "pt-0"
+        case .arbitrary(let v): "pt-[\(v)]"
         }
     }
 }
@@ -56,11 +64,13 @@ public enum TWTPaddingTop: TWToken, Sendable, Equatable {
 public enum TWTPaddingRight: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "pr-\(twFormat(n))"
         case .zero: "pr-0"
+        case .arbitrary(let v): "pr-[\(v)]"
         }
     }
 }
@@ -69,11 +79,13 @@ public enum TWTPaddingRight: TWToken, Sendable, Equatable {
 public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "pb-\(twFormat(n))"
         case .zero: "pb-0"
+        case .arbitrary(let v): "pb-[\(v)]"
         }
     }
 }
@@ -82,11 +94,13 @@ public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
 public enum TWTPaddingLeft: TWToken, Sendable, Equatable {
     case size(Double)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "pl-\(twFormat(n))"
         case .zero: "pl-0"
+        case .arbitrary(let v): "pl-[\(v)]"
         }
     }
 }

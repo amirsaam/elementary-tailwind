@@ -10,6 +10,7 @@ public enum TWTHeight: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -21,6 +22,7 @@ public enum TWTHeight: TWToken, Sendable, Equatable {
         case .min: "h-min"
         case .max: "h-max"
         case .fit: "h-fit"
+        case .arbitrary(let v): "h-[\(v)]"
         }
     }
 }
@@ -33,6 +35,7 @@ public enum TWTMinHeight: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -42,6 +45,7 @@ public enum TWTMinHeight: TWToken, Sendable, Equatable {
         case .min: "min-h-min"
         case .max: "min-h-max"
         case .fit: "min-h-fit"
+        case .arbitrary(let v): "min-h-[\(v)]"
         }
     }
 }
@@ -55,6 +59,7 @@ public enum TWTMaxHeight: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -65,6 +70,7 @@ public enum TWTMaxHeight: TWToken, Sendable, Equatable {
         case .min: "max-h-min"
         case .max: "max-h-max"
         case .fit: "max-h-fit"
+        case .arbitrary(let v): "max-h-[\(v)]"
         }
     }
 }

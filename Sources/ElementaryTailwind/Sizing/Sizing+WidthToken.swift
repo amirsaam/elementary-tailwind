@@ -11,6 +11,7 @@ public enum TWTWidth: TWToken, Sendable, Equatable {
     case max
     case fit
     case container(String)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -23,6 +24,7 @@ public enum TWTWidth: TWToken, Sendable, Equatable {
         case .max: "w-max"
         case .fit: "w-fit"
         case .container(let s): "w-\(s)"
+        case .arbitrary(let v): "w-[\(v)]"
         }
     }
 }
@@ -35,6 +37,7 @@ public enum TWTMinWidth: TWToken, Sendable, Equatable {
     case min
     case max
     case fit
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -44,6 +47,7 @@ public enum TWTMinWidth: TWToken, Sendable, Equatable {
         case .min: "min-w-min"
         case .max: "min-w-max"
         case .fit: "min-w-fit"
+        case .arbitrary(let v): "min-w-[\(v)]"
         }
     }
 }
@@ -63,6 +67,7 @@ public enum TWTMaxWidth: TWToken, Sendable, Equatable {
     case fit
     case prose
     case screen(String)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -79,6 +84,7 @@ public enum TWTMaxWidth: TWToken, Sendable, Equatable {
         case .fit: "max-w-fit"
         case .prose: "max-w-prose"
         case .screen(let s): "max-w-screen-\(s)"
+        case .arbitrary(let v): "max-w-[\(v)]"
         }
     }
 }
