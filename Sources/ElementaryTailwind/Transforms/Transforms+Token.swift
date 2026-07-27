@@ -46,6 +46,7 @@ public enum TWTTranslate: TWToken, Sendable, Equatable {
     case y(String)
     case all(String)
     case zero
+    case px
     case custom(String)
 
     public var rawValue: String {
@@ -54,6 +55,7 @@ public enum TWTTranslate: TWToken, Sendable, Equatable {
         case .y(let v): "translate-y-\(v)"
         case .all(let v): "translate-\(v)"
         case .zero: "translate-0"
+        case .px: "translate-px"
         case .custom(let v): "translate-\(v)"
         }
     }
