@@ -13,7 +13,7 @@ Single product:
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
-| 0.1.100            | 0.8.0      | 4.3.3       |
+| 0.1.xxx            | 0.8.0      | 4.3.3       |
 
 ## Dependency chain
 
