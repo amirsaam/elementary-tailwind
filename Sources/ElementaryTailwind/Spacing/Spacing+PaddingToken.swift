@@ -52,6 +52,19 @@ public enum TWTPaddingTop: TWToken, Sendable, Equatable {
     }
 }
 
+/// Controls the CSS `padding-right` property.
+public enum TWTPaddingRight: TWToken, Sendable, Equatable {
+    case size(Int)
+    case zero
+
+    public var rawValue: String {
+        switch self {
+        case .size(let n): "pr-\(n)"
+        case .zero: "pr-0"
+        }
+    }
+}
+
 /// Controls the CSS `padding-bottom` property.
 public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
     case size(Int)
@@ -61,6 +74,19 @@ public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
         switch self {
         case .size(let n): "pb-\(n)"
         case .zero: "pb-0"
+        }
+    }
+}
+
+/// Controls the CSS `padding-left` property.
+public enum TWTPaddingLeft: TWToken, Sendable, Equatable {
+    case size(Int)
+    case zero
+
+    public var rawValue: String {
+        switch self {
+        case .size(let n): "pl-\(n)"
+        case .zero: "pl-0"
         }
     }
 }

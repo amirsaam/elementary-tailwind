@@ -37,9 +37,32 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the CSS `padding-right` property.
+    public static func paddingRight(
+        _ value: TWTPaddingRight,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the CSS `padding-bottom` property.
-    public static func paddingBottom(_ value: TWTPaddingBottom, variants: [TWVariant] = []) -> Self
-    {
+    public static func paddingBottom(
+        _ value: TWTPaddingBottom,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `padding-left` property.
+    public static func paddingLeft(_ value: TWTPaddingLeft, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: value.rawValue),
@@ -67,6 +90,45 @@ extension MarkupAttribute {
 
     /// Sets the CSS `margin-block` property (top + bottom).
     public static func marginY(_ value: TWTMarginY, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `margin-top` property.
+    public static func marginTop(_ value: TWTMarginTop, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `margin-right` property.
+    public static func marginRight(_ value: TWTMarginRight, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `margin-bottom` property.
+    public static func marginBottom(
+        _ value: TWTMarginBottom,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the CSS `margin-left` property.
+    public static func marginLeft(_ value: TWTMarginLeft, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: value.rawValue),
