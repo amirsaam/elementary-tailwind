@@ -2,12 +2,12 @@ import Elementary
 
 /// Controls the CSS `padding` property.
 public enum TWTPadding: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "p-\(n)"
+        case .size(let n): "p-\(twFormat(n))"
         case .zero: "p-0"
         }
     }
@@ -15,12 +15,12 @@ public enum TWTPadding: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-inline` property (left + right).
 public enum TWTPaddingX: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "px-\(n)"
+        case .size(let n): "px-\(twFormat(n))"
         case .zero: "px-0"
         }
     }
@@ -28,12 +28,12 @@ public enum TWTPaddingX: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-block` property (top + bottom).
 public enum TWTPaddingY: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "py-\(n)"
+        case .size(let n): "py-\(twFormat(n))"
         case .zero: "py-0"
         }
     }
@@ -41,12 +41,12 @@ public enum TWTPaddingY: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-top` property.
 public enum TWTPaddingTop: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "pt-\(n)"
+        case .size(let n): "pt-\(twFormat(n))"
         case .zero: "pt-0"
         }
     }
@@ -54,12 +54,12 @@ public enum TWTPaddingTop: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-right` property.
 public enum TWTPaddingRight: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "pr-\(n)"
+        case .size(let n): "pr-\(twFormat(n))"
         case .zero: "pr-0"
         }
     }
@@ -67,12 +67,12 @@ public enum TWTPaddingRight: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-bottom` property.
 public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "pb-\(n)"
+        case .size(let n): "pb-\(twFormat(n))"
         case .zero: "pb-0"
         }
     }
@@ -80,12 +80,12 @@ public enum TWTPaddingBottom: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `padding-left` property.
 public enum TWTPaddingLeft: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "pl-\(n)"
+        case .size(let n): "pl-\(twFormat(n))"
         case .zero: "pl-0"
         }
     }

@@ -2,7 +2,7 @@ import Elementary
 
 /// Controls the CSS `width` property.
 public enum TWTWidth: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case fraction(String)
     case auto
     case full
@@ -14,7 +14,7 @@ public enum TWTWidth: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "w-\(n)"
+        case .size(let n): "w-\(twFormat(n))"
         case .fraction(let f): "w-\(f)"
         case .auto: "w-auto"
         case .full: "w-full"
@@ -29,7 +29,7 @@ public enum TWTWidth: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `min-width` property.
 public enum TWTMinWidth: TWToken, Sendable, Equatable {
-    case size(Int)
+    case size(Double)
     case zero
     case full
     case min
@@ -38,7 +38,7 @@ public enum TWTMinWidth: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .size(let n): "min-w-\(n)"
+        case .size(let n): "min-w-\(twFormat(n))"
         case .zero: "min-w-0"
         case .full: "min-w-full"
         case .min: "min-w-min"

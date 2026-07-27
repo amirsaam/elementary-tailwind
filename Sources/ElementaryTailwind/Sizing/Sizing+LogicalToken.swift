@@ -2,7 +2,7 @@ import Elementary
 
 /// Controls the CSS `inline-size` property.
 public enum TWTInlineSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case auto
     case half
     case third
@@ -11,7 +11,7 @@ public enum TWTInlineSize: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "w-\(n)"
+        case .value(let n): "w-\(twFormat(n))"
         case .auto: "w-auto"
         case .half: "w-1/2"
         case .third: "w-1/3"
@@ -23,12 +23,12 @@ public enum TWTInlineSize: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `min-inline-size` property.
 public enum TWTMinInlineSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case full
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "min-w-\(n)"
+        case .value(let n): "min-w-\(twFormat(n))"
         case .full: "min-w-full"
         }
     }
@@ -36,7 +36,7 @@ public enum TWTMinInlineSize: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `max-inline-size` property.
 public enum TWTMaxInlineSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case full
     case min
     case max
@@ -44,7 +44,7 @@ public enum TWTMaxInlineSize: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "max-w-\(n)"
+        case .value(let n): "max-w-\(twFormat(n))"
         case .full: "max-w-full"
         case .min: "max-w-min"
         case .max: "max-w-max"
@@ -55,7 +55,7 @@ public enum TWTMaxInlineSize: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `block-size` property.
 public enum TWTBlockSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case auto
     case half
     case third
@@ -64,7 +64,7 @@ public enum TWTBlockSize: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "h-\(n)"
+        case .value(let n): "h-\(twFormat(n))"
         case .auto: "h-auto"
         case .half: "h-1/2"
         case .third: "h-1/3"
@@ -76,12 +76,12 @@ public enum TWTBlockSize: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `min-block-size` property.
 public enum TWTMinBlockSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case full
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "min-h-\(n)"
+        case .value(let n): "min-h-\(twFormat(n))"
         case .full: "min-h-full"
         }
     }
@@ -89,7 +89,7 @@ public enum TWTMinBlockSize: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `max-block-size` property.
 public enum TWTMaxBlockSize: TWToken, Sendable, Equatable {
-    case value(Int)
+    case value(Double)
     case full
     case screen
     case min
@@ -98,7 +98,7 @@ public enum TWTMaxBlockSize: TWToken, Sendable, Equatable {
 
     public var rawValue: String {
         switch self {
-        case .value(let n): "max-h-\(n)"
+        case .value(let n): "max-h-\(twFormat(n))"
         case .full: "max-h-full"
         case .screen: "max-h-screen"
         case .min: "max-h-min"

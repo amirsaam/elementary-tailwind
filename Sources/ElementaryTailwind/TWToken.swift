@@ -17,6 +17,14 @@ public protocol TWToken: Sendable {
     var rawValue: String { get }
 }
 
+/// Formats a numeric value for Tailwind CSS class strings.
+///
+/// Whole numbers are emitted without a decimal point (`4.0` → `"4"`).
+/// Fractions are kept as-is (`1.5` → `"1.5"`).
+func twFormat(_ n: Double) -> String {
+    n.truncatingRemainder(dividingBy: 1) == 0 ? String(Int(n)) : String(n)
+}
+
 // MARK: - Class Overload
 
 extension MarkupAttribute {
