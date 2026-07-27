@@ -2,10 +2,14 @@ import Elementary
 
 extension MarkupAttribute {
     /// Sets the CSS `fill` property for SVG elements.
-    public static func fill(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func fill(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTFill(color).rawValue),
+            value: TWVariant.apply(variants, to: TWTFill(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -20,10 +24,14 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `stroke` property for SVG elements.
-    public static func stroke(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func stroke(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTStroke(color).rawValue),
+            value: TWVariant.apply(variants, to: TWTStroke(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }

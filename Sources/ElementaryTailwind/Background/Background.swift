@@ -4,11 +4,15 @@ extension MarkupAttribute {
     /// Sets the CSS `background-color` property.
     public static func backgroundColor(
         _ color: TWColor,
+        opacity: Int? = nil,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTBackgroundColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTBackgroundColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

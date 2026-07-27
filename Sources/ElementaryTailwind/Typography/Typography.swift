@@ -50,10 +50,14 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `color` property.
-    public static func textColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func textColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTTextColor(color).rawValue),
+            value: TWVariant.apply(variants, to: TWTTextColor(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -234,10 +238,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `text-decoration-color` property.
-    public static func textDecorationColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func textDecorationColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTTextColorDecoration(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTTextColorDecoration(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

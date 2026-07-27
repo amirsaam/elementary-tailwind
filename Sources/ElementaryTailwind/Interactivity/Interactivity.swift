@@ -93,10 +93,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `accent-color` property.
-    public static func accentColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func accentColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTAccentColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTAccentColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -111,10 +118,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `caret-color` property.
-    public static func caretColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func caretColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTCaretColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTCaretColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -138,10 +152,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `scrollbar-color` property.
-    public static func scrollbarColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func scrollbarColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTScrollbarColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTScrollbarColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

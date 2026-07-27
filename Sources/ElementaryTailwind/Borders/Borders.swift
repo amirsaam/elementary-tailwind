@@ -11,10 +11,14 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `border-color` property.
-    public static func borderColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func borderColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTBorderColor(color).rawValue),
+            value: TWVariant.apply(variants, to: TWTBorderColor(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -59,10 +63,14 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `ring-color` property.
-    public static func ringColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func ringColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWRingColor(color).rawValue),
+            value: TWVariant.apply(variants, to: TWRingColor(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -80,10 +88,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `ring-offset-color` property.
-    public static func ringOffsetColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func ringOffsetColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWRingOffsetColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWRingOffsetColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -107,10 +122,14 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS `outline-color` property.
-    public static func outlineColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func outlineColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTOutlineColor(color).rawValue),
+            value: TWVariant.apply(variants, to: TWTOutlineColor(color, opacity: opacity).rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }

@@ -11,10 +11,17 @@ extension MarkupAttribute {
     }
 
     /// Sets the CSS box shadow color.
-    public static func boxShadowColor(_ color: TWColor, variants: [TWVariant] = []) -> Self {
+    public static func boxShadowColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTBoxShadowColor(color).rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: TWTBoxShadowColor(color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

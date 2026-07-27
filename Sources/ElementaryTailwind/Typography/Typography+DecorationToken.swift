@@ -3,7 +3,13 @@ import Elementary
 /// Controls the CSS `text-decoration-color` property.
 public struct TWTTextColorDecoration: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "decoration-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity {
+            rawValue = "decoration-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "decoration-\(color.rawValue)"
+        }
+    }
 }
 
 /// Controls the CSS `text-decoration-style` property.

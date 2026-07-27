@@ -3,7 +3,13 @@ import Elementary
 /// Controls the CSS `stroke` property for SVG elements.
 public struct TWTStroke: TWToken, Sendable, Equatable {
     public let rawValue: String
-    public init(_ color: TWColor) { rawValue = "stroke-\(color.rawValue)" }
+    public init(_ color: TWColor, opacity: Int? = nil) {
+        if let opacity {
+            rawValue = "stroke-\(color.rawValue)/\(opacity)"
+        } else {
+            rawValue = "stroke-\(color.rawValue)"
+        }
+    }
 }
 
 /// Controls the CSS `stroke: none` for SVG elements.
