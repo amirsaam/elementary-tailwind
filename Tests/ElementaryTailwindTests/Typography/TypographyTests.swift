@@ -131,4 +131,37 @@ struct TypographyTests {
             )
         )
     }
+
+    @Test func testLineHeight() throws {
+        try HTMLAssertEqual(
+            p(.lineHeight(.none)) {},
+            try String(contentsOf: fixtureURL("lineHeight.none.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.lineHeight(.tight)) {},
+            try String(contentsOf: fixtureURL("lineHeight.tight.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.lineHeight(.normal)) {},
+            try String(contentsOf: fixtureURL("lineHeight.normal.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.lineHeight(.value(6))) {},
+            try String(contentsOf: fixtureURL("lineHeight.value-6.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.lineHeight(.value(1.5))) {},
+            try String(
+                contentsOf: fixtureURL("lineHeight.value-1.5.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            p(.lineHeight(.arbitrary("16px"))) {},
+            try String(
+                contentsOf: fixtureURL("lineHeight.arbitrary-16px.html"),
+                encoding: .utf8
+            )
+        )
+    }
 }
