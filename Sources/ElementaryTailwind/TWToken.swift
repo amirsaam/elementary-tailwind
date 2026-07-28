@@ -3,8 +3,7 @@ import Elementary
 /// A type-safe representation of a Tailwind CSS utility class.
 ///
 /// Each `TWToken` maps to a single Tailwind CSS class string via its `rawValue`.
-/// Tokens are used with the `.class()` modifier to compose Tailwind utilities
-/// in a type-safe, self-documenting way.
+/// Tokens are used with convenience modifier methods to compose Tailwind utilities
 ///
 /// **Example:**
 /// ```swift
@@ -13,7 +12,7 @@ import Elementary
 /// }
 /// ```
 public protocol TWToken: Sendable {
-    /// The Tailwind CSS class string this token represents.
+    /// The Tailwind CSS class string this token produces.
     var rawValue: String { get }
 }
 
@@ -22,7 +21,7 @@ public protocol TWToken: Sendable {
 /// Formats a numeric value for Tailwind CSS class output.
 ///
 /// Whole numbers are rendered without a decimal point (`4.0` → `"4"`).
-/// Fractional values are rendered as-is (`4.5` → `"4.5"`).
+/// Fractional values are rendered as-is (`1.5` → `"1.5"`).
 func twFormat(_ n: Double) -> String {
     n.truncatingRemainder(dividingBy: 1) == 0 ? "\(Int(n))" : "\(n)"
 }
@@ -30,10 +29,10 @@ func twFormat(_ n: Double) -> String {
 // MARK: - Class Overload
 
 extension MarkupAttribute {
-    /// Creates a class attribute from typed Tailwind tokens.
+    /// Creates a class attribute from one or more typed Tailwind tokens.
     ///
     /// Each token's `rawValue` is joined into a space-separated class string.
-    /// Multiple tokens can be passed, and they coexist with raw string classes.
+    /// Multiple tokens can be passed in a single call.
     ///
     /// **Example:**
     /// ```swift
@@ -44,7 +43,7 @@ extension MarkupAttribute {
         return .init(name: "class", value: value, mergedBy: .appending(separatedBy: " "))
     }
 
-    /// Creates a class attribute from a raw CSS class string with variants.
+    /// Creates a class attribute from a raw CSS class string with Tailwind variants.
     ///
     /// Useful for applying Tailwind variants to arbitrary or project-specific classes.
     ///

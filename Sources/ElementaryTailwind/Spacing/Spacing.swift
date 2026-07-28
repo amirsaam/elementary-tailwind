@@ -1,7 +1,8 @@
 import Elementary
 
 extension MarkupAttribute {
-    /// Sets the CSS `padding` property.
+    /// Sets the padding on all sides of the element.
+    /// Produces `p-*` classes (e.g. `p-4`, `p-8`, `p-auto`).
     public static func padding(_ value: TWTPadding, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -10,7 +11,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-inline` property (left + right).
+    /// Sets the horizontal padding (left + right).
+    /// Produces `px-*` classes (e.g. `px-4`, `px-8`).
     public static func paddingX(_ value: TWTPaddingX, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -19,7 +21,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-block` property (top + bottom).
+    /// Sets the vertical padding (top + bottom).
+    /// Produces `py-*` classes (e.g. `py-4`, `py-8`).
     public static func paddingY(_ value: TWTPaddingY, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -28,7 +31,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-top` property.
+    /// Sets the top padding.
+    /// Produces `pt-*` classes (e.g. `pt-4`, `pt-8`).
     public static func paddingTop(_ value: TWTPaddingTop, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -37,7 +41,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-right` property.
+    /// Sets the right padding.
+    /// Produces `pr-*` classes (e.g. `pr-4`, `pr-8`).
     public static func paddingRight(
         _ value: TWTPaddingRight,
         variants: [TWVariant] = []
@@ -49,7 +54,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-bottom` property.
+    /// Sets the bottom padding.
+    /// Produces `pb-*` classes (e.g. `pb-4`, `pb-8`).
     public static func paddingBottom(
         _ value: TWTPaddingBottom,
         variants: [TWVariant] = []
@@ -61,7 +67,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `padding-left` property.
+    /// Sets the left padding.
+    /// Produces `pl-*` classes (e.g. `pl-4`, `pl-8`).
     public static func paddingLeft(_ value: TWTPaddingLeft, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -70,7 +77,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin` property.
+    /// Sets the margin on all sides of the element.
+    /// Produces `m-*` classes (e.g. `m-4`, `m-auto`).
     public static func margin(_ value: TWTMargin, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -79,7 +87,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-inline` property (left + right).
+    /// Sets the horizontal margin (left + right).
+    /// Produces `mx-*` classes (e.g. `mx-4`, `mx-auto`).
     public static func marginX(_ value: TWTMarginX, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -88,7 +97,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-block` property (top + bottom).
+    /// Sets the vertical margin (top + bottom).
+    /// Produces `my-*` classes (e.g. `my-4`, `my-auto`).
     public static func marginY(_ value: TWTMarginY, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -97,7 +107,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-top` property.
+    /// Sets the top margin.
+    /// Produces `mt-*` classes (e.g. `mt-4`, `mt-auto`).
     public static func marginTop(_ value: TWTMarginTop, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -106,7 +117,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-right` property.
+    /// Sets the right margin.
+    /// Produces `mr-*` classes (e.g. `mr-4`, `mr-auto`).
     public static func marginRight(_ value: TWTMarginRight, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -115,7 +127,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-bottom` property.
+    /// Sets the bottom margin.
+    /// Produces `mb-*` classes (e.g. `mb-4`, `mb-auto`).
     public static func marginBottom(
         _ value: TWTMarginBottom,
         variants: [TWVariant] = []
@@ -127,7 +140,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `margin-left` property.
+    /// Sets the left margin.
+    /// Produces `ml-*` classes (e.g. `ml-4`, `ml-auto`).
     public static func marginLeft(_ value: TWTMarginLeft, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -136,7 +150,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `space-x` property.
+    /// Sets the horizontal spacing between child elements.
+    /// Produces `space-x-*` classes (e.g. `space-x-4`, `space-x-8`).
     public static func spaceX(_ value: TWTSpaceX, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -145,7 +160,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `space-y` property.
+    /// Sets the vertical spacing between child elements.
+    /// Produces `space-y-*` classes (e.g. `space-y-4`, `space-y-8`).
     public static func spaceY(_ value: TWTSpaceY, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",

@@ -1,7 +1,8 @@
 import Elementary
 
 extension MarkupAttribute {
-    /// Sets the CSS `fill` property for SVG elements.
+    /// Sets the fill color of SVG elements.
+    /// Produces `fill-*` classes (e.g. `fill-blue-500`, `fill-red-600/50`).
     public static func fill(
         _ color: TWColor,
         opacity: Int? = nil,
@@ -14,7 +15,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `fill: none` for SVG elements.
+    /// Removes the fill from SVG elements (transparent).
+    /// Produces `fill-none` class.
     public static func fillNone(variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -23,7 +25,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `stroke` property for SVG elements.
+    /// Sets the stroke color of SVG elements.
+    /// Produces `stroke-*` classes (e.g. `stroke-green-500`, `stroke-yellow-600/50`).
     public static func stroke(
         _ color: TWColor,
         opacity: Int? = nil,
@@ -36,7 +39,8 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `stroke: none` for SVG elements.
+    /// Removes the stroke from SVG elements.
+    /// Produces `stroke-none` class.
     public static func strokeNone(variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -45,8 +49,12 @@ extension MarkupAttribute {
         )
     }
 
-    /// Sets the CSS `stroke-width` property for SVG elements.
-    public static func strokeWidth(_ value: TWTStrokeWidth, variants: [TWVariant] = []) -> Self {
+    /// Sets the width of the stroke on SVG elements.
+    /// Produces `stroke-*` classes (e.g. `stroke-1`, `stroke-2`).
+    public static func strokeWidth(
+        _ value: TWTStrokeWidth,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: value.rawValue),

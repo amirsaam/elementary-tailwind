@@ -1,7 +1,8 @@
 import Elementary
 
 extension MarkupAttribute {
-    /// Sets the CSS `animation` property.
+    /// Applies a CSS animation to the element.
+    /// Produces `animate-*` classes (e.g. `animate-spin`, `animate-pulse`, `animate-bounce`).
     public static func animation(_ value: TWTAnimation, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
