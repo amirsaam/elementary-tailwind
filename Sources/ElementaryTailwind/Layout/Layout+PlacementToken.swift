@@ -3,20 +3,18 @@ import Elementary
 /// Controls the CSS `flex-basis` property.
 public enum TWTFlexBasis: TWToken, Sendable, Equatable {
     case value(Int)
+    case fraction(String)
     case auto
-    case half
-    case third
-    case quarter
     case full
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "basis-\(n)"
+        case .fraction(let f): "basis-\(f)"
         case .auto: "basis-auto"
-        case .half: "basis-1/2"
-        case .third: "basis-1/3"
-        case .quarter: "basis-1/4"
         case .full: "basis-full"
+        case .arbitrary(let v): "basis-[\(v)]"
         }
     }
 }

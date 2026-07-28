@@ -30,6 +30,7 @@ public enum TWTHeight: TWToken, Sendable, Equatable {
 /// Controls the CSS `min-height` property.
 public enum TWTMinHeight: TWToken, Sendable, Equatable {
     case size(Double)
+    case fraction(String)
     case zero
     case full
     case min
@@ -40,6 +41,7 @@ public enum TWTMinHeight: TWToken, Sendable, Equatable {
     public var rawValue: String {
         switch self {
         case .size(let n): "min-h-\(twFormat(n))"
+        case .fraction(let f): "min-h-\(f)"
         case .zero: "min-h-0"
         case .full: "min-h-full"
         case .min: "min-h-min"
@@ -53,6 +55,7 @@ public enum TWTMinHeight: TWToken, Sendable, Equatable {
 /// Controls the CSS `max-height` property.
 public enum TWTMaxHeight: TWToken, Sendable, Equatable {
     case size(Double)
+    case fraction(String)
     case none
     case full
     case screen
@@ -64,6 +67,7 @@ public enum TWTMaxHeight: TWToken, Sendable, Equatable {
     public var rawValue: String {
         switch self {
         case .size(let n): "max-h-\(twFormat(n))"
+        case .fraction(let f): "max-h-\(f)"
         case .none: "max-h-none"
         case .full: "max-h-full"
         case .screen: "max-h-screen"
