@@ -267,7 +267,7 @@ div(.display(.flex), .class("custom-class")) { ... }
 
 The full API is documented in source — every public type and function has doc comments. For architecture details, see [`AGENTS.md`](./AGENTS.md).
 
-The full test suite (144 snapshot tests across 17 suites) lives in [`Tests/ElementaryTailwindTests/`](./Tests/ElementaryTailwindTests/).
+The full test suite (169 snapshot tests across 17 suites) lives in [`Tests/ElementaryTailwindTests/`](./Tests/ElementaryTailwindTests/).
 
 ## Future directions
 

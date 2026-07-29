@@ -90,6 +90,9 @@ Extensions use `<Type>+<Name>.swift`. The `+` means "this file extends the prefi
 - `Transforms+3DToken.swift` extends the Transforms category with perspective, backface, zoom tokens
 - `Interactivity+ScrollToken.swift` extends the Interactivity category with scroll behavior, snap, margin/padding, and scrollbar tokens
 - `Interactivity+ColorToken.swift` extends the Interactivity category with accent, caret, and color-scheme tokens
+- `Typography+WordBreakToken.swift` extends the Typography category with word-break tokens
+- `Typography+ContentToken.swift` extends the Typography category with content pseudo-element tokens
+- `Typography+DecorationToken.swift` extends the Typography category with text-decoration-thickness and underline-offset tokens
 
 Modifier methods co-locate in `<Category>.swift` (e.g., `.display()`, `.items()`, `.gap()` all live in `Layout.swift`).
 
