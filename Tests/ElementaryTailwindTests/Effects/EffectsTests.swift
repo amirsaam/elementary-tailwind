@@ -6,12 +6,12 @@ import Testing
 struct EffectsTests {
     @Test func testBoxShadow() throws {
         try HTMLAssertEqual(
-            div(.boxShadow(.sm)) {},
-            try String(contentsOf: fixtureURL("boxShadow.sm.html"), encoding: .utf8)
+            div(.boxShadow(.xs)) {},
+            try String(contentsOf: fixtureURL("boxShadow.xs.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.boxShadow(.md)) {},
-            try String(contentsOf: fixtureURL("boxShadow.md.html"), encoding: .utf8)
+            div(.boxShadow(.sm)) {},
+            try String(contentsOf: fixtureURL("boxShadow.sm.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.boxShadow(.lg)) {},

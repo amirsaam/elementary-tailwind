@@ -112,8 +112,8 @@ struct BorderTests {
             try String(contentsOf: fixtureURL("outlineStyle.solid.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.outlineStyle(.none)) {},
-            try String(contentsOf: fixtureURL("outlineStyle.none.html"), encoding: .utf8)
+            div(.outlineStyle(.hidden)) {},
+            try String(contentsOf: fixtureURL("outlineStyle.hidden.html"), encoding: .utf8)
         )
     }
 }

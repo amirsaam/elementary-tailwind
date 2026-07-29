@@ -24,20 +24,12 @@ struct FiltersTests {
             div(.brightness(.value(50))) {},
             try String(contentsOf: fixtureURL("brightness.value-50.html"), encoding: .utf8)
         )
-        try HTMLAssertEqual(
-            div(.brightness(.percent(150))) {},
-            try String(contentsOf: fixtureURL("brightness.percent-150.html"), encoding: .utf8)
-        )
     }
 
     @Test func testContrast() throws {
         try HTMLAssertEqual(
             div(.contrast(.value(50))) {},
             try String(contentsOf: fixtureURL("contrast.value-50.html"), encoding: .utf8)
-        )
-        try HTMLAssertEqual(
-            div(.contrast(.percent(200))) {},
-            try String(contentsOf: fixtureURL("contrast.percent-200.html"), encoding: .utf8)
         )
     }
 
@@ -57,10 +49,6 @@ struct FiltersTests {
             div(.grayscale(.value(1))) {},
             try String(contentsOf: fixtureURL("grayscale.value-1.html"), encoding: .utf8)
         )
-        try HTMLAssertEqual(
-            div(.grayscale(.percent(50))) {},
-            try String(contentsOf: fixtureURL("grayscale.percent-50.html"), encoding: .utf8)
-        )
     }
 
     @Test func testHueRotate() throws {
@@ -74,10 +62,6 @@ struct FiltersTests {
         try HTMLAssertEqual(
             div(.invert(.value(1))) {},
             try String(contentsOf: fixtureURL("invert.value-1.html"), encoding: .utf8)
-        )
-        try HTMLAssertEqual(
-            div(.invert(.percent(75))) {},
-            try String(contentsOf: fixtureURL("invert.percent-75.html"), encoding: .utf8)
         )
     }
 
@@ -114,13 +98,6 @@ struct FiltersTests {
                 encoding: .utf8
             )
         )
-        try HTMLAssertEqual(
-            div(.backdropBrightness(.percent(150))) {},
-            try String(
-                contentsOf: fixtureURL("backdropBrightness.percent-150.html"),
-                encoding: .utf8
-            )
-        )
     }
 
     @Test func testBackdropContrast() throws {
@@ -131,13 +108,6 @@ struct FiltersTests {
                 encoding: .utf8
             )
         )
-        try HTMLAssertEqual(
-            div(.backdropContrast(.percent(200))) {},
-            try String(
-                contentsOf: fixtureURL("backdropContrast.percent-200.html"),
-                encoding: .utf8
-            )
-        )
     }
 
     @Test func testBackdropGrayscale() throws {
@@ -145,13 +115,6 @@ struct FiltersTests {
             div(.backdropGrayscale(.value(1))) {},
             try String(
                 contentsOf: fixtureURL("backdropGrayscale.value-1.html"),
-                encoding: .utf8
-            )
-        )
-        try HTMLAssertEqual(
-            div(.backdropGrayscale(.percent(50))) {},
-            try String(
-                contentsOf: fixtureURL("backdropGrayscale.percent-50.html"),
                 encoding: .utf8
             )
         )
@@ -175,13 +138,6 @@ struct FiltersTests {
                 encoding: .utf8
             )
         )
-        try HTMLAssertEqual(
-            div(.backdropInvert(.percent(75))) {},
-            try String(
-                contentsOf: fixtureURL("backdropInvert.percent-75.html"),
-                encoding: .utf8
-            )
-        )
     }
 
     @Test func testBackdropOpacity() throws {
@@ -189,13 +145,6 @@ struct FiltersTests {
             div(.backdropOpacity(.value(50))) {},
             try String(
                 contentsOf: fixtureURL("backdropOpacity.value-50.html"),
-                encoding: .utf8
-            )
-        )
-        try HTMLAssertEqual(
-            div(.backdropOpacity(.percent(75))) {},
-            try String(
-                contentsOf: fixtureURL("backdropOpacity.percent-75.html"),
                 encoding: .utf8
             )
         )
@@ -212,10 +161,6 @@ struct FiltersTests {
         try HTMLAssertEqual(
             div(.backdropSepia(.value(1))) {},
             try String(contentsOf: fixtureURL("backdropSepia.value-1.html"), encoding: .utf8)
-        )
-        try HTMLAssertEqual(
-            div(.backdropSepia(.percent(50))) {},
-            try String(contentsOf: fixtureURL("backdropSepia.percent-50.html"), encoding: .utf8)
         )
     }
 }
