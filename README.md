@@ -21,7 +21,11 @@ struct ProductPage: HTMLDocument {
     var title: String { "Featured product" }
 
     var body: some HTML {
-        main(.class("max-w-2xl mx-auto p-8")) {
+        main(
+            .maxWidth(.xxl),
+            .marginX(.auto),
+            .padding(.size(8))
+        ) {
             div(
                 .display(.flex), .flexDirection(.column), .gap(4),
                 .backgroundColor(.white), .borderWidth(.size(1)),
@@ -209,7 +213,7 @@ div(.backgroundColor(.gray.shade(900), variants: [.dark])) { ... }
 div(.display(.grid, variants: [.containerQuery])) { ... }
 div(.display(.grid, variants: [.namedContainerQuery("sidebar")])) { ... }
 
-// combined
+// combined - example generates `md:hover:flex` <- order of variants does matter
 div(.display(.flex, variants: [.hover, .md])) { ... }
 ```
 
@@ -255,7 +259,10 @@ var head: some HTML {
 
 ## Custom values
 
-For Tailwind utilities not covered by typed tokens, use the raw `.class()` modifier:
+> [!NOTE]
+> Arbitrary values are supported via typed `.arbitrary(String)` on spacing, sizing, inset, flex basis, line height, and other value-based tokens. CSS variable syntax (`(<property>)`) and uncommon utility combinations fall back to raw `.class()`.
+
+For Tailwind utilities not covered by typed tokens, use the raw `.class()` modifier (followings are just examples):
 
 ```swift
 // arbitrary value
@@ -277,9 +284,8 @@ The full test suite (169 snapshot tests across 17 suites) lives in [`Tests/Eleme
 ## Future directions
 
 - All Tailwind CSS v4 utility categories are implemented (190+ token types, 100% docs coverage).
-- Arbitrary value syntax (`[<value>]`) and CSS variable syntax (`(<property>)`) are available via raw `.class()` — type-safe wrappers possible for common patterns.
 
-PRs welcome.
+If you think something is missing, feel free to open an issue but PRs are always welcomed.
 
 ## License
 
