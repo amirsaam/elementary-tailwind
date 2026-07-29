@@ -29,7 +29,7 @@ public enum TWTOutlineStyle: String, TWToken, Sendable, Equatable, CaseIterable 
     case dashed = "outline-dashed"
     case dotted = "outline-dotted"
     case double = "outline-double"
-    case none = "outline-none"
+    case hidden = "outline-hidden"
 }
 
 /// Controls the CSS `outline-width` property.

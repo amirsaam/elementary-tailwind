@@ -4,7 +4,6 @@ import Elementary
 public enum TWTBorderCollapse: String, TWToken, Sendable, Equatable, CaseIterable {
     case collapse = "border-collapse"
     case separate = "border-separate"
-    case revert = "border-revert"
 }
 
 /// Controls the CSS `border-spacing` property.

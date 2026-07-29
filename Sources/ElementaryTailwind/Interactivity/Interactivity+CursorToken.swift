@@ -37,4 +37,5 @@ public enum TWTCursor: String, TWToken, Sendable, Equatable, CaseIterable {
     case nwseResize = "cursor-nwse-resize"
     case zoomIn = "cursor-zoom-in"
     case zoomOut = "cursor-zoom-out"
+    case allScroll = "cursor-all-scroll"
 }

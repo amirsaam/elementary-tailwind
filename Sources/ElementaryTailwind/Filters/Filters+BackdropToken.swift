@@ -5,12 +5,10 @@ import Elementary
 /// Controls the CSS `backdrop-filter: brightness()` property.
 public enum TWTBackdropBrightness: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-brightness-\(n)"
-        case .percent(let n): "backdrop-brightness-\(n)%"
         }
     }
 }
@@ -20,12 +18,10 @@ public enum TWTBackdropBrightness: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: contrast()` property.
 public enum TWTBackdropContrast: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-contrast-\(n)"
-        case .percent(let n): "backdrop-contrast-\(n)%"
         }
     }
 }
@@ -35,12 +31,10 @@ public enum TWTBackdropContrast: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: grayscale()` property.
 public enum TWTBackdropGrayscale: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-grayscale-\(n)"
-        case .percent(let n): "backdrop-grayscale-\(n)%"
         }
     }
 }
@@ -63,12 +57,10 @@ public enum TWTBackdropHueRotate: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: invert()` property.
 public enum TWTBackdropInvert: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-invert-\(n)"
-        case .percent(let n): "backdrop-invert-\(n)%"
         }
     }
 }
@@ -78,12 +70,10 @@ public enum TWTBackdropInvert: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: opacity()` property.
 public enum TWTBackdropOpacity: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-opacity-\(n)"
-        case .percent(let n): "backdrop-opacity-\(n)%"
         }
     }
 }
@@ -93,12 +83,10 @@ public enum TWTBackdropOpacity: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: saturate()` property.
 public enum TWTBackdropSaturate: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-saturate-\(n)"
-        case .percent(let n): "backdrop-saturate-\(n)%"
         }
     }
 }
@@ -108,12 +96,10 @@ public enum TWTBackdropSaturate: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: sepia()` property.
 public enum TWTBackdropSepia: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "backdrop-sepia-\(n)"
-        case .percent(let n): "backdrop-sepia-\(n)%"
         }
     }
 }

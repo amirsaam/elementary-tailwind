@@ -33,6 +33,7 @@ public enum TWTTransitionTimingFunction: String, TWToken, Sendable, Equatable, C
     case easeIn = "ease-in"
     case easeOut = "ease-out"
     case easeInOut = "ease-in-out"
+    case initial = "ease-initial"
 }
 
 // MARK: - TransitionDelay
@@ -53,5 +54,5 @@ public enum TWTTransitionDelay: TWToken, Sendable, Equatable {
 /// Controls the CSS `transition-behavior` property.
 public enum TWTTransitionBehavior: String, TWToken, Sendable, Equatable, CaseIterable {
     case normal = "transition-normal"
-    case allowDiscrete = "transition-allow-discrete"
+    case discrete = "transition-discrete"
 }

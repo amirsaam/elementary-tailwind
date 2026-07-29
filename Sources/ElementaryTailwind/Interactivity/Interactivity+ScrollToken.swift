@@ -8,7 +8,7 @@ public enum TWTScrollBehavior: String, TWToken, Sendable, Equatable, CaseIterabl
 
 /// Controls the CSS `scroll-snap-align` property.
 public enum TWTScrollSnapAlign: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "snap-none"
+    case none = "snap-align-none"
     case start = "snap-start"
     case end = "snap-end"
     case center = "snap-center"
@@ -20,6 +20,8 @@ public enum TWTScrollSnapType: String, TWToken, Sendable, Equatable, CaseIterabl
     case x = "snap-x"
     case y = "snap-y"
     case both = "snap-both"
+    case mandatory = "snap-mandatory"
+    case proximity = "snap-proximity"
 }
 
 /// Controls the CSS `scroll-snap-stop` property.
@@ -31,10 +33,12 @@ public enum TWTScrollSnapStop: String, TWToken, Sendable, Equatable, CaseIterabl
 /// Controls the CSS `scroll-margin` property.
 public enum TWTScrollMargin: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "scroll-m-\(n)"
+        case .arbitrary(let v): "scroll-m-[\(v)]"
         }
     }
 }
@@ -42,10 +46,12 @@ public enum TWTScrollMargin: TWToken, Sendable, Equatable {
 /// Controls the CSS `scroll-padding` property.
 public enum TWTScrollPadding: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "scroll-p-\(n)"
+        case .arbitrary(let v): "scroll-p-[\(v)]"
         }
     }
 }

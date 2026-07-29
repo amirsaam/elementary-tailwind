@@ -5,6 +5,7 @@ import Elementary
 /// Controls the CSS `filter: blur()` property.
 public enum TWTBlur: String, TWToken, Sendable, Equatable, CaseIterable {
     case none = "blur-none"
+    case xs = "blur-xs"
     case sm = "blur-sm"
     case md = "blur"
     case lg = "blur-lg"
@@ -17,12 +18,10 @@ public enum TWTBlur: String, TWToken, Sendable, Equatable, CaseIterable {
 /// Controls the CSS `filter: brightness()` property.
 public enum TWTBrightness: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "brightness-\(n)"
-        case .percent(let n): "brightness-\(n)%"
         }
     }
 }
@@ -32,12 +31,10 @@ public enum TWTBrightness: TWToken, Sendable, Equatable {
 /// Controls the CSS `filter: contrast()` property.
 public enum TWTContrast: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "contrast-\(n)"
-        case .percent(let n): "contrast-\(n)%"
         }
     }
 }
@@ -46,6 +43,7 @@ public enum TWTContrast: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `filter: drop-shadow()` property.
 public enum TWTDropShadow: String, TWToken, Sendable, Equatable, CaseIterable {
+    case xs = "drop-shadow-xs"
     case sm = "drop-shadow-sm"
     case md = "drop-shadow"
     case lg = "drop-shadow-lg"
@@ -59,12 +57,10 @@ public enum TWTDropShadow: String, TWToken, Sendable, Equatable, CaseIterable {
 /// Controls the CSS `filter: grayscale()` property.
 public enum TWTGrayscale: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "grayscale-\(n)"
-        case .percent(let n): "grayscale-\(n)%"
         }
     }
 }
@@ -87,12 +83,10 @@ public enum TWTHueRotate: TWToken, Sendable, Equatable {
 /// Controls the CSS `filter: invert()` property.
 public enum TWTInvert: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "invert-\(n)"
-        case .percent(let n): "invert-\(n)%"
         }
     }
 }
@@ -102,12 +96,10 @@ public enum TWTInvert: TWToken, Sendable, Equatable {
 /// Controls the CSS `filter: saturate()` property.
 public enum TWTSaturate: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "saturate-\(n)"
-        case .percent(let n): "saturate-\(n)%"
         }
     }
 }
@@ -117,12 +109,10 @@ public enum TWTSaturate: TWToken, Sendable, Equatable {
 /// Controls the CSS `filter: sepia()` property.
 public enum TWTSepia: TWToken, Sendable, Equatable {
     case value(Int)
-    case percent(Int)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "sepia-\(n)"
-        case .percent(let n): "sepia-\(n)%"
         }
     }
 }
@@ -132,6 +122,7 @@ public enum TWTSepia: TWToken, Sendable, Equatable {
 /// Controls the CSS `backdrop-filter: blur()` property.
 public enum TWTBackdropBlur: String, TWToken, Sendable, Equatable, CaseIterable {
     case none = "backdrop-blur-none"
+    case xs = "backdrop-blur-xs"
     case sm = "backdrop-blur-sm"
     case md = "backdrop-blur"
     case lg = "backdrop-blur-lg"

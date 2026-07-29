@@ -134,7 +134,7 @@ extension MarkupAttribute {
     }
 
     /// Controls how text wraps when it exceeds the container width.
-    /// Produces `break-*` classes (e.g. `break-normal`, `break-words`, `break-all`, `break-keep`).
+    /// Produces `break-*` classes (e.g. `break-normal`, `break-all`, `break-keep`).
     public static func wordBreak(_ value: TWTWordBreak, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",

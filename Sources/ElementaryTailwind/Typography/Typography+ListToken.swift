@@ -7,8 +7,18 @@ public enum TWTListStylePosition: String, TWToken, Sendable, Equatable, CaseIter
 }
 
 /// Controls the CSS `list-style-type` property.
-public enum TWTListStyle: String, TWToken, Sendable, Equatable, CaseIterable {
-    case disc = "list-disc"
-    case decimal = "list-decimal"
-    case none = "list-none"
+public enum TWTListStyleType: TWToken, Sendable, Equatable {
+    case disc
+    case decimal
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .disc: "list-disc"
+        case .decimal: "list-decimal"
+        case .none: "list-none"
+        case .arbitrary(let v): "list-[\(v)]"
+        }
+    }
 }

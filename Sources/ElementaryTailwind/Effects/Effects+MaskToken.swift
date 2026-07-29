@@ -2,14 +2,12 @@ import Elementary
 
 /// Controls the CSS `text-shadow` property.
 public enum TWTTextShadow: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "shadow-none"
-    case sm = "shadow-sm"
-    case normal = "shadow"
-    case md = "shadow-md"
-    case lg = "shadow-lg"
-    case xl = "shadow-xl"
-    case xxl = "shadow-2xl"
-    case inner = "shadow-inner"
+    case xxs = "text-shadow-2xs"
+    case xs = "text-shadow-xs"
+    case sm = "text-shadow-sm"
+    case md = "text-shadow-md"
+    case lg = "text-shadow-lg"
+    case none = "text-shadow-none"
 }
 
 /// Controls the CSS `mask-clip` property.
@@ -35,9 +33,9 @@ public enum TWTMaskImage: String, TWToken, Sendable, Equatable, CaseIterable {
 
 /// Controls the CSS `mask-mode` property.
 public enum TWTMaskMode: String, TWToken, Sendable, Equatable, CaseIterable {
-    case alpha = "mask-mode-alpha"
-    case luminance = "mask-mode-luminance"
-    case match = "mask-mode-match"
+    case alpha = "mask-alpha"
+    case luminance = "mask-luminance"
+    case match = "mask-match"
 }
 
 /// Controls the CSS `mask-origin` property.

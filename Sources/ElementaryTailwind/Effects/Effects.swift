@@ -62,7 +62,7 @@ extension MarkupAttribute {
     }
 
     /// Adds a shadow effect behind the text.
-    /// Produces `shadow-*` classes (e.g. `shadow-sm`, `shadow-md`, `shadow-lg`).
+    /// Produces `text-shadow-*` classes (e.g. `text-shadow-xs`, `text-shadow-sm`, `text-shadow-md`, `text-shadow-lg`).
     public static func textShadow(_ value: TWTTextShadow, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",

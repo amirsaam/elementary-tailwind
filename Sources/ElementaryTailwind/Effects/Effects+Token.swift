@@ -4,12 +4,13 @@ import Elementary
 
 /// Controls the CSS `box-shadow` property.
 public enum TWTBoxShadow: String, TWToken, Sendable, Equatable, CaseIterable {
+    case xxs = "shadow-2xs"
+    case xs = "shadow-xs"
     case sm = "shadow-sm"
-    case md = "shadow"
+    case md = "shadow-md"
     case lg = "shadow-lg"
     case xl = "shadow-xl"
     case xxl = "shadow-2xl"
-    case inner = "shadow-inner"
     case none = "shadow-none"
 }
 

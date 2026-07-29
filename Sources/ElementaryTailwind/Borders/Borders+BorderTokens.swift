@@ -15,6 +15,7 @@ public struct TWTBorderColor: TWToken, Sendable, Equatable {
 /// Controls the CSS `border-radius` property.
 public enum TWTBorderRadius: String, TWToken, Sendable, Equatable, CaseIterable {
     case none = "rounded-none"
+    case xs = "rounded-xs"
     case sm = "rounded-sm"
     case md = "rounded"
     case lg = "rounded-lg"
