@@ -17,11 +17,12 @@ public enum TWTBorderRadius: String, TWToken, Sendable, Equatable, CaseIterable 
     case none = "rounded-none"
     case xs = "rounded-xs"
     case sm = "rounded-sm"
-    case md = "rounded"
+    case md = "rounded-md"
     case lg = "rounded-lg"
     case xl = "rounded-xl"
     case xxl = "rounded-2xl"
     case xxxl = "rounded-3xl"
+    case fourxl = "rounded-4xl"
     case full = "rounded-full"
 }
 

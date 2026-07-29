@@ -2,7 +2,7 @@ import Elementary
 
 extension MarkupAttribute {
     /// Applies a Gaussian blur to the element.
-    /// Produces `blur-*` classes (e.g. `blur-sm`, `blur`, `blur-lg`, `blur-2xl`).
+    /// Produces `blur-*` classes (e.g. `blur-sm`, `blur-md`, `blur-lg`, `blur-2xl`).
     public static func blur(_ value: TWTBlur, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -32,7 +32,7 @@ extension MarkupAttribute {
     }
 
     /// Adds a drop shadow filter to the element.
-    /// Produces `drop-shadow-*` classes (e.g. `drop-shadow-sm`, `drop-shadow`, `drop-shadow-lg`).
+    /// Produces `drop-shadow-*` classes (e.g. `drop-shadow-sm`, `drop-shadow-md`, `drop-shadow-lg`).
     public static func dropShadow(_ value: TWTDropShadow, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
@@ -92,7 +92,7 @@ extension MarkupAttribute {
     }
 
     /// Applies a Gaussian blur to the area behind the element.
-    /// Produces `backdrop-blur-*` classes (e.g. `backdrop-blur-sm`, `backdrop-blur`, `backdrop-blur-lg`).
+    /// Produces `backdrop-blur-*` classes (e.g. `backdrop-blur-sm`, `backdrop-blur-md`, `backdrop-blur-lg`).
     public static func backdropBlur(_ value: TWTBackdropBlur, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",

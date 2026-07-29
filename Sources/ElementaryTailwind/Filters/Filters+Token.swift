@@ -7,10 +7,11 @@ public enum TWTBlur: String, TWToken, Sendable, Equatable, CaseIterable {
     case none = "blur-none"
     case xs = "blur-xs"
     case sm = "blur-sm"
-    case md = "blur"
+    case md = "blur-md"
     case lg = "blur-lg"
     case xl = "blur-xl"
     case xxl = "blur-2xl"
+    case xxxl = "blur-3xl"
 }
 
 // MARK: - Brightness
@@ -45,7 +46,7 @@ public enum TWTContrast: TWToken, Sendable, Equatable {
 public enum TWTDropShadow: String, TWToken, Sendable, Equatable, CaseIterable {
     case xs = "drop-shadow-xs"
     case sm = "drop-shadow-sm"
-    case md = "drop-shadow"
+    case md = "drop-shadow-md"
     case lg = "drop-shadow-lg"
     case xl = "drop-shadow-xl"
     case xxl = "drop-shadow-2xl"
@@ -124,8 +125,9 @@ public enum TWTBackdropBlur: String, TWToken, Sendable, Equatable, CaseIterable 
     case none = "backdrop-blur-none"
     case xs = "backdrop-blur-xs"
     case sm = "backdrop-blur-sm"
-    case md = "backdrop-blur"
+    case md = "backdrop-blur-md"
     case lg = "backdrop-blur-lg"
     case xl = "backdrop-blur-xl"
     case xxl = "backdrop-blur-2xl"
+    case xxxl = "backdrop-blur-3xl"
 }

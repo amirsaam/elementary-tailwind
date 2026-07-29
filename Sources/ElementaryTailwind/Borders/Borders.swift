@@ -36,7 +36,7 @@ extension MarkupAttribute {
     }
 
     /// Rounds the corners of the element.
-    /// Produces `rounded-*` classes (e.g. `rounded-sm`, `rounded`, `rounded-lg`, `rounded-full`).
+    /// Produces `rounded-*` classes (e.g. `rounded-sm`, `rounded-md`, `rounded-lg`, `rounded-full`).
     public static func borderRadius(_ value: TWTBorderRadius, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
