@@ -143,21 +143,37 @@ extension MarkupAttribute {
     }
 
     /// Positions the element from all edges of its containing block.
-    /// Produces `inset-*` classes (e.g. `inset-0`, `inset-4`, `inset-auto`, `inset-full`).
-    public static func inset(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `inset-*` classes (e.g. `inset-0`, `inset-4`, `-inset-4`, `inset-auto`).
+    public static func inset(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "inset-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-inset-\(value.rawValue)"
+                    : "inset-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the stacking order of positioned elements.
-    /// Produces `z-*` classes (e.g. `z-10`, `z-50`, `z-auto`).
-    public static func zIndex(_ value: TWTZIndex, variants: [TWVariant] = []) -> Self {
+    /// Produces `z-*` classes (e.g. `z-10`, `-z-10`, `z-auto`).
+    public static func zIndex(
+        _ value: TWTZIndex,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -183,11 +199,18 @@ extension MarkupAttribute {
     }
 
     /// Sets the visual order of the element within its container.
-    /// Produces `order-*` classes (e.g. `order-1`, `order-first`, `order-last`, `order-none`).
-    public static func order(_ value: TWTOrder, variants: [TWVariant] = []) -> Self {
+    /// Produces `order-*` classes (e.g. `order-1`, `-order-1`, `order-first`, `order-none`).
+    public static func order(
+        _ value: TWTOrder,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
@@ -378,61 +401,115 @@ extension MarkupAttribute {
     }
 
     /// Positions the element from the top edge of its container.
-    /// Produces `top-*` classes (e.g. `top-0`, `top-4`, `top-auto`, `top-full`).
-    public static func insetTop(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `top-*` classes (e.g. `top-0`, `-top-4`, `top-auto`).
+    public static func insetTop(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "top-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-top-\(value.rawValue)"
+                    : "top-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Positions the element from the right edge of its container.
-    /// Produces `right-*` classes (e.g. `right-0`, `right-4`, `right-auto`).
-    public static func insetRight(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `right-*` classes (e.g. `right-0`, `-right-4`, `right-auto`).
+    public static func insetRight(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "right-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-right-\(value.rawValue)"
+                    : "right-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Positions the element from the bottom edge of its container.
-    /// Produces `bottom-*` classes (e.g. `bottom-0`, `bottom-4`, `bottom-auto`).
-    public static func insetBottom(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `bottom-*` classes (e.g. `bottom-0`, `-bottom-4`, `bottom-auto`).
+    public static func insetBottom(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "bottom-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-bottom-\(value.rawValue)"
+                    : "bottom-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Positions the element from the left edge of its container.
-    /// Produces `left-*` classes (e.g. `left-0`, `left-4`, `left-auto`).
-    public static func insetLeft(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `left-*` classes (e.g. `left-0`, `-left-4`, `left-auto`).
+    public static func insetLeft(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "left-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-left-\(value.rawValue)"
+                    : "left-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Positions the element from both the left and right edges.
-    /// Produces `inset-x-*` classes (e.g. `inset-x-0`, `inset-x-4`, `inset-x-auto`).
-    public static func insetX(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `inset-x-*` classes (e.g. `inset-x-0`, `-inset-x-4`, `inset-x-auto`).
+    public static func insetX(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "inset-x-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-inset-x-\(value.rawValue)"
+                    : "inset-x-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Positions the element from both the top and bottom edges.
-    /// Produces `inset-y-*` classes (e.g. `inset-y-0`, `inset-y-4`, `inset-y-auto`).
-    public static func insetY(_ value: TWTInset, variants: [TWVariant] = []) -> Self {
+    /// Produces `inset-y-*` classes (e.g. `inset-y-0`, `-inset-y-4`, `inset-y-auto`).
+    public static func insetY(
+        _ value: TWTInset,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: "inset-y-\(value.rawValue)"),
+            value: TWVariant.apply(
+                variants,
+                to: negative
+                    ? "-inset-y-\(value.rawValue)"
+                    : "inset-y-\(value.rawValue)"
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

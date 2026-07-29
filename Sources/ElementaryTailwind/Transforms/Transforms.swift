@@ -2,41 +2,69 @@ import Elementary
 
 extension MarkupAttribute {
     /// Scales the element along the X and Y axes.
-    /// Produces `scale-*` classes (e.g. `scale-50`, `scale-100`, `scale-150`).
-    public static func scale(_ value: TWTScale, variants: [TWVariant] = []) -> Self {
+    /// Produces `scale-*` classes (e.g. `scale-50`, `-scale-50`, `scale-150`).
+    public static func scale(
+        _ value: TWTScale,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Rotates the element clockwise or counterclockwise.
-    /// Produces `rotate-*` classes (e.g. `rotate-0`, `rotate-45`, `rotate-90`).
-    public static func rotate(_ value: TWTRotate, variants: [TWVariant] = []) -> Self {
+    /// Produces `rotate-*` classes (e.g. `rotate-45`, `-rotate-45`, `rotate-180`).
+    public static func rotate(
+        _ value: TWTRotate,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Moves the element along the X and Y axes.
-    /// Produces `translate-*` classes (e.g. `translate-x-4`, `translate-y-8`, `translate-x-full`).
-    public static func translate(_ value: TWTTranslate, variants: [TWVariant] = []) -> Self {
+    /// Produces `translate-*` classes (e.g. `translate-x-4`, `-translate-x-4`, `translate-x-full`).
+    public static func translate(
+        _ value: TWTTranslate,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Tilts the element along the X and Y axes.
-    /// Produces `skew-*` classes (e.g. `skew-x-3`, `skew-y-6`, `skew-x-12`).
-    public static func skew(_ value: TWTSkew, variants: [TWVariant] = []) -> Self {
+    /// Produces `skew-*` classes (e.g. `skew-x-3`, `-skew-x-3`, `skew-y-6`).
+    public static func skew(
+        _ value: TWTSkew,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

@@ -222,174 +222,239 @@ extension MarkupAttribute {
     }
 
     /// Sets the scroll margin on all sides of a snap target.
-    /// Produces `scroll-m-*` classes (e.g. `scroll-m-4`, `scroll-m-8`).
-    public static func scrollMargin(_ value: TWTScrollMargin, variants: [TWVariant] = []) -> Self {
+    /// Produces `scroll-m-*` classes (e.g. `scroll-m-4`, `-scroll-m-4`).
+    public static func scrollMargin(
+        _ value: TWTScrollMargin,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the scroll padding on all sides of a snap container.
-    /// Produces `scroll-p-*` classes (e.g. `scroll-p-4`, `scroll-p-8`).
-    public static func scrollPadding(_ value: TWTScrollPadding, variants: [TWVariant] = []) -> Self
-    {
+    /// Produces `scroll-p-*` classes (e.g. `scroll-p-4`, `-scroll-p-4`).
+    public static func scrollPadding(
+        _ value: TWTScrollPadding,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the horizontal scroll margin (left + right).
-    /// Produces `scroll-mx-*` classes (e.g. `scroll-mx-4`, `scroll-mx-8`).
-    public static func scrollMarginX(_ value: TWTScrollMarginX, variants: [TWVariant] = []) -> Self
-    {
+    /// Produces `scroll-mx-*` classes (e.g. `scroll-mx-4`, `-scroll-mx-4`).
+    public static func scrollMarginX(
+        _ value: TWTScrollMarginX,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the vertical scroll margin (top + bottom).
-    /// Produces `scroll-my-*` classes (e.g. `scroll-my-4`, `scroll-my-8`).
-    public static func scrollMarginY(_ value: TWTScrollMarginY, variants: [TWVariant] = []) -> Self
-    {
+    /// Produces `scroll-my-*` classes (e.g. `scroll-my-4`, `-scroll-my-4`).
+    public static func scrollMarginY(
+        _ value: TWTScrollMarginY,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the top scroll margin.
-    /// Produces `scroll-mt-*` classes (e.g. `scroll-mt-4`, `scroll-mt-8`).
+    /// Produces `scroll-mt-*` classes (e.g. `scroll-mt-4`, `-scroll-mt-4`).
     public static func scrollMarginTop(
         _ value: TWTScrollMarginTop,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the right scroll margin.
-    /// Produces `scroll-mr-*` classes (e.g. `scroll-mr-4`, `scroll-mr-8`).
+    /// Produces `scroll-mr-*` classes (e.g. `scroll-mr-4`, `-scroll-mr-4`).
     public static func scrollMarginRight(
         _ value: TWTScrollMarginRight,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the bottom scroll margin.
-    /// Produces `scroll-mb-*` classes (e.g. `scroll-mb-4`, `scroll-mb-8`).
+    /// Produces `scroll-mb-*` classes (e.g. `scroll-mb-4`, `-scroll-mb-4`).
     public static func scrollMarginBottom(
         _ value: TWTScrollMarginBottom,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the left scroll margin.
-    /// Produces `scroll-ml-*` classes (e.g. `scroll-ml-4`, `scroll-ml-8`).
+    /// Produces `scroll-ml-*` classes (e.g. `scroll-ml-4`, `-scroll-ml-4`).
     public static func scrollMarginLeft(
         _ value: TWTScrollMarginLeft,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the horizontal scroll padding of the snap container.
-    /// Produces `scroll-px-*` classes (e.g. `scroll-px-4`, `scroll-px-8`).
+    /// Produces `scroll-px-*` classes (e.g. `scroll-px-4`, `-scroll-px-4`).
     public static func scrollPaddingX(
         _ value: TWTScrollPaddingX,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the vertical scroll padding of the snap container.
-    /// Produces `scroll-py-*` classes (e.g. `scroll-py-4`, `scroll-py-8`).
+    /// Produces `scroll-py-*` classes (e.g. `scroll-py-4`, `-scroll-py-4`).
     public static func scrollPaddingY(
         _ value: TWTScrollPaddingY,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the top scroll padding of the snap container.
-    /// Produces `scroll-pt-*` classes (e.g. `scroll-pt-4`, `scroll-pt-8`).
+    /// Produces `scroll-pt-*` classes (e.g. `scroll-pt-4`, `-scroll-pt-4`).
     public static func scrollPaddingTop(
         _ value: TWTScrollPaddingTop,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the right scroll padding of the snap container.
-    /// Produces `scroll-pr-*` classes (e.g. `scroll-pr-4`, `scroll-pr-8`).
+    /// Produces `scroll-pr-*` classes (e.g. `scroll-pr-4`, `-scroll-pr-4`).
     public static func scrollPaddingRight(
         _ value: TWTScrollPaddingRight,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the bottom scroll padding of the snap container.
-    /// Produces `scroll-pb-*` classes (e.g. `scroll-pb-4`, `scroll-pb-8`).
+    /// Produces `scroll-pb-*` classes (e.g. `scroll-pb-4`, `-scroll-pb-4`).
     public static func scrollPaddingBottom(
         _ value: TWTScrollPaddingBottom,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the left scroll padding of the snap container.
-    /// Produces `scroll-pl-*` classes (e.g. `scroll-pl-4`, `scroll-pl-8`).
+    /// Produces `scroll-pl-*` classes (e.g. `scroll-pl-4`, `-scroll-pl-4`).
     public static func scrollPaddingLeft(
         _ value: TWTScrollPaddingLeft,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

@@ -78,74 +78,120 @@ extension MarkupAttribute {
     }
 
     /// Sets the margin on all sides of the element.
-    /// Produces `m-*` classes (e.g. `m-4`, `m-auto`).
-    public static func margin(_ value: TWTMargin, variants: [TWVariant] = []) -> Self {
+    /// Produces `m-*` classes (e.g. `m-4`, `-m-4`, `m-auto`).
+    public static func margin(
+        _ value: TWTMargin,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the horizontal margin (left + right).
-    /// Produces `mx-*` classes (e.g. `mx-4`, `mx-auto`).
-    public static func marginX(_ value: TWTMarginX, variants: [TWVariant] = []) -> Self {
+    /// Produces `mx-*` classes (e.g. `mx-4`, `-mx-4`, `mx-auto`).
+    public static func marginX(
+        _ value: TWTMarginX,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the vertical margin (top + bottom).
-    /// Produces `my-*` classes (e.g. `my-4`, `my-auto`).
-    public static func marginY(_ value: TWTMarginY, variants: [TWVariant] = []) -> Self {
+    /// Produces `my-*` classes (e.g. `my-4`, `-my-4`, `my-auto`).
+    public static func marginY(
+        _ value: TWTMarginY,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the top margin.
-    /// Produces `mt-*` classes (e.g. `mt-4`, `mt-auto`).
-    public static func marginTop(_ value: TWTMarginTop, variants: [TWVariant] = []) -> Self {
+    /// Produces `mt-*` classes (e.g. `mt-4`, `-mt-4`, `mt-auto`).
+    public static func marginTop(
+        _ value: TWTMarginTop,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the right margin.
-    /// Produces `mr-*` classes (e.g. `mr-4`, `mr-auto`).
-    public static func marginRight(_ value: TWTMarginRight, variants: [TWVariant] = []) -> Self {
+    /// Produces `mr-*` classes (e.g. `mr-4`, `-mr-4`, `mr-auto`).
+    public static func marginRight(
+        _ value: TWTMarginRight,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the bottom margin.
-    /// Produces `mb-*` classes (e.g. `mb-4`, `mb-auto`).
+    /// Produces `mb-*` classes (e.g. `mb-4`, `-mb-4`, `mb-auto`).
     public static func marginBottom(
         _ value: TWTMarginBottom,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the left margin.
-    /// Produces `ml-*` classes (e.g. `ml-4`, `ml-auto`).
-    public static func marginLeft(_ value: TWTMarginLeft, variants: [TWVariant] = []) -> Self {
+    /// Produces `ml-*` classes (e.g. `ml-4`, `-ml-4`, `ml-auto`).
+    public static func marginLeft(
+        _ value: TWTMarginLeft,
+        negative: Bool = false,
+        variants: [TWVariant] = []
+    ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants,
+                to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
