@@ -6,7 +6,12 @@ Type-safe [Tailwind CSS](https://tailwindcss.com/) utilities for [Elementary](ht
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
-| 0.1.xxx            | 0.8.0      | 4.3.3       |
+| 0.2.xxx            | 0.8.0      | 4.3.3       |
+
+
+> [!CAUTION]
+> DO NOT USE 0.1.xxx TAGS
+> There was some mismatches in that versions 
 
 ```swift
 import Elementary
@@ -22,7 +27,7 @@ struct ProductPage: HTMLDocument {
                 .backgroundColor(.white), .borderWidth(.size(1)),
                 .borderColor(.gray.shade(200)), .borderRadius(.lg), .p(8)
             ) {
-                h1(.fontSize(.threeXL), .fontWeight(.bold), .textColor(.gray.shade(900))) {
+                h1(.fontSize(.xxxl), .fontWeight(.bold), .textColor(.gray.shade(900))) {
                     "Featured product"
                 }
                 p(.fontSize(.base), .textColor(.gray.shade(500))) {
@@ -165,8 +170,8 @@ All 190+ token types across 16 Tailwind CSS categories:
 
 | Category | Methods | Examples |
 |---|---|---|
-| **Layout** | `.display`, `.position`, `.inset`, `.zIndex`, `.overflow`, `.visibility`, `.float`, `.clear`, `.isolation`, `.columns`, `.break*`, `.boxSizing`, `.objectFit`, `.objectPosition`, `.aspect` | `.display(.flex)`, `.position(.absolute)`, `.zIndex(.number(10))` |
-| **Flexbox & Grid** | `.flexDirection`, `.flexWrap`, `.flex`, `.flexGrow`, `.flexShrink`, `.items`, `.justify`, `.placeContent`, `.placeItems`, `.placeSelf`, `.alignContent`, `.alignSelf`, `.justifyItems`, `.justifySelf`, `.order`, `.gap`, `.gridTemplate*`, `.gridColumn`, `.gridRow`, `.gridAuto*` | `.flexDirection(.column)`, `.items(.center)`, `.gap(4)` |
+| **Layout** | `.display`, `.position`, `.inset`, `.insetTop`, `.insetRight`, `.insetBottom`, `.insetLeft`, `.insetX`, `.insetY`, `.zIndex`, `.overflow`, `.overflowX`, `.overflowY`, `.overscrollBehavior`, `.overscrollBehaviorX`, `.overscrollBehaviorY`, `.visibility`, `.float`, `.clear`, `.isolation`, `.columns`, `.breakAfter`, `.breakBefore`, `.breakInside`, `.boxSizing`, `.boxDecorationBreak`, `.objectFit`, `.objectPosition`, `.aspect` | `.display(.flex)`, `.position(.absolute)`, `.zIndex(.number(10))` |
+| **Flexbox & Grid** | `.flexDirection`, `.flexWrap`, `.flex`, `.flexGrow`, `.flexShrink`, `.flexBasis`, `.items`, `.justify`, `.placeContent`, `.placeItems`, `.placeSelf`, `.alignContent`, `.alignSelf`, `.justifyItems`, `.justifySelf`, `.order`, `.gap`, `.gapX`, `.gapY`, `.gridTemplate*`, `.gridColumn`, `.gridRow`, `.gridAuto*` | `.flexDirection(.column)`, `.items(.center)`, `.gap(4)` |
 | **Spacing** | `.padding`, `.paddingX`, `.paddingY`, `.paddingTop`, `.paddingRight`, `.paddingBottom`, `.paddingLeft`, `.margin`, `.marginX`, `.marginY`, `.marginTop`, `.marginRight`, `.marginBottom`, `.marginLeft`, `.gap`, `.spaceX`, `.spaceY` | `.p(8)`, `.padding(.x(4), .y(2))`, `.mt(4)`, `.mx(.auto)` |
 | **Sizing** | `.width`, `.minWidth`, `.maxWidth`, `.height`, `.minHeight`, `.maxHeight`, `.aspect` | `.width(.full)`, `.height(.screen)`, `.maxWidth(.xl)` |
 | **Typography** | `.fontFamily`, `.fontSize`, `.fontWeight`, `.fontStyle`, `.fontSmoothing`, `.fontStretch`, `.fontVariantNumeric`, `.fontFeatureSettings`, `.letterSpacing`, `.lineClamp`, `.lineHeight`, `.textAlign`, `.textColor`, `.textDecoration`, `.textDecorationColor`, `.textDecorationStyle`, `.textDecorationThickness`, `.underlineOffset`, `.textTransform`, `.textOverflow`, `.textWrap`, `.textIndent`, `.verticalAlign`, `.whitespace`, `.wordBreak`, `.hyphens`, `.tabSize`, `.listStyle`, `.listStylePosition`, `.listStyleImage`, `.content` | `.fontSize(.lg)`, `.textColor(.blue)`, `.fontWeight(.bold)` |
