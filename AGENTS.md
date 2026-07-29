@@ -13,7 +13,7 @@ Single product:
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
-| 0.1.xxx            | 0.8.0      | 4.3.3       |
+| 0.2.xxx            | 0.8.0      | 4.3.3       |
 
 ## Dependency chain
 
@@ -105,16 +105,21 @@ extension MarkupAttribute {
     /// Sets the CSS `<property>` property.
     public static func <method>(
         _ value: TWT<Type>,
+        negative: Bool = false,
         variants: [TWVariant] = []
     ) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: value.rawValue),
+            value: TWVariant.apply(
+                variants, to: negative ? "-\(value.rawValue)" : value.rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 }
 ```
+
+Spacing/sizing/transform methods that support negative values (margin, inset, z-index, order, translate, rotate, scale, skew, scroll-margin, scroll-padding) include a `negative: Bool = false` parameter. When `true`, a `-` prefix is prepended to the generated class (e.g., `.margin(.size(4), negative: true)` → `-m-4`).
 
 Color-based methods accept `TWColor` and optional `opacity: Int?` param, wrapping in a `TWT*Color` struct internally.
 

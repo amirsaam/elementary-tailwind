@@ -110,6 +110,12 @@ div(.display(.flex), .items(.center), .gap(4), .p(8)) {
 ```
 
 ```swift
+// layout — display, position, inset, z-index, order
+div(.display(.flex), .position(.absolute)) { ... }
+div(.inset(.size(4), negative: true)) { ... }  // -> -inset-4
+div(.zIndex(.number(10), negative: true)) { ... }  // -> -z-10
+div(.order(.number(3), negative: true)) { ... }  // -> -order-3
+
 // variants — hover, focus, responsive, dark mode, container queries
 button(.backgroundColor(.blue, variants: [.hover])) { "Hover me" }
 div(.display(.grid, variants: [.md, .lg])) { ... }
@@ -129,6 +135,10 @@ div(.backgroundColor(.gray.shade(900), variants: [.dark])) { ... }
 // spacing — fractional values, directional, arbitrary
 div(.margin(.top(4)), .padding(.x(1.5))) { ... }
 div(.margin(.left(.arbitrary("20px")))) { ... }
+
+// negative values — prepends `-` to the class
+div(.margin(.size(4), negative: true)) { ... }  // -> -m-4
+div(.marginX(.size(4), negative: true)) { ... }  // -> -mx-4
 ```
 
 ```swift
@@ -147,6 +157,19 @@ div(.backdropBlur(.lg), .backdropBrightness(75)) { ... }
 // transforms — scale, rotate, translate, skew, perspective, 3D
 div(.scale(.all(110)), .rotate(.z(45))) { ... }
 div(.transform(.gpu), .perspective(.value(500)), .rotate(.x(15))) { ... }
+
+// negative values — prepends `-` to the class
+div(.scale(.all(50), negative: true)) { ... }      // -> -scale-50
+div(.translate(.x("4"), negative: true)) { ... }    // -> -translate-x-4
+```
+
+```swift
+// interactivity — cursor, scroll snap, scroll margin/padding
+div(.cursor(.pointer), .scrollSnapAlign(.start)) { ... }
+
+// negative values for scroll-margin/padding — prepends `-` to the class
+div(.scrollMargin(.value(4), negative: true)) { ... }    // -> -scroll-m-4
+div(.scrollPadding(.value(4), negative: true)) { ... }   // -> -scroll-p-4
 ```
 
 ```swift
