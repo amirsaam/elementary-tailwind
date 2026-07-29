@@ -10,6 +10,10 @@ struct TransformsTests {
             try String(contentsOf: fixtureURL("scale.all-50.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.scale(.all(50), negative: true)) {},
+            try String(contentsOf: fixtureURL("scale.negative-50.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.scale(.x(75))) {},
             try String(contentsOf: fixtureURL("scale.x-75.html"), encoding: .utf8)
         )
@@ -25,6 +29,10 @@ struct TransformsTests {
             try String(contentsOf: fixtureURL("rotate.z-45.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.rotate(.z(45), negative: true)) {},
+            try String(contentsOf: fixtureURL("rotate.negative-45.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.rotate(.zero)) {},
             try String(contentsOf: fixtureURL("rotate.zero.html"), encoding: .utf8)
         )
@@ -36,6 +44,10 @@ struct TransformsTests {
             try String(contentsOf: fixtureURL("translate.x-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.translate(.x("4"), negative: true)) {},
+            try String(contentsOf: fixtureURL("translate.negative-x-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.translate(.zero)) {},
             try String(contentsOf: fixtureURL("translate.zero.html"), encoding: .utf8)
         )
@@ -45,6 +57,10 @@ struct TransformsTests {
         try HTMLAssertEqual(
             div(.skew(.x(12))) {},
             try String(contentsOf: fixtureURL("skew.x-12.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.skew(.x(12), negative: true)) {},
+            try String(contentsOf: fixtureURL("skew.negative-x-12.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.skew(.zero)) {},

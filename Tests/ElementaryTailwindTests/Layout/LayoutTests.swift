@@ -206,6 +206,10 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("inset-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.inset(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("inset-negative-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.inset(.zero)) {},
             try String(contentsOf: fixtureURL("inset-0.html"), encoding: .utf8)
         )
@@ -233,6 +237,10 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("top-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.insetTop(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("top-negative-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.insetTop(.zero)) {},
             try String(contentsOf: fixtureURL("top-0.html"), encoding: .utf8)
         )
@@ -245,12 +253,20 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("right-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.insetRight(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("right-negative-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.insetRight(.zero)) {},
             try String(contentsOf: fixtureURL("right-0.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.insetBottom(.size(4))) {},
             try String(contentsOf: fixtureURL("bottom-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.insetBottom(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("bottom-negative-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.insetBottom(.zero)) {},
@@ -261,12 +277,20 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("left-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.insetLeft(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("left-negative-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.insetLeft(.zero)) {},
             try String(contentsOf: fixtureURL("left-0.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.insetX(.size(4))) {},
             try String(contentsOf: fixtureURL("inset-x-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.insetX(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("inset-x-negative-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.insetX(.zero)) {},
@@ -281,6 +305,10 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("inset-y-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.insetY(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("inset-y-negative-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.insetY(.zero)) {},
             try String(contentsOf: fixtureURL("inset-y-0.html"), encoding: .utf8)
         )
@@ -290,6 +318,10 @@ struct LayoutTests {
         try HTMLAssertEqual(
             div(.zIndex(.number(10))) {},
             try String(contentsOf: fixtureURL("z-10.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.zIndex(.number(10), negative: true)) {},
+            try String(contentsOf: fixtureURL("z-negative-10.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.zIndex(.auto)) {},
@@ -327,6 +359,10 @@ struct LayoutTests {
         try HTMLAssertEqual(
             div(.order(.number(3))) {},
             try String(contentsOf: fixtureURL("order-3.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.order(.number(3), negative: true)) {},
+            try String(contentsOf: fixtureURL("order-negative-3.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
             div(.order(.first, variants: [.hover])) {},

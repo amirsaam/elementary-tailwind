@@ -33,12 +33,24 @@ struct SpacingTests {
             try String(contentsOf: fixtureURL("margin.size-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.margin(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("margin.negative.size-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.marginX(.size(4))) {},
             try String(contentsOf: fixtureURL("marginX.size-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.marginX(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("marginX.negative.size-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.marginY(.auto)) {},
             try String(contentsOf: fixtureURL("marginY.auto.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.marginY(.size(4), negative: true)) {},
+            try String(contentsOf: fixtureURL("marginY.negative.size-4.html"), encoding: .utf8)
         )
     }
 }
