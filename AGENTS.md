@@ -53,10 +53,23 @@ Lint must pass before committing.
 - `<Category>+Token.swift` — token enums/structs (`TWToken` conforming, `Sendable`, `Equatable`)
 
 Core files at root:
-- `TWToken.swift` — `TWToken` protocol + `.class()` overload accepting tokens + `twFormat()` for numeric formatting
+- `TWToken.swift` — `TWToken` protocol + `.class()` overload accepting tokens + `twFormat()` for numeric formatting + `HTMLTag._twPhantom` phantom tag + `twValue()` helper for extracting class strings
 - `TWVariant.swift` — `TWVariant` enum (pseudo-classes, responsive, dark, container queries, group/peer, arbitrary selector)
 - `TWColor.swift` — shared color type (`TWColor` struct with `.red`, `.blue`, `.white`, `.black`, `.transparent`, `.gray.shade(500)` pattern)
 - `TailwindCSS.swift` — `setupTailwind()` CDN helper
+
+### String extraction
+
+Use `twValue()` to capture modifier output as a concrete `String` outside an HTML builder. Uses the `HTMLTag._twPhantom` phantom tag to pin the generic `MarkupAttribute<Tag>` parameter.
+
+```swift
+let classes = twValue(
+    .translate(.y("10"), negative: true),
+    .margin(.size(4)),
+    .text(.lg, variants: [.sm])
+)
+// → "-translate-y-10 m-4 sm:text-lg"
+```
 
 ### Tests (`Tests/`)
 

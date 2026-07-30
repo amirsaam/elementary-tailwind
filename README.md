@@ -191,6 +191,16 @@ div(.display(.flex), .class("custom-class")) { ... }
 div(.class("shadow-outline", variants: [.focus])) { ... }
 ```
 
+```swift
+// string extraction — capture modifier output outside an HTML builder
+let classes = twValue(
+    .translate(.y("10"), negative: true),
+    .margin(.size(4)),
+    .text(.lg, variants: [.sm])
+)
+// → "-translate-y-10 m-4 sm:text-lg"
+```
+
 ## Utilities
 
 All 190+ token types across 16 Tailwind CSS categories:
