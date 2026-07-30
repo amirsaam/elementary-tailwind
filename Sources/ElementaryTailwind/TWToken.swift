@@ -60,3 +60,31 @@ extension MarkupAttribute {
         )
     }
 }
+
+// MARK: - Phantom tag for string extraction
+
+extension HTMLTag {
+    /// Phantom tag used to extract Tailwind class strings from modifier methods
+    /// without an actual HTML context.
+    public enum _twPhantom: HTMLTrait.Paired {
+        public static let name = "_twPhantom"
+    }
+}
+
+/// Extracts the Tailwind CSS class string from one or more modifier calls.
+///
+/// Use this to capture the output of modifier methods (`.translate()`, `.margin()`,
+/// etc.) into a concrete `String` value outside of an HTML builder context.
+///
+/// **Example:**
+/// ```swift
+/// let classes = twValue(
+///     .translate(.y("10"), negative: true),
+///     .margin(.size(4)),
+///     .text(.lg, variants: [.sm])
+/// )
+/// // → "-translate-y-10 m-4 sm:text-lg"
+/// ```
+public func twValue(_ attrs: MarkupAttribute<HTMLTag._twPhantom>...) -> String {
+    attrs.compactMap(\.value).joined(separator: " ")
+}
