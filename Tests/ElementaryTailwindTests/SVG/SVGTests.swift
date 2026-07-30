@@ -18,6 +18,21 @@ struct SVGTests {
         )
     }
 
+    @Test func testFillKeyword() throws {
+        try HTMLAssertEqual(
+            div(.fillCurrent()) {},
+            try String(contentsOf: fixtureURL("fill.current.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.fillInherit()) {},
+            try String(contentsOf: fixtureURL("fill.inherit.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.fillTransparent()) {},
+            try String(contentsOf: fixtureURL("fill.transparent.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testStroke() throws {
         try HTMLAssertEqual(
             div(.stroke(.red)) {},
