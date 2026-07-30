@@ -173,6 +173,15 @@ div(.scrollPadding(.value(4), negative: true)) { ... }   // -> -scroll-p-4
 ```
 
 ```swift
+// SVG fill — color, none, or keyword (currentColor, inherit, transparent)
+svg(.fill(.blue)) { ... }             // fill-blue-500
+svg(.fillNone()) { ... }              // fill-none
+svg(.fillCurrent()) { ... }           // fill-current
+svg(.fillInherit()) { ... }           // fill-inherit
+svg(.fillTransparent()) { ... }       // fill-transparent
+```
+
+```swift
 // border-radius — uniform or directional
 div(.borderRadius(.lg)) { ... }
 div(.borderRadius(.topLeft(.lg), .topRight(.lg))) { ... }
@@ -223,7 +232,7 @@ All 190+ token types across 16 Tailwind CSS categories:
 | **Animation** | `.animation` | `.animation(.spin)`, `.animation(.pulse)` |
 | **Transforms** | `.transform`, `.scale`, `.rotate`, `.translate`, `.skew`, `.transformOrigin`, `.perspective`, `.perspectiveOrigin`, `.backfaceVisibility`, `.transformStyle`, `.zoom` | `.transform(.gpu)`, `.rotate(.z(45))` |
 | **Interactivity** | `.cursor`, `.pointerEvents`, `.resize`, `.userSelect`, `.scrollBehavior`, `.scrollSnap*`, `.scrollMargin`, `.scrollPadding`, `.scrollbarWidth`, `.scrollbarColor`, `.scrollbarGutter`, `.touchAction`, `.accentColor`, `.appearance`, `.caretColor`, `.colorScheme`, `.fieldSizing`, `.willChange` | `.cursor(.pointer)`, `.scrollSnapAlign(.start)` |
-| **SVG** | `.fill`, `.stroke`, `.strokeWidth` | `.fill(.blue)`, `.strokeWidth(.value(2))` |
+| **SVG** | `.fill`, `.fillNone`, `.fillCurrent`, `.fillInherit`, `.fillTransparent`, `.stroke`, `.strokeNone`, `.strokeWidth` | `.fill(.blue)`, `.fillCurrent()`, `.strokeWidth(.value(2))` |
 | **Accessibility** | `.screenReader`, `.forcedColorAdjust` | `.screenReader(.only)` |
 
 ## Variants
