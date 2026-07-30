@@ -82,7 +82,7 @@ public enum TWTSkew: TWToken, Sendable, Equatable {
 
 /// Controls the CSS `transform` property.
 public enum TWTTransform: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "rotate-none scale-none translate-none"
+    case none = "transform-none"
     case gpu = "transform-gpu"
     case cpu = "transform-cpu"
 }
