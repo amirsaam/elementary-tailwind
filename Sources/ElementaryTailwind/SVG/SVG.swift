@@ -25,6 +25,36 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets the fill to `currentColor`.
+    /// Produces `fill-current` class.
+    public static func fillCurrent(variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: TWTFillKeyword.current.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the fill to `inherit`.
+    /// Produces `fill-inherit` class.
+    public static func fillInherit(variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: TWTFillKeyword.inherit.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the fill to `transparent`.
+    /// Produces `fill-transparent` class.
+    public static func fillTransparent(variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: TWTFillKeyword.transparent.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the stroke color of SVG elements.
     /// Produces `stroke-*` classes (e.g. `stroke-green-500`, `stroke-yellow-600/50`).
     public static func stroke(
