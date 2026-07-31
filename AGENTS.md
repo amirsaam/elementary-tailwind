@@ -92,6 +92,8 @@ Fixtures live in `SnapshotFixtures/` inside each test category directory. Each f
 - Contain valid HTML structure (CI validates tag matching)
 - Be registered in `Package.swift` `exclude` array under the test target
 
+Arbitrary-value fixtures follow `camelCase.arbitrary.html` (e.g. `borderSpacing.arbitrary.html`, `gridTemplateColumns.arbitrary.html`, `scale.arbitrary.html`), paired with a `test<Category>Arbitrary()` test method.
+
 When adding a new fixture category, add the `exclude` entry to `Package.swift`.
 
 ## File naming
@@ -138,7 +140,17 @@ Color-based methods accept `TWColor` and optional `opacity: Int?` param, wrappin
 
 Numeric spacing/sizing tokens use `Double` with `twFormat()` — whole numbers emit without decimal (`4.0` → `"4"`), fractions emit as-is (`1.5` → `"1.5"`).
 
-Spacing and sizing tokens support `.arbitrary(String)` for bracket syntax (e.g. `m-[20px]`).
+Every utility that Tailwind documents as supporting custom values gets an `.arbitrary(String)` case (e.g. `m-[20px]`, `scale-[1.7]`, `grid-cols-[200px_minmax(900px,1fr)_100px]`). It emits `<prefix>-[value]`:
+
+```swift
+case arbitrary(String)
+
+case .arbitrary(let v): "scale-[\(v)]"
+```
+
+`String`-based raw enums with `.arbitrary` use a computed `rawValue` and drop `CaseIterable` (verified no tests depend on `allCases`/`init(rawValue:)`).
+
+Colors use a `TWColor.arbitrary(_ value: String)` factory → `TWColor("[\(value)]", nil)`, so every color modifier (bg-, text-, border-, fill-, etc.) emits the arbitrary class.
 
 ## Conventions
 

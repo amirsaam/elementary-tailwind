@@ -27,7 +27,7 @@ struct ProductPage: HTMLDocument {
             .padding(.size(8))
         ) {
             div(
-                .display(.flex), .flexDirection(.column), .gap(4),
+                .display(.flex), .flexDirection(.column), .gap(.size(4)),
                 .backgroundColor(.white), .borderWidth(.size(1)),
                 .borderColor(.gray.shade(200)), .borderRadius(.lg), .p(8)
             ) {
@@ -104,7 +104,7 @@ var head: some HTML {
 
 ```swift
 // every Tailwind utility is a typed static method on MarkupAttribute
-div(.display(.flex), .items(.center), .gap(4), .p(8)) {
+div(.display(.flex), .items(.center), .gap(.size(4)), .p(8)) {
     p(.textColor(.blue), .fontSize(.lg)) { "Hello" }
 }
 ```
@@ -188,9 +188,11 @@ div(.borderRadius(.topLeft(.lg), .topRight(.lg))) { ... }
 ```
 
 ```swift
-// arbitrary values — typed tokens or raw .class()
-div(.margin(.left(.arbitrary("20px")))) { ... }
-div(.class("grid-cols-[1fr_2fr_1fr]")) { ... }
+// arbitrary values — typed .arbitrary(String) on ~70 token types, or raw .class()
+div(.margin(.left(.arbitrary("20px")))) { ... }                       // ml-[20px]
+div(.gridTemplateColumns(.arbitrary("200px_minmax(900px,1fr)_100px"))) { ... }
+div(.scale(.arbitrary("1.7"))) { ... }                                // scale-[1.7]
+div(.backgroundColor(.arbitrary("#0f172a"))) { ... }                  // bg-[#0f172a]
 div(.class("bg-(--my-color)")) { ... }
 ```
 
@@ -212,12 +214,12 @@ let classes = twValue(
 
 ## Utilities
 
-All 190+ token types across 16 Tailwind CSS categories:
+All 220+ token types across 16 Tailwind CSS categories:
 
 | Category | Methods | Examples |
 |---|---|---|
 | **Layout** | `.display`, `.position`, `.inset`, `.insetTop`, `.insetRight`, `.insetBottom`, `.insetLeft`, `.insetX`, `.insetY`, `.zIndex`, `.overflow`, `.overflowX`, `.overflowY`, `.overscrollBehavior`, `.overscrollBehaviorX`, `.overscrollBehaviorY`, `.visibility`, `.float`, `.clear`, `.isolation`, `.columns`, `.breakAfter`, `.breakBefore`, `.breakInside`, `.boxSizing`, `.boxDecorationBreak`, `.objectFit`, `.objectPosition`, `.aspect` | `.display(.flex)`, `.position(.absolute)`, `.zIndex(.number(10))` |
-| **Flexbox & Grid** | `.flexDirection`, `.flexWrap`, `.flex`, `.flexGrow`, `.flexShrink`, `.flexBasis`, `.items`, `.justify`, `.placeContent`, `.placeItems`, `.placeSelf`, `.alignContent`, `.alignSelf`, `.justifyItems`, `.justifySelf`, `.order`, `.gap`, `.gapX`, `.gapY`, `.gridTemplate*`, `.gridColumn`, `.gridRow`, `.gridAuto*` | `.flexDirection(.column)`, `.items(.center)`, `.gap(4)` |
+| **Flexbox & Grid** | `.flexDirection`, `.flexWrap`, `.flex`, `.flexGrow`, `.flexShrink`, `.flexBasis`, `.items`, `.justify`, `.placeContent`, `.placeItems`, `.placeSelf`, `.alignContent`, `.alignSelf`, `.justifyItems`, `.justifySelf`, `.order`, `.gap`, `.gapX`, `.gapY`, `.gridTemplate*`, `.gridColumn`, `.gridRow`, `.gridAuto*` | `.flexDirection(.column)`, `.items(.center)`, `.gap(.size(4))` |
 | **Spacing** | `.padding`, `.paddingX`, `.paddingY`, `.paddingTop`, `.paddingRight`, `.paddingBottom`, `.paddingLeft`, `.margin`, `.marginX`, `.marginY`, `.marginTop`, `.marginRight`, `.marginBottom`, `.marginLeft`, `.gap`, `.spaceX`, `.spaceY` | `.p(8)`, `.padding(.x(4), .y(2))`, `.mt(4)`, `.mx(.auto)` |
 | **Sizing** | `.width`, `.minWidth`, `.maxWidth`, `.height`, `.minHeight`, `.maxHeight`, `.aspect` | `.width(.full)`, `.height(.screen)`, `.maxWidth(.xl)` |
 | **Typography** | `.fontFamily`, `.fontSize`, `.fontWeight`, `.fontStyle`, `.fontSmoothing`, `.fontStretch`, `.fontVariantNumeric`, `.fontFeatureSettings`, `.letterSpacing`, `.lineClamp`, `.lineHeight`, `.textAlign`, `.textColor`, `.textDecoration`, `.textDecorationColor`, `.textDecorationStyle`, `.textDecorationThickness`, `.underlineOffset`, `.textTransform`, `.textOverflow`, `.textWrap`, `.textIndent`, `.verticalAlign`, `.whitespace`, `.wordBreak`, `.hyphens`, `.tabSize`, `.listStyle`, `.listStylePosition`, `.listStyleImage`, `.content` | `.fontSize(.lg)`, `.textColor(.blue)`, `.fontWeight(.bold)` |
@@ -302,9 +304,24 @@ var head: some HTML {
 ## Custom values
 
 > [!NOTE]
-> Arbitrary values are supported via typed `.arbitrary(String)` on spacing, sizing, inset, flex basis, line height, and other value-based tokens. CSS variable syntax (`(<property>)`) and uncommon utility combinations fall back to raw `.class()`.
+> Arbitrary values are supported via typed `.arbitrary(String)` on ~70 token types across every utility category — spacing, sizing, colors, grids, filters, transforms, transitions, typography, and more. The token wraps the value in Tailwind's bracket syntax (`scale-[1.7]`, `bg-[#0f172a]`, `grid-cols-[200px_minmax(900px,1fr)_100px]`). CSS variable syntax (`(<property>)`) and uncommon utility combinations fall back to raw `.class()`.
 
-For Tailwind utilities not covered by typed tokens, use the raw `.class()` modifier (followings are just examples):
+Most value-based utilities accept typed arbitrary values:
+
+```swift
+// typed arbitrary values — every utility that documents UsingACustomValue
+div(.scale(.arbitrary("1.7"))) { ... }                                      // scale-[1.7]
+div(.gridTemplateColumns(.arbitrary("200px_minmax(900px,1fr)_100px"))) { ... }
+div(.backgroundColor(.arbitrary("#0f172a"))) { ... }                        // bg-[#0f172a]
+div(.animation(.arbitrary("wiggle_1s_ease-in-out_infinite"))) { ... }
+div(.textShadow(.arbitrary("0_35px_35px_rgb(0_0_0_/_0.25)"))) { ... }
+
+// colors — TWColor.arbitrary works for all 9 color utilities
+div(.textColor(.arbitrary("#f00"))) { ... }                                // text-[#f00]
+div(.borderColor(.arbitrary("var(--brand)"))) { ... }                      // border-[var(--brand)]
+```
+
+For utilities not covered by typed tokens, use the raw `.class()` modifier (followings are just examples):
 
 ```swift
 // arbitrary value
@@ -321,11 +338,11 @@ div(.display(.flex), .class("custom-class")) { ... }
 
 The full API is documented in source — every public type and function has doc comments. For architecture details, see [`AGENTS.md`](./AGENTS.md).
 
-The full test suite (169 snapshot tests across 17 suites) lives in [`Tests/ElementaryTailwindTests/`](./Tests/ElementaryTailwindTests/).
+The full test suite (237 snapshot tests across 17 suites) lives in [`Tests/ElementaryTailwindTests/`](./Tests/ElementaryTailwindTests/).
 
 ## Future directions
 
-- All Tailwind CSS v4 utility categories are implemented (190+ token types, 100% docs coverage).
+- All Tailwind CSS v4 utility categories are implemented (220+ token types, 100% docs coverage).
 
 If you think something is missing, feel free to open an issue but PRs are always welcomed.
 
