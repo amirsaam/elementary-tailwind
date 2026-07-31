@@ -18,6 +18,7 @@ public enum TWTColumns: TWToken, Sendable, Equatable {
     case sevenxl
     case none
     case auto
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -37,6 +38,7 @@ public enum TWTColumns: TWToken, Sendable, Equatable {
         case .sevenxl: "columns-7xl"
         case .none: "columns-none"
         case .auto: "columns-auto"
+        case .arbitrary(let v): "columns-[\(v)]"
         }
     }
 }

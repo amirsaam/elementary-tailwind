@@ -3,25 +3,44 @@ import Elementary
 /// Controls the CSS `perspective` property.
 public enum TWTPerspective: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "perspective-\(n)"
+        case .arbitrary(let v): "perspective-[\(v)]"
         }
     }
 }
 
 /// Controls the CSS `perspective-origin` property.
-public enum TWTPerspectiveOrigin: String, TWToken, Sendable, Equatable, CaseIterable {
-    case center = "perspective-origin-center"
-    case left = "perspective-origin-left"
-    case right = "perspective-origin-right"
-    case top = "perspective-origin-top"
-    case topRight = "perspective-origin-top-right"
-    case topLeft = "perspective-origin-top-left"
-    case bottom = "perspective-origin-bottom"
-    case bottomRight = "perspective-origin-bottom-right"
-    case bottomLeft = "perspective-origin-bottom-left"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `perspective-origin-[200%_150%]`).
+public enum TWTPerspectiveOrigin: TWToken, Sendable, Equatable {
+    case center
+    case left
+    case right
+    case top
+    case topRight
+    case topLeft
+    case bottom
+    case bottomRight
+    case bottomLeft
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .center: "perspective-origin-center"
+        case .left: "perspective-origin-left"
+        case .right: "perspective-origin-right"
+        case .top: "perspective-origin-top"
+        case .topRight: "perspective-origin-top-right"
+        case .topLeft: "perspective-origin-top-left"
+        case .bottom: "perspective-origin-bottom"
+        case .bottomRight: "perspective-origin-bottom-right"
+        case .bottomLeft: "perspective-origin-bottom-left"
+        case .arbitrary(let v): "perspective-origin-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `backface-visibility` property.
@@ -45,6 +64,7 @@ public enum TWTZoom: TWToken, Sendable, Equatable {
     case normal
     case oneFifty
     case twoHundred
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -55,6 +75,7 @@ public enum TWTZoom: TWToken, Sendable, Equatable {
         case .normal: "zoom-100"
         case .oneFifty: "zoom-150"
         case .twoHundred: "zoom-200"
+        case .arbitrary(let v): "zoom-[\(v)]"
         }
     }
 }

@@ -4,10 +4,12 @@ import Foundation
 /// Controls the CSS `grid-template-columns` property.
 public enum TWTGridTemplateColumns: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "grid-cols-\(n)"
+        case .arbitrary(let v): "grid-cols-[\(v)]"
         }
     }
 }
@@ -15,10 +17,12 @@ public enum TWTGridTemplateColumns: TWToken, Sendable, Equatable {
 /// Controls the CSS `grid-template-rows` property.
 public enum TWTGridTemplateRows: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "grid-rows-\(n)"
+        case .arbitrary(let v): "grid-rows-[\(v)]"
         }
     }
 }

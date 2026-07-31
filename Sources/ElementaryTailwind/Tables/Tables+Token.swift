@@ -10,11 +10,13 @@ public enum TWTBorderCollapse: String, TWToken, Sendable, Equatable, CaseIterabl
 public enum TWTBorderSpacing: TWToken, Sendable, Equatable {
     case size(Int)
     case zero
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "border-spacing-\(n)"
         case .zero: "border-spacing-0"
+        case .arbitrary(let v): "border-spacing-[\(v)]"
         }
     }
 }

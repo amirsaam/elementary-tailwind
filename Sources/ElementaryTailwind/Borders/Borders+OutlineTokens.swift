@@ -15,10 +15,12 @@ public struct TWTOutlineColor: TWToken, Sendable, Equatable {
 /// Controls the CSS `outline-offset` property.
 public enum TWTOutlineOffset: TWToken, Sendable, Equatable {
     case size(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "outline-offset-\(n)"
+        case .arbitrary(let v): "outline-offset-[\(v)]"
         }
     }
 }
@@ -35,10 +37,12 @@ public enum TWTOutlineStyle: String, TWToken, Sendable, Equatable, CaseIterable 
 /// Controls the CSS `outline-width` property.
 public enum TWTOutlineWidth: TWToken, Sendable, Equatable {
     case size(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "outline-\(n)"
+        case .arbitrary(let v): "outline-[\(v)]"
         }
     }
 }

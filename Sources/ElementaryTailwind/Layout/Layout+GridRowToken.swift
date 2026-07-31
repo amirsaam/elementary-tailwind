@@ -5,12 +5,14 @@ public enum TWTGridRow: TWToken, Sendable, Equatable {
     case span(Int)
     case spanFull
     case auto
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .span(let n): "row-span-\(n)"
         case .spanFull: "row-span-full"
         case .auto: "row-auto"
+        case .arbitrary(let v): "row-span-[\(v)]"
         }
     }
 }

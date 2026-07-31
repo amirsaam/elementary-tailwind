@@ -1,13 +1,27 @@
 import Elementary
 
 /// Controls the CSS `text-shadow` property.
-public enum TWTTextShadow: String, TWToken, Sendable, Equatable, CaseIterable {
-    case xxs = "text-shadow-2xs"
-    case xs = "text-shadow-xs"
-    case sm = "text-shadow-sm"
-    case md = "text-shadow-md"
-    case lg = "text-shadow-lg"
-    case none = "text-shadow-none"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `text-shadow-[0_35px_35px_rgb(0_0_0_/_0.25)]`).
+public enum TWTTextShadow: TWToken, Sendable, Equatable {
+    case xxs
+    case xs
+    case sm
+    case md
+    case lg
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .xxs: "text-shadow-2xs"
+        case .xs: "text-shadow-xs"
+        case .sm: "text-shadow-sm"
+        case .md: "text-shadow-md"
+        case .lg: "text-shadow-lg"
+        case .none: "text-shadow-none"
+        case .arbitrary(let v): "text-shadow-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `mask-clip` property.
@@ -27,8 +41,17 @@ public enum TWTMaskComposite: String, TWToken, Sendable, Equatable, CaseIterable
 }
 
 /// Controls the CSS `mask-image` property.
-public enum TWTMaskImage: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "mask-none"
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTMaskImage: TWToken, Sendable, Equatable {
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .none: "mask-none"
+        case .arbitrary(let v): "mask-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `mask-mode` property.
@@ -46,16 +69,33 @@ public enum TWTMaskOrigin: String, TWToken, Sendable, Equatable, CaseIterable {
 }
 
 /// Controls the CSS `mask-position` property.
-public enum TWTMaskPosition: String, TWToken, Sendable, Equatable, CaseIterable {
-    case center = "mask-center"
-    case top = "mask-top"
-    case topRight = "mask-top-right"
-    case right = "mask-right"
-    case bottomRight = "mask-bottom-right"
-    case bottom = "mask-bottom"
-    case bottomLeft = "mask-bottom-left"
-    case left = "mask-left"
-    case topLeft = "mask-top-left"
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTMaskPosition: TWToken, Sendable, Equatable {
+    case center
+    case top
+    case topRight
+    case right
+    case bottomRight
+    case bottom
+    case bottomLeft
+    case left
+    case topLeft
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .center: "mask-center"
+        case .top: "mask-top"
+        case .topRight: "mask-top-right"
+        case .right: "mask-right"
+        case .bottomRight: "mask-bottom-right"
+        case .bottom: "mask-bottom"
+        case .bottomLeft: "mask-bottom-left"
+        case .left: "mask-left"
+        case .topLeft: "mask-top-left"
+        case .arbitrary(let v): "mask-position-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `mask-repeat` property.
@@ -69,10 +109,21 @@ public enum TWTMaskRepeat: String, TWToken, Sendable, Equatable, CaseIterable {
 }
 
 /// Controls the CSS `mask-size` property.
-public enum TWTMaskSize: String, TWToken, Sendable, Equatable, CaseIterable {
-    case auto = "mask-size-auto"
-    case cover = "mask-size-cover"
-    case contain = "mask-size-contain"
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTMaskSize: TWToken, Sendable, Equatable {
+    case auto
+    case cover
+    case contain
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .auto: "mask-size-auto"
+        case .cover: "mask-size-cover"
+        case .contain: "mask-size-contain"
+        case .arbitrary(let v): "mask-size-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `mask-type` property.

@@ -57,17 +57,37 @@ public enum TWTBackgroundRepeat: String, TWToken, Sendable, Equatable, CaseItera
 // MARK: - Size
 
 /// Controls the CSS `background-size` property.
-public enum TWTBackgroundSize: String, TWToken, Sendable, Equatable, CaseIterable {
-    case auto = "bg-auto"
-    case cover = "bg-cover"
-    case contain = "bg-contain"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `bg-size-[auto_100px]`).
+public enum TWTBackgroundSize: TWToken, Sendable, Equatable {
+    case auto
+    case cover
+    case contain
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .auto: "bg-auto"
+        case .cover: "bg-cover"
+        case .contain: "bg-contain"
+        case .arbitrary(let v): "bg-size-[\(v)]"
+        }
+    }
 }
 
 // MARK: - Image
 
 /// Controls the CSS `background-image` property.
-public enum TWTBackgroundImage: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "bg-none"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `bg-[url('/img/hero-pattern.svg')]`).
+public enum TWTBackgroundImage: TWToken, Sendable, Equatable {
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .none: "bg-none"
+        case .arbitrary(let v): "bg-[\(v)]"
+        }
+    }
 }
 
 // MARK: - Position
@@ -86,6 +106,7 @@ public enum TWTBackgroundPosition: TWToken, Sendable, Equatable {
     case centerLeft
     case centerRight
     case custom(String)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -101,6 +122,7 @@ public enum TWTBackgroundPosition: TWToken, Sendable, Equatable {
         case .centerLeft: "bg-center-left"
         case .centerRight: "bg-center-right"
         case .custom(let v): "bg-\(v)"
+        case .arbitrary(let v): "bg-position-[\(v)]"
         }
     }
 }

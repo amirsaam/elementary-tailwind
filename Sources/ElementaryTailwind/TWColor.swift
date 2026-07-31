@@ -57,4 +57,13 @@ public struct TWColor: Sendable, Equatable, Hashable {
     public func shade(_ value: Int) -> TWColor {
         TWColor(palette, value)
     }
+
+    // MARK: - Arbitrary
+
+    /// Creates a color from an arbitrary Tailwind value.
+    /// Use to emit arbitrary color classes, e.g. `bg-[#0f172a]` via
+    /// `.backgroundColor(.arbitrary("#0f172a"))`.
+    public static func arbitrary(_ value: String) -> TWColor {
+        TWColor("[\(value)]", nil)
+    }
 }

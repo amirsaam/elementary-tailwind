@@ -1,13 +1,27 @@
 import Elementary
 
 /// Controls the CSS `letter-spacing` property.
-public enum TWTLetterSpacing: String, TWToken, Sendable, Equatable, CaseIterable {
-    case tighter = "tracking-tighter"
-    case tight = "tracking-tight"
-    case normal = "tracking-normal"
-    case wide = "tracking-wide"
-    case wider = "tracking-wider"
-    case widest = "tracking-widest"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `tracking-[.25em]`).
+public enum TWTLetterSpacing: TWToken, Sendable, Equatable {
+    case tighter
+    case tight
+    case normal
+    case wide
+    case wider
+    case widest
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .tighter: "tracking-tighter"
+        case .tight: "tracking-tight"
+        case .normal: "tracking-normal"
+        case .wide: "tracking-wide"
+        case .wider: "tracking-wider"
+        case .widest: "tracking-widest"
+        case .arbitrary(let v): "tracking-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `line-height` property.
@@ -38,10 +52,12 @@ public enum TWTLineHeight: TWToken, Sendable, Equatable {
 /// Controls the CSS `line-clamp` property.
 public enum TWTLineClamp: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "line-clamp-\(n)"
+        case .arbitrary(let v): "line-clamp-[\(v)]"
         }
     }
 }

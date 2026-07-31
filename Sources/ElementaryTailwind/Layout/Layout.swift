@@ -104,30 +104,30 @@ extension MarkupAttribute {
 
     /// Sets the spacing between grid and flexbox items in both directions.
     /// Produces `gap-*` classes (e.g. `gap-4`, `gap-8`, `gap-px`).
-    public static func gap(_ size: Int, variants: [TWVariant] = []) -> Self {
+    public static func gap(_ value: TWTGap, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTGap.size(size).rawValue),
+            value: TWVariant.apply(variants, to: value.rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the horizontal spacing between grid columns or flexbox items.
     /// Produces `gap-x-*` classes (e.g. `gap-x-4`, `gap-x-8`).
-    public static func gapX(_ size: Int, variants: [TWVariant] = []) -> Self {
+    public static func gapX(_ value: TWTGapX, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTGapX.size(size).rawValue),
+            value: TWVariant.apply(variants, to: value.rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }
 
     /// Sets the vertical spacing between grid rows.
     /// Produces `gap-y-*` classes (e.g. `gap-y-4`, `gap-y-8`).
-    public static func gapY(_ size: Int, variants: [TWVariant] = []) -> Self {
+    public static func gapY(_ value: TWTGapY, variants: [TWVariant] = []) -> Self {
         .init(
             name: "class",
-            value: TWVariant.apply(variants, to: TWTGapY.size(size).rawValue),
+            value: TWVariant.apply(variants, to: value.rawValue),
             mergedBy: .appending(separatedBy: " ")
         )
     }

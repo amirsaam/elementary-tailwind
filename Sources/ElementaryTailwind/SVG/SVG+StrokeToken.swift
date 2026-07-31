@@ -18,12 +18,16 @@ public enum TWTStrokeNone: String, TWToken, Sendable, Equatable, CaseIterable {
 }
 
 /// Controls the CSS `stroke-width` property for SVG elements.
+/// Supports arbitrary stroke-width values, e.g. `.arbitrary("3")`
+/// produces `stroke-[3]`.
 public enum TWTStrokeWidth: TWToken, Sendable, Equatable {
     case size(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .size(let n): "stroke-\(n)"
+        case .arbitrary(let v): "stroke-[\(v)]"
         }
     }
 }

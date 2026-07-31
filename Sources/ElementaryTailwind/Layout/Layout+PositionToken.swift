@@ -35,11 +35,13 @@ public enum TWTInset: TWToken, Sendable, Equatable {
 public enum TWTZIndex: TWToken, Sendable, Equatable {
     case number(Int)
     case auto
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .number(let n): "z-\(n)"
         case .auto: "z-auto"
+        case .arbitrary(let v): "z-[\(v)]"
         }
     }
 }
@@ -50,6 +52,7 @@ public enum TWTOrder: TWToken, Sendable, Equatable {
     case first
     case last
     case none
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -57,6 +60,7 @@ public enum TWTOrder: TWToken, Sendable, Equatable {
         case .first: "order-first"
         case .last: "order-last"
         case .none: "order-none"
+        case .arbitrary(let v): "order-[\(v)]"
         }
     }
 }

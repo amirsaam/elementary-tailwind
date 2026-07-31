@@ -1,12 +1,15 @@
 import Elementary
 
 /// Controls the CSS `tab-size` property.
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `tab-[12px]`).
 public enum TWTTabSize: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "tab-size-\(n)"
+        case .arbitrary(let v): "tab-[\(v)]"
         }
     }
 }

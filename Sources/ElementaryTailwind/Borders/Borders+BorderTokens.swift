@@ -13,17 +13,35 @@ public struct TWTBorderColor: TWToken, Sendable, Equatable {
 }
 
 /// Controls the CSS `border-radius` property.
-public enum TWTBorderRadius: String, TWToken, Sendable, Equatable, CaseIterable {
-    case none = "rounded-none"
-    case xs = "rounded-xs"
-    case sm = "rounded-sm"
-    case md = "rounded-md"
-    case lg = "rounded-lg"
-    case xl = "rounded-xl"
-    case xxl = "rounded-2xl"
-    case xxxl = "rounded-3xl"
-    case fourxl = "rounded-4xl"
-    case full = "rounded-full"
+/// Accepts a custom value via `.arbitrary(...)` (e.g. `rounded-[10px]`).
+public enum TWTBorderRadius: TWToken, Sendable, Equatable {
+    case none
+    case xs
+    case sm
+    case md
+    case lg
+    case xl
+    case xxl
+    case xxxl
+    case fourxl
+    case full
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .none: "rounded-none"
+        case .xs: "rounded-xs"
+        case .sm: "rounded-sm"
+        case .md: "rounded-md"
+        case .lg: "rounded-lg"
+        case .xl: "rounded-xl"
+        case .xxl: "rounded-2xl"
+        case .xxxl: "rounded-3xl"
+        case .fourxl: "rounded-4xl"
+        case .full: "rounded-full"
+        case .arbitrary(let v): "rounded-[\(v)]"
+        }
+    }
 }
 
 /// Controls the CSS `border-style` property.
@@ -48,6 +66,7 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
     case l(Int)
     case s(Int)
     case e(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
@@ -61,6 +80,7 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
         case .l(let n): "border-l-\(n)"
         case .s(let n): "border-s-\(n)"
         case .e(let n): "border-e-\(n)"
+        case .arbitrary(let v): "border-[\(v)]"
         }
     }
 }

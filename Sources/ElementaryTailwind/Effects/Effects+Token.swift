@@ -3,15 +3,31 @@ import Elementary
 // MARK: - BoxShadow
 
 /// Controls the CSS `box-shadow` property.
-public enum TWTBoxShadow: String, TWToken, Sendable, Equatable, CaseIterable {
-    case xxs = "shadow-2xs"
-    case xs = "shadow-xs"
-    case sm = "shadow-sm"
-    case md = "shadow-md"
-    case lg = "shadow-lg"
-    case xl = "shadow-xl"
-    case xxl = "shadow-2xl"
-    case none = "shadow-none"
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTBoxShadow: TWToken, Sendable, Equatable {
+    case xxs
+    case xs
+    case sm
+    case md
+    case lg
+    case xl
+    case xxl
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .xxs: "shadow-2xs"
+        case .xs: "shadow-xs"
+        case .sm: "shadow-sm"
+        case .md: "shadow-md"
+        case .lg: "shadow-lg"
+        case .xl: "shadow-xl"
+        case .xxl: "shadow-2xl"
+        case .none: "shadow-none"
+        case .arbitrary(let v): "shadow-[\(v)]"
+        }
+    }
 }
 
 // MARK: - BoxShadowColor
@@ -31,12 +47,15 @@ public struct TWTBoxShadowColor: TWToken, Sendable, Equatable {
 // MARK: - Opacity
 
 /// Controls the CSS `opacity` property.
+/// Accepts a custom value via `.arbitrary(...)`.
 public enum TWTOpacity: TWToken, Sendable, Equatable {
     case value(Int)
+    case arbitrary(String)
 
     public var rawValue: String {
         switch self {
         case .value(let n): "opacity-\(n)"
+        case .arbitrary(let v): "opacity-[\(v)]"
         }
     }
 }
