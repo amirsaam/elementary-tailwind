@@ -110,6 +110,33 @@ struct BackgroundTests {
         )
     }
 
+    @Test func testBackgroundSizeArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.backgroundSize(.arbitrary("auto_100px"))) {},
+            try String(contentsOf: fixtureURL("backgroundSize.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testBackgroundImageArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.backgroundImage(.arbitrary("url('/img/hero-pattern.svg')"))) {},
+            try String(
+                contentsOf: fixtureURL("backgroundImage.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testBackgroundPositionArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.backgroundPosition(.arbitrary("center_top_1rem"))) {},
+            try String(
+                contentsOf: fixtureURL("backgroundPosition.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
     @Test func testGradientToColor() throws {
         try HTMLAssertEqual(
             div(.gradientToColor(.purple, opacity: 25)) {},

@@ -24,6 +24,10 @@ struct TablesTests {
             div(.borderSpacing(.zero)) {},
             try String(contentsOf: fixtureURL("borderSpacing.zero.html"), encoding: .utf8)
         )
+        try HTMLAssertEqual(
+            div(.borderSpacing(.arbitrary("7px"))) {},
+            try String(contentsOf: fixtureURL("borderSpacing.arbitrary.html"), encoding: .utf8)
+        )
     }
 
     @Test func testTableLayout() throws {

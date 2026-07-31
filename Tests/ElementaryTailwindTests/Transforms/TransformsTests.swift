@@ -133,4 +133,70 @@ struct TransformsTests {
             try String(contentsOf: fixtureURL("zoom.fifty.html"), encoding: .utf8)
         )
     }
+
+    @Test func testScaleArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.scale(.arbitrary("1.7"))) {},
+            try String(contentsOf: fixtureURL("scale.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testRotateArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.rotate(.arbitrary("3.142rad"))) {},
+            try String(contentsOf: fixtureURL("rotate.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testTranslateArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.translate(.arbitrary("3.142rad"))) {},
+            try String(contentsOf: fixtureURL("translate.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testSkewArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.skew(.arbitrary("3.142rad"))) {},
+            try String(contentsOf: fixtureURL("skew.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testTransformArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transform(.arbitrary("matrix(1,2,3,4,5,6)"))) {},
+            try String(contentsOf: fixtureURL("transform.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testTransformOriginArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transformOrigin(.arbitrary("600px_400px"))) {},
+            try String(contentsOf: fixtureURL("transformOrigin.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testPerspectiveArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.perspective(.arbitrary("750px"))) {},
+            try String(contentsOf: fixtureURL("perspective.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testPerspectiveOriginArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.perspectiveOrigin(.arbitrary("200%_150%"))) {},
+            try String(
+                contentsOf: fixtureURL("perspectiveOrigin.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testZoomArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.zoom(.arbitrary("1.1"))) {},
+            try String(contentsOf: fixtureURL("zoom.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

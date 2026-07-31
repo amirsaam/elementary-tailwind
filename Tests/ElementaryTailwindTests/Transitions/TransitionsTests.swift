@@ -46,4 +46,44 @@ struct TransitionsTests {
             )
         )
     }
+
+    @Test func testTransitionPropertyArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transition(.arbitrary("height"))) {},
+            try String(
+                contentsOf: fixtureURL("transitionProperty.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testTransitionDurationArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transitionDuration(.arbitrary("1s,15s"))) {},
+            try String(
+                contentsOf: fixtureURL("transitionDuration.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testTransitionTimingFunctionArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transitionTimingFunction(.arbitrary("cubic-bezier(0.95,0.05,0.795,0.035)"))) {},
+            try String(
+                contentsOf: fixtureURL("transitionTimingFunction.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testTransitionDelayArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.transitionDelay(.arbitrary("1s,250ms"))) {},
+            try String(
+                contentsOf: fixtureURL("transitionDelay.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
 }

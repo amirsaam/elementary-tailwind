@@ -44,4 +44,46 @@ struct EffectsTests {
             try String(contentsOf: fixtureURL("mixBlendMode.multiply.html"), encoding: .utf8)
         )
     }
+
+    @Test func testBoxShadowArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.boxShadow(.arbitrary("0_35px_35px_rgba(0,0,0,0.25)"))) {},
+            try String(contentsOf: fixtureURL("boxShadow.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testOpacityArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.opacity(.arbitrary(".67"))) {},
+            try String(contentsOf: fixtureURL("opacity.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testMaskImageArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.maskImage(.arbitrary("70deg,transparent_10%,black,transparent_80%"))) {},
+            try String(contentsOf: fixtureURL("maskImage.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testMaskSizeArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.maskSize(.arbitrary("auto_100px"))) {},
+            try String(contentsOf: fixtureURL("maskSize.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testMaskPositionArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.maskPosition(.arbitrary("center_top_1rem"))) {},
+            try String(contentsOf: fixtureURL("maskPosition.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testTextShadowArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.textShadow(.arbitrary("0_35px_35px_rgb(0_0_0_/_0.25)"))) {},
+            try String(contentsOf: fixtureURL("textShadow.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

@@ -164,4 +164,60 @@ struct TypographyTests {
             )
         )
     }
+
+    @Test func testFontSizeArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.fontSize(.arbitrary("14px"))) {},
+            try String(contentsOf: fixtureURL("fontSize.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testFontWeightArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.fontWeight(.arbitrary("1000"))) {},
+            try String(contentsOf: fixtureURL("fontWeight.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testFontFamilyArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.fontFamily(.arbitrary("Open_Sans"))) {},
+            try String(contentsOf: fixtureURL("fontFamily.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testFontStretchArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.fontStretch(.arbitrary("66.66%"))) {},
+            try String(contentsOf: fixtureURL("fontStretch.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testLetterSpacingArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.letterSpacing(.arbitrary(".25em"))) {},
+            try String(contentsOf: fixtureURL("letterSpacing.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testLineClampArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.lineClamp(.arbitrary("7"))) {},
+            try String(contentsOf: fixtureURL("lineClamp.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testTabSizeArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.tabSize(.arbitrary("12px"))) {},
+            try String(contentsOf: fixtureURL("tabSize.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testVerticalAlignArbitrary() throws {
+        try HTMLAssertEqual(
+            p(.verticalAlign(.arbitrary("4px"))) {},
+            try String(contentsOf: fixtureURL("verticalAlign.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

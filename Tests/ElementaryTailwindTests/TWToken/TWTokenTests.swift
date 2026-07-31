@@ -49,4 +49,15 @@ struct TWTokenTests {
             )
         )
     }
+
+    @Test func testColorArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.backgroundColor(.arbitrary("#0f172a"))) {},
+            try String(contentsOf: fixtureURL("backgroundColor.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.textColor(.arbitrary("#f00"))) {},
+            try String(contentsOf: fixtureURL("textColor.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

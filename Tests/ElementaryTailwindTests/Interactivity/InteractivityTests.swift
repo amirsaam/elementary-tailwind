@@ -19,6 +19,13 @@ struct InteractivityTests {
         )
     }
 
+    @Test func testCursorArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.cursor(.arbitrary("url(pointer.png),pointer"))) {},
+            try String(contentsOf: fixtureURL("cursor.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testUserSelect() throws {
         try HTMLAssertEqual(
             div(.userSelect(.none)) {},

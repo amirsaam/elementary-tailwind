@@ -106,6 +106,44 @@ struct BorderTests {
         )
     }
 
+    @Test func testBorderWidthArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.borderWidth(.arbitrary("2vw"))) {},
+            try String(contentsOf: fixtureURL("borderWidth.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testBorderRadiusArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.borderRadius(.arbitrary("2vw"))) {},
+            try String(contentsOf: fixtureURL("borderRadius.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testBorderRadiusDirectionalArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.borderRadius(.top(.arbitrary("2vw")))) {},
+            try String(
+                contentsOf: fixtureURL("borderRadius.top-arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testOutlineWidthArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.outlineWidth(.arbitrary("2vw"))) {},
+            try String(contentsOf: fixtureURL("outlineWidth.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testOutlineOffsetArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.outlineOffset(.arbitrary("2vw"))) {},
+            try String(contentsOf: fixtureURL("outlineOffset.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testOutlineStyle() throws {
         try HTMLAssertEqual(
             div(.outlineStyle(.solid)) {},

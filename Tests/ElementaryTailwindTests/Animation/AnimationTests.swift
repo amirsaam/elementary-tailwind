@@ -38,4 +38,11 @@ struct AnimationTests {
             try String(contentsOf: fixtureURL("animation.bounce.html"), encoding: .utf8)
         )
     }
+
+    @Test func testAnimationArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.animation(.arbitrary("wiggle_1s_ease-in-out_infinite"))) {},
+            try String(contentsOf: fixtureURL("animation.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

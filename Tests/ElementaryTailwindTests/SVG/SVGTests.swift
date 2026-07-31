@@ -53,4 +53,11 @@ struct SVGTests {
             try String(contentsOf: fixtureURL("strokeWidth.size-2.html"), encoding: .utf8)
         )
     }
+
+    @Test func testStrokeWidthArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.strokeWidth(.arbitrary("3"))) {},
+            try String(contentsOf: fixtureURL("strokeWidth.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }

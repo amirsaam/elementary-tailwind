@@ -144,39 +144,39 @@ struct LayoutTests {
 
     @Test func testGap() throws {
         try HTMLAssertEqual(
-            div(.gap(4)) {},
+            div(.gap(.size(4))) {},
             try String(contentsOf: fixtureURL("gap-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gap(4, variants: [.hover])) {},
+            div(.gap(.size(4), variants: [.hover])) {},
             try String(contentsOf: fixtureURL("gap-4-hover.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gap(0)) {},
+            div(.gap(.zero)) {},
             try String(contentsOf: fixtureURL("gap-0.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapX(4)) {},
+            div(.gapX(.size(4))) {},
             try String(contentsOf: fixtureURL("gap-x-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapX(4, variants: [.hover])) {},
+            div(.gapX(.size(4), variants: [.hover])) {},
             try String(contentsOf: fixtureURL("gap-x-4-hover.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapX(0)) {},
+            div(.gapX(.zero)) {},
             try String(contentsOf: fixtureURL("gap-x-0.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapY(4)) {},
+            div(.gapY(.size(4))) {},
             try String(contentsOf: fixtureURL("gap-y-4.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapY(4, variants: [.hover])) {},
+            div(.gapY(.size(4), variants: [.hover])) {},
             try String(contentsOf: fixtureURL("gap-y-4-hover.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
-            div(.gapY(0)) {},
+            div(.gapY(.zero)) {},
             try String(contentsOf: fixtureURL("gap-y-0.html"), encoding: .utf8)
         )
     }
@@ -703,6 +703,102 @@ struct LayoutTests {
         try HTMLAssertEqual(
             div(.placeSelf(.center, variants: [.hover])) {},
             try String(contentsOf: fixtureURL("place-self-center-hover.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testDisplayArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.display(.arbitrary("grid"))) {},
+            try String(contentsOf: fixtureURL("display.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testAspectArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.aspect(.arbitrary("4/3"))) {},
+            try String(contentsOf: fixtureURL("aspect.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testColumnsArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.columns(.arbitrary("30vw"))) {},
+            try String(contentsOf: fixtureURL("columns.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testGapArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.gap(.arbitrary("10vw"))) {},
+            try String(contentsOf: fixtureURL("gap.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.gapX(.arbitrary("10vw"))) {},
+            try String(contentsOf: fixtureURL("gapX.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.gapY(.arbitrary("10vw"))) {},
+            try String(contentsOf: fixtureURL("gapY.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testZIndexArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.zIndex(.arbitrary("calc(var(--index)+1)"))) {},
+            try String(contentsOf: fixtureURL("zIndex.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testOrderArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.order(.arbitrary("min(var(--total-items),10)"))) {},
+            try String(contentsOf: fixtureURL("order.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testObjectPositionArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.objectPosition(.arbitrary("50%_50%"))) {},
+            try String(contentsOf: fixtureURL("objectPosition.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testGridTemplateArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.gridTemplateColumns(.arbitrary("200px_minmax(900px,1fr)_100px"))) {},
+            try String(
+                contentsOf: fixtureURL("gridTemplateColumns.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.gridTemplateRows(.arbitrary("200px_minmax(900px,1fr)_100px"))) {},
+            try String(
+                contentsOf: fixtureURL("gridTemplateRows.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
+    @Test func testGridColumnArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.gridColumn(.arbitrary("16"))) {},
+            try String(contentsOf: fixtureURL("gridColumn.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.gridRow(.arbitrary("16"))) {},
+            try String(contentsOf: fixtureURL("gridRow.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testGridAutoArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.gridAutoColumns(.arbitrary("minmax(0,2fr)"))) {},
+            try String(contentsOf: fixtureURL("gridAutoColumns.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.gridAutoRows(.arbitrary("minmax(0,2fr)"))) {},
+            try String(contentsOf: fixtureURL("gridAutoRows.arbitrary.html"), encoding: .utf8)
         )
     }
 }
