@@ -77,4 +77,26 @@ struct SizingTests {
             try String(contentsOf: fixtureURL("minHeight-zero.html"), encoding: .utf8)
         )
     }
+
+    @Test func testSize() throws {
+        try HTMLAssertEqual(
+            div(.size(.size(4))) {},
+            try String(contentsOf: fixtureURL("size-4.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.size(.full)) {},
+            try String(contentsOf: fixtureURL("size-full.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.size(.fraction("1/2"))) {},
+            try String(contentsOf: fixtureURL("size-fraction.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testSizeArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.size(.arbitrary("2rem"))) {},
+            try String(contentsOf: fixtureURL("size.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }
