@@ -28,6 +28,16 @@ extension MarkupAttribute {
         )
     }
 
+    /// Adds an inset shadow effect inside the element.
+    /// Produces `inset-shadow-*` classes (e.g. `inset-shadow-2xs`, `inset-shadow-sm`).
+    public static func insetShadow(_ value: TWTInsetShadow, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the transparency level of the element.
     /// Produces `opacity-*` classes (e.g. `opacity-50`, `opacity-100`, `opacity-0`).
     public static func opacity(_ value: TWTOpacity, variants: [TWVariant] = []) -> Self {

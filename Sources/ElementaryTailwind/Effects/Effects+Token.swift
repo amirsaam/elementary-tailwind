@@ -30,6 +30,28 @@ public enum TWTBoxShadow: TWToken, Sendable, Equatable {
     }
 }
 
+// MARK: - InsetShadow
+
+/// Controls the CSS `inset box-shadow` property.
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTInsetShadow: TWToken, Sendable, Equatable {
+    case xxs
+    case xs
+    case sm
+    case none
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .xxs: "inset-shadow-2xs"
+        case .xs: "inset-shadow-xs"
+        case .sm: "inset-shadow-sm"
+        case .none: "inset-shadow-none"
+        case .arbitrary(let v): "inset-shadow-[\(v)]"
+        }
+    }
+}
+
 // MARK: - BoxShadowColor
 
 /// Controls the CSS box shadow color.
