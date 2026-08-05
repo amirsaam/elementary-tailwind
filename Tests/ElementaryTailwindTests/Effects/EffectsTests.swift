@@ -86,4 +86,22 @@ struct EffectsTests {
             try String(contentsOf: fixtureURL("textShadow.arbitrary.html"), encoding: .utf8)
         )
     }
+
+    @Test func testInsetShadow() throws {
+        try HTMLAssertEqual(
+            div(.insetShadow(.sm)) {},
+            try String(contentsOf: fixtureURL("insetShadow.sm.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.insetShadow(.none)) {},
+            try String(contentsOf: fixtureURL("insetShadow.none.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testInsetShadowArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.insetShadow(.arbitrary("0_0_5px_rgb(0_0_0_/_0.5)"))) {},
+            try String(contentsOf: fixtureURL("insetShadow.arbitrary.html"), encoding: .utf8)
+        )
+    }
 }
