@@ -143,8 +143,9 @@ div(.marginX(.size(4), negative: true)) { ... }  // -> -mx-4
 
 ```swift
 // gradients — direction + color stops with optional opacity
-div(.gradientToDirection(.br), .gradientFromColor(.blue), .gradientToColor(.purple)) { ... }
-div(.gradientToDirection(.r), .gradientFromColor(.red, opacity: 50)) { ... }
+div(.gradientToDirection(.br), .gradientFromColor(.blue), .gradientToColor(.purple)) { ... }  // bg-linear-to-br
+div(.gradientToDirection(.r), .gradientFromColor(.red, opacity: 50)) { ... }                  // bg-linear-to-r
+div(.gradientToDirection(.arbitrary("65deg"))) { ... }                                        // bg-linear-[65deg]
 ```
 
 ```swift
