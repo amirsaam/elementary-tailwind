@@ -55,6 +55,7 @@ Lint must pass before committing.
 Core files at root:
 - `TWToken.swift` — `TWToken` protocol + `.class()` overload accepting tokens + `twFormat()` for numeric formatting + `HTMLTag._twPhantom` phantom tag + `twValue()` helper for extracting class strings
 - `TWVariant.swift` — `TWVariant` enum (pseudo-classes, responsive, dark, container queries, group/peer, arbitrary selector)
+- `TWVariant+MarkerToken.swift` — `TWTGroupMarker`/`TWTPeerMarker` tokens + `.group()`/`.peer()` marker classes (bare and named, e.g. `group`, `group/item`)
 - `TWColor.swift` — shared color type (`TWColor` struct with `.red`, `.blue`, `.white`, `.black`, `.transparent`, `.gray.shade(500)` pattern)
 - `TailwindCSS.swift` — `setupTailwind()` CDN helper
 

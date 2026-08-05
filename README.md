@@ -273,7 +273,16 @@ div(.display(.flex, variants: [.hover, .md])) { ... }
 | Media | `.dark`, `.print`, `.containerQuery`, `.namedContainerQuery(String)` |
 | Group | `.groupHover`, `.groupFocus`, `.groupChecked`, `.groupDisabled`, `.groupInvalid`, `.groupValid`, `.groupOpen`, `.groupAutofill`, `.groupRequired`, `.groupVisited`, `.groupPlaceholder`, `.groupTarget` |
 | Peer | `.peerHover`, `.peerFocus`, `.peerChecked`, `.peerInvalid`, `.peerValid`, `.peerOpen`, `.peerAutofill`, `.peerRequired`, `.peerVisited`, `.peerPlaceholder`, `.peerTarget` |
+| Markers | `.group(.bare)`, `.group(.named("item"))`, `.peer(.bare)`, `.peer(.named("email"))` |
 | Custom | `.arbitrary(String)` |
+
+Mark `group`/`peer` elements with `.group()`/`.peer()` so `group-*`/`peer-*` variants on children or siblings can target them:
+
+```swift
+div(.group(.bare)) { ... }                                  // class="group"
+li(.group(.named("item"))) { ... }                          // class="group/item"
+span(.opacity(.value(100), variants: [.groupHover])) { ... }
+```
 
 ## Setup
 
