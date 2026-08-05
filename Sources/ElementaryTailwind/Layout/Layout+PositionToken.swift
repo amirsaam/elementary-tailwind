@@ -15,7 +15,9 @@ public enum TWTPosition: String, TWToken, Sendable, Equatable, CaseIterable {
 /// Modifier functions prepend the appropriate prefix (e.g. `inset-`, `top-`, `inset-x-`).
 public enum TWTInset: TWToken, Sendable, Equatable {
     case size(Int)
+    case fraction(String)
     case zero
+    case px
     case auto
     case full
     case arbitrary(String)
@@ -23,7 +25,9 @@ public enum TWTInset: TWToken, Sendable, Equatable {
     public var rawValue: String {
         switch self {
         case .size(let n): "\(n)"
+        case .fraction(let f): "\(f)"
         case .zero: "0"
+        case .px: "px"
         case .auto: "auto"
         case .full: "full"
         case .arbitrary(let v): "[\(v)]"
