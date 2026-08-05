@@ -71,6 +71,25 @@ struct VariantsTests {
         )
     }
 
+    @Test func testGroupPeerMarkers() throws {
+        try HTMLAssertEqual(
+            div(.group(.bare)) {},
+            try String(contentsOf: fixtureURL("group.bare.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.group(.named("item"))) {},
+            try String(contentsOf: fixtureURL("group.named.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.peer(.bare)) {},
+            try String(contentsOf: fixtureURL("peer.bare.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.peer(.named("email"))) {},
+            try String(contentsOf: fixtureURL("peer.named.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testConvenienceExtensions() throws {
         try HTMLAssertEqual(
             div(.display(.flex, variants: [.hover])) {},
