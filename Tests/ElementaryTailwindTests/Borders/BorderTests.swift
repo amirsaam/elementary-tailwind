@@ -23,10 +23,84 @@ struct BorderTests {
         )
     }
 
+    @Test func testBorderWidthLogicalSides() throws {
+        try HTMLAssertEqual(
+            div(.borderWidth(.s(2))) {},
+            try String(contentsOf: fixtureURL("borderWidth.s-2.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.borderWidth(.e(2))) {},
+            try String(contentsOf: fixtureURL("borderWidth.e-2.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.borderWidth(.bs(2))) {},
+            try String(contentsOf: fixtureURL("borderWidth.bs-2.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.borderWidth(.be(2))) {},
+            try String(contentsOf: fixtureURL("borderWidth.be-2.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testDivide() throws {
+        try HTMLAssertEqual(
+            div(.divideX(.bare)) {},
+            try String(contentsOf: fixtureURL("divideX.bare.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.divideY(.size(2))) {},
+            try String(contentsOf: fixtureURL("divideY.size-2.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.divideY(.reverse)) {},
+            try String(contentsOf: fixtureURL("divideY.reverse.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.divideColor(.gray.shade(200))) {},
+            try String(contentsOf: fixtureURL("divideColor.gray-200.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.divideStyle(.dashed)) {},
+            try String(contentsOf: fixtureURL("divideStyle.dashed.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testDivideArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.divideX(.arbitrary("2px"))) {},
+            try String(contentsOf: fixtureURL("divideX.arbitrary.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.divideY(.arbitrary("2px"))) {},
+            try String(contentsOf: fixtureURL("divideY.arbitrary.html"), encoding: .utf8)
+        )
+    }
+
     @Test func testBorderColor() throws {
         try HTMLAssertEqual(
             div(.borderColor(.blue)) {},
             try String(contentsOf: fixtureURL("borderColor.blue.html"), encoding: .utf8)
+        )
+    }
+
+    @Test func testBorderColorDirectional() throws {
+        try HTMLAssertEqual(
+            div(.borderColor(.t, .gray.shade(200))) {},
+            try String(
+                contentsOf: fixtureURL("borderColor.t-gray-200.html"),
+                encoding: .utf8
+            )
+        )
+        try HTMLAssertEqual(
+            div(.borderColor(.x, .blue)) {},
+            try String(contentsOf: fixtureURL("borderColor.x-blue.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.borderColor(.s, .red.shade(500), opacity: 50)) {},
+            try String(
+                contentsOf: fixtureURL("borderColor.s-red-500.opacity-50.html"),
+                encoding: .utf8
+            )
         )
     }
 
