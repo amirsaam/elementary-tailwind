@@ -11,6 +11,16 @@ extension MarkupAttribute {
         )
     }
 
+    /// Sets both the width and height of the element.
+    /// Produces `size-*` classes (e.g. `size-4`, `size-full`, `size-fit`).
+    public static func size(_ value: TWTSize, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the minimum width of the element.
     /// Produces `min-w-*` classes (e.g. `min-w-0`, `min-w-full`, `min-w-fit`).
     public static func minWidth(_ value: TWTMinWidth, variants: [TWVariant] = []) -> Self {
