@@ -6,6 +6,7 @@ Type-safe [Tailwind CSS](https://tailwindcss.com/) utilities for [Elementary](ht
 
 | ElementaryTailwind | Elementary | TailwindCSS |
 | ------------------ | ---------- | ----------- |
+| 0.3.xxx            | 0.8.0      | 4.3.3       |
 | 0.2.xxx            | 0.8.0      | 4.3.3       |
 
 
