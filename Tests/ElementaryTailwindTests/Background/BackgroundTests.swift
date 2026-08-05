@@ -83,6 +83,16 @@ struct BackgroundTests {
         )
     }
 
+    @Test func testGradientToDirectionArbitrary() throws {
+        try HTMLAssertEqual(
+            div(.gradientToDirection(.arbitrary("65deg"))) {},
+            try String(
+                contentsOf: fixtureURL("gradientToDirection.arbitrary.html"),
+                encoding: .utf8
+            )
+        )
+    }
+
     @Test func testGradientFromColor() throws {
         try HTMLAssertEqual(
             div(.gradientFromColor(.red.shade(500))) {},
