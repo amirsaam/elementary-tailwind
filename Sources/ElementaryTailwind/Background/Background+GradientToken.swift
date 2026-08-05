@@ -1,15 +1,31 @@
 import Elementary
 
 /// Controls the gradient direction.
-public enum TWTGradientToDirection: String, TWToken, Sendable, Equatable, CaseIterable {
-    case l = "bg-gradient-to-l"
-    case r = "bg-gradient-to-r"
-    case t = "bg-gradient-to-t"
-    case b = "bg-gradient-to-b"
-    case tl = "bg-gradient-to-tl"
-    case tr = "bg-gradient-to-tr"
-    case bl = "bg-gradient-to-bl"
-    case br = "bg-gradient-to-br"
+/// Accepts a custom value via `.arbitrary(...)`.
+public enum TWTGradientToDirection: TWToken, Sendable, Equatable {
+    case l
+    case r
+    case t
+    case b
+    case tl
+    case tr
+    case bl
+    case br
+    case arbitrary(String)
+
+    public var rawValue: String {
+        switch self {
+        case .l: "bg-linear-to-l"
+        case .r: "bg-linear-to-r"
+        case .t: "bg-linear-to-t"
+        case .b: "bg-linear-to-b"
+        case .tl: "bg-linear-to-tl"
+        case .tr: "bg-linear-to-tr"
+        case .bl: "bg-linear-to-bl"
+        case .br: "bg-linear-to-br"
+        case .arbitrary(let v): "bg-linear-[\(v)]"
+        }
+    }
 }
 
 /// Sets the `from-*` gradient stop color.
