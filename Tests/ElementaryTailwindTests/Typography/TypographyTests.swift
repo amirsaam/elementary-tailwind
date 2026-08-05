@@ -220,4 +220,19 @@ struct TypographyTests {
             try String(contentsOf: fixtureURL("verticalAlign.arbitrary.html"), encoding: .utf8)
         )
     }
+
+    @Test func testOverflowWrap() throws {
+        try HTMLAssertEqual(
+            p(.overflowWrap(.breakWord)) {},
+            try String(contentsOf: fixtureURL("overflowWrap.breakWord.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.overflowWrap(.anywhere)) {},
+            try String(contentsOf: fixtureURL("overflowWrap.anywhere.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            p(.overflowWrap(.normal)) {},
+            try String(contentsOf: fixtureURL("overflowWrap.normal.html"), encoding: .utf8)
+        )
+    }
 }
