@@ -11,6 +11,50 @@ extension MarkupAttribute {
         )
     }
 
+    /// Adds vertical dividers between child elements.
+    /// Produces `divide-x-*` classes (e.g. `divide-x`, `divide-x-2`, `divide-x-reverse`).
+    public static func divideX(_ value: TWTDivideX, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Adds horizontal dividers between child elements.
+    /// Produces `divide-y-*` classes (e.g. `divide-y`, `divide-y-2`, `divide-y-reverse`).
+    public static func divideY(_ value: TWTDivideY, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the color of the dividers between child elements.
+    /// Produces `divide-*` classes with color (e.g. `divide-gray-200`, `divide-red-600/50`).
+    public static func divideColor(
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: TWTDivideColor(color, opacity: opacity).rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the style of the dividers between child elements.
+    /// Produces `divide-*` classes (e.g. `divide-solid`, `divide-dashed`, `divide-dotted`).
+    public static func divideStyle(_ value: TWTDivideStyle, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the color of the element's border.
     /// Produces `border-*` classes with color (e.g. `border-blue-500`, `border-red-600/50`).
     public static func borderColor(
@@ -21,6 +65,24 @@ extension MarkupAttribute {
         .init(
             name: "class",
             value: TWVariant.apply(variants, to: TWTBorderColor(color, opacity: opacity).rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
+    /// Sets the color of the element's border on a specific side or axis.
+    /// Produces directional `border-*` classes (e.g. `border-t-blue-500`, `border-x-gray-200`).
+    public static func borderColor(
+        _ side: TWTBorderSide,
+        _ color: TWColor,
+        opacity: Int? = nil,
+        variants: [TWVariant] = []
+    ) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(
+                variants,
+                to: TWTBorderColorDirectional(side, color, opacity: opacity).rawValue
+            ),
             mergedBy: .appending(separatedBy: " ")
         )
     }

@@ -12,6 +12,36 @@ public struct TWTBorderColor: TWToken, Sendable, Equatable {
     }
 }
 
+/// A side or axis used by directional border color utilities.
+public enum TWTBorderSide: String, Sendable, Equatable, CaseIterable {
+    case all = ""
+    case x = "x"
+    case y = "y"
+    case t = "t"
+    case r = "r"
+    case b = "b"
+    case l = "l"
+    case s = "s"
+    case e = "e"
+    case bs = "bs"
+    case be = "be"
+}
+
+/// Sets the `border-*` color on a specific side or axis.
+public struct TWTBorderColorDirectional: TWToken, Sendable, Equatable {
+    public let rawValue: String
+    public init(_ side: TWTBorderSide, _ color: TWColor, opacity: Int? = nil) {
+        let colorString =
+            side.rawValue.isEmpty
+            ? color.rawValue
+            : "\(side.rawValue)-\(color.rawValue)"
+        if let opacity {
+            rawValue = "border-\(colorString)/\(opacity)"
+        } else {
+            rawValue = "border-\(colorString)"
+        }
+    }
+}
 /// Controls the CSS `border-radius` property.
 /// Accepts a custom value via `.arbitrary(...)` (e.g. `rounded-[10px]`).
 public enum TWTBorderRadius: TWToken, Sendable, Equatable {
@@ -66,6 +96,8 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
     case l(Int)
     case s(Int)
     case e(Int)
+    case bs(Int)
+    case be(Int)
     case arbitrary(String)
 
     public var rawValue: String {
@@ -80,6 +112,8 @@ public enum TWTBorderWidth: TWToken, Sendable, Equatable {
         case .l(let n): "border-l-\(n)"
         case .s(let n): "border-s-\(n)"
         case .e(let n): "border-e-\(n)"
+        case .bs(let n): "border-bs-\(n)"
+        case .be(let n): "border-be-\(n)"
         case .arbitrary(let v): "border-[\(v)]"
         }
     }
