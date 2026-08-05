@@ -143,6 +143,16 @@ extension MarkupAttribute {
         )
     }
 
+    /// Controls how words break when they overflow the container width.
+    /// Produces `wrap-*` classes (e.g. `wrap-normal`, `wrap-break-word`, `wrap-anywhere`).
+    public static func overflowWrap(_ value: TWTOverflowWrap, variants: [TWVariant] = []) -> Self {
+        .init(
+            name: "class",
+            value: TWVariant.apply(variants, to: value.rawValue),
+            mergedBy: .appending(separatedBy: " ")
+        )
+    }
+
     /// Sets the marker style for list items.
     /// Produces `list-*` classes (e.g. `list-none`, `list-disc`, `list-decimal`).
     public static func listStyle(_ value: TWTListStyleType, variants: [TWVariant] = []) -> Self {
