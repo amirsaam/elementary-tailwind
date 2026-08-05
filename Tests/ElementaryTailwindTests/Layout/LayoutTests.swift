@@ -226,6 +226,14 @@ struct LayoutTests {
             try String(contentsOf: fixtureURL("inset-arbitrary.html"), encoding: .utf8)
         )
         try HTMLAssertEqual(
+            div(.inset(.fraction("1/2"))) {},
+            try String(contentsOf: fixtureURL("inset-1-2.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
+            div(.inset(.px)) {},
+            try String(contentsOf: fixtureURL("inset-px.html"), encoding: .utf8)
+        )
+        try HTMLAssertEqual(
             div(.inset(.zero, variants: [.hover])) {},
             try String(contentsOf: fixtureURL("inset-0-hover.html"), encoding: .utf8)
         )
